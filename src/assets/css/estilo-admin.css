@@ -1,0 +1,17 @@
+label {
+    cursor: pointer;
+    filter: grayscale(100%);
+}
+
+label:hover {
+    filter: grayscale(0);
+}
+
+input[type="radio"]:checked + label {
+    filter: grayscale(0);
+}
+
+.h-48{
+    height: 48%;
+}
+

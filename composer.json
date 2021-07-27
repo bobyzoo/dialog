@@ -1,0 +1,29 @@
+{
+  "name": "vendor_name/dialog",
+  "description": "Programa psicologo",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "gabrieldsvr",
+      "email": "gabrieldossantosvargas@gmail.com"
+    }
+  ],
+  "config": {
+    "vendor-dir": "vendor"
+  },
+  "autoload": {
+    "psr-4": {
+      "Source\\": "src\\"
+    },
+    "files": [
+      "src/Config.php"
+    ]
+  },
+  "require": {
+    "phpmailer/phpmailer": "6.0.*",
+    "coffeecode/datalayer": "1.1.8",
+    "coffeecode/router": "1.*",
+    "league/plates": "v4.0.0-alpha"
+  }
+}

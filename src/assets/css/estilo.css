@@ -1,0 +1,159 @@
+/*#C0A3BF*/
+/*#FAB6C5*/
+/*#C2D2EB*/
+/* #F3CFC3*/
+/* #FFC094*/
+@import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
+
+
+.bg-roxinho {
+    background: #C0A3BF;
+}
+
+.bg-salmao {
+    background: #FAB6C5;
+}
+
+.font-roxinha {
+    color: #C0A3BF;
+}
+
+.font-branco-sujo {
+    color: #e9ecef;
+}
+
+.font-rosinha {
+    color: #C0A3BF;
+}
+
+body {
+    background-color: #F3CFC3;
+    font-family: Verdana, serif;
+}
+
+body, html, .interface {
+    height: auto;
+    color: #fff;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+}
+
+.font-weight {
+    font-weight: bold;
+}
+
+.font-capriola {
+    font-family: 'Capriola', sans-serif;
+}
+
+.interface {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .5);
+    background-color: #FAB6C5
+}
+
+.icon {
+    font-size: 40px !important;
+    color: #fff !important;
+}
+
+.icon-roxinho {
+    font-size: 40px !important;
+    color: #C0A3BF !important;
+}
+
+.border-salmao {
+    border-color: rgb(243, 207, 195) !important;
+}
+
+#foto-perfil {
+    max-width: 25%;
+}
+
+.icon:hover {
+    color: #C0A3BF !important;
+    border-bottom: 2px solid #C0A3BF !important;
+    transition: 0.5s;
+}
+
+.icon-roxinho:hover {
+    color: #ffffff !important;
+    transition: 0.5s;
+}
+
+
+.photo-gallery {
+    color: #313437;
+}
+
+.photo-gallery p {
+    color: #7d8285;
+}
+
+.photo-gallery h2 {
+    font-weight: bold;
+    margin-bottom: 40px;
+    padding-top: 40px;
+    color: inherit;
+}
+
+@media (max-width: 767px) {
+    .photo-gallery h2 {
+        margin-bottom: 25px;
+        padding-top: 25px;
+        font-size: 24px;
+    }
+}
+
+.photo-gallery .intro {
+    font-size: 16px;
+    max-width: 500px;
+    margin: 0 auto 40px;
+}
+
+.photo-gallery .intro p {
+    margin-bottom: 0;
+}
+
+.photo-gallery .photos {
+    padding-bottom: 20px;
+}
+
+.photo-gallery .item {
+    padding-bottom: 30px;
+}
+
+#pagina-2, #pagina-4 {
+    background: #C0A3BF;
+}
+/************/
+
+
+
+/*MENOR QUE COL-MD*/
+@media (max-width: 768px) {
+    .mode-phone-align-center{
+        text-align: center;
+    }
+    .mode-phone-border-none{
+        border: none !important;
+    }
+    p{
+        text-align: justify;
+    }
+    .mode-phone-pading-none{
+        padding: 0 !important;
+    }
+    .mode-phone-margin-none{
+        margin: 0 !important;
+    }
+    .mode-phone-pading-x-4{
+        padding-right: 2rem !important;
+        padding-left: 2rem !important;
+    }
+    .mode-phone-margin-bottom-5{
+        margin-bottom: 3rem !important;
+    }
+    .mode-phone-text-justify{
+        text-align: justify !important;
+    }
+}
