@@ -15,6 +15,13 @@ $router->post("/getLogin", "Usuario:getLogin", "usuario.getLogin");
 $router->get("/logout", "Usuario:logout", "usuario.logout");
 $router->post("/setCadastro", "Usuario:setCadastro", "usuario.setCadastro");
 
+//AREA PSICOLOGO
+$router->group("psicologo");
+$router->get("/", "WebPsicologo:home", "webpsicologo.pacientes");
+
+//AREA PACIENTE
+
+//
 $router->group("pacientes");
 $router->get("/", "Web:pacientes", "web.pacientes");
 $router->post("/formSetPaciente", "Pacientes:formSetPaciente", "pacientes.formSetPaciente");

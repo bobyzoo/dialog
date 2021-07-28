@@ -1,4 +1,4 @@
-const URL_BASE = "http://localhost/dialog/";
+const URL_BASE = "http://localhost/Site/dialog/";
 
 
 function showToast(title, content,color = "bg-success") {

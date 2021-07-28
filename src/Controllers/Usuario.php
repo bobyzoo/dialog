@@ -94,6 +94,7 @@ class Usuario
 
         if ($usuario !== null) {
             $_SESSION['login'] = $usuario[0]->data()->usu_nome;
+            $_SESSION['usu_tipo'] = $usuario[0]->data()->usuario_tipo_id;
             echo "1";
         } else {
             echo "0";
