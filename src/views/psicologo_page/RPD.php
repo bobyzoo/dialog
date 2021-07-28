@@ -15,17 +15,6 @@
                 </div>
             </div>
             <div class="card-body">
-                <div class="row text-center mb-5">
-                    <a class="col-4 rounded-0 btn btn-primary">Ativos</a>
-                    <a class="col-4 rounded-0 btn btn-info-blue">Todos</a>
-                    <a class="col-4 rounded-0 btn btn-primary">Inativos</a>
-                </div>
-                <div class="">
-
-                    <div class="list-group col-12" id="listPacientes">
-
-                    </div>
-                </div>
 
             </div>
         </div>
@@ -38,15 +27,6 @@
 
 <script src="<?= url("assets/js/Utils.js") ?>"></script>
 <script>
-    getPaciente()
-    // $.ajax({
-    //     url: "pacientes/formSetPaciente",
-    //     type: "POST",
-    //     data: "",
-    //     success: function (data) {
-    //         $("#modal").html(data);
-    //     }
-    // });
 </script>
 
 

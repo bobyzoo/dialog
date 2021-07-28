@@ -29,13 +29,18 @@ class WebPsicologo
         ]);
     }
 
-    public function paciente($data): void{
-        $pacienteDao = new PacienteDAO();
-        $paciente = $pacienteDao->findById($data["id_user"]);
+    public function pacienteUser($data): void{
 
         echo $this->view->render("pacienteUser", [
-            "title" => "PCIENTE",
-            "paciente" => $paciente
+            "title" => "paciente",
+            "paciente" => PacienteDAO::getPacienteID("",$data["id_user"])
+        ]);
+    }
+    public function rpd($data): void{
+
+        echo $this->view->render("RPD", [
+            "title" => "RPD",
+            "paciente" => PacienteDAO::getPacienteID("",$data["id_user"])
         ]);
     }
 }

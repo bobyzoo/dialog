@@ -34,4 +34,20 @@ class PacienteDAO extends DataLayer
         return [];
 
     }
+
+    public static function getPacienteID($usuario_id = "", $paciente_id = "")
+    {
+        if ($paciente_id) {
+            $pacienteDao = new PacienteDAO();
+            $paciente = $pacienteDao->findById($paciente_id);
+            $pacienteObj = $paciente->data();
+            $usuarioDao = new UsuarioDAO();
+            $usuario = $usuarioDao->find("usuario_id = :usuario_id", "usuario_id={$paciente->usuario_id}")->fetch(true);;
+            foreach ($usuario[0]->data() as $key => $value) {
+                $pacienteObj->$key = $value;
+            }
+
+        }
+        return $pacienteObj;
+    }
 }
