@@ -18,6 +18,6 @@ class UsuarioDAO extends DataLayer
      */
     public function __construct()
     {
-        parent::__construct("usuario", ["usu_password","usu_login","usu_email","usu_nome","usu_data_nascimento"], "usuario_id",false);
+        parent::__construct("usuario", ["usu_password","usu_login","usu_email","usu_nome","usu_data_nascimento","usuario_tipo_id"], "usuario_id",false);
     }
 }

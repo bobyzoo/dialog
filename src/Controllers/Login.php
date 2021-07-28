@@ -20,13 +20,18 @@ class Login
 
     public function getLogin($data): void
     {
+        session_start();
 
-//        if ($_POST['Username'] == "teste" && $_POST['password'] == "teste") {
-//            $_SESSION['login'] = "Usuario Teste";
-//            echo "1";
-//        } else {
-//            echo "0";
-//        }
+        $usuario = new UsuarioDAO();
+        $senha = hash("ripemd160", $_POST['usu_password']);
+        $usuario = $usuario->find("usu_password = :usu_password AND usu_login = :usu_login", "usu_password={$senha}&usu_login={$_POST['usu_login']}")->fetch(true);
+
+        if ($usuario !== null) {
+            $_SESSION['login'] = $usuario[0]->data()->usu_nome;
+            echo "1";
+        } else {
+            echo "0";
+        }
     }
 
 

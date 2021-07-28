@@ -15,3 +15,6 @@ Options All -Indexes
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?route=/$1 [L,QSA]
+
+SetEnv ROOT "http://localhost/dialog/src"
+SetEnv URL_BASE "http://localhost/dialog"

@@ -30,6 +30,13 @@
     </style>
 </head>
 <body class="dark-theme">
+<div class="toast mt-3 hide position-absolute " style="z-index: 100; right: 15px" data-autohide="false" role="alert"
+     aria-live="assertive" aria-atomic="true" >
+    <div class="toast-header" id="toats-header">
+    </div>
+    <div class="toast-body">
+    </div>
+</div>
 <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper">
         <div class="content-wrapper auth p-0 theme-two">
@@ -275,20 +282,16 @@
                 data: form.serialize(),
                 url: form.attr('action'),
                 success: function (data) {
-                    if (data == 1){
+                    console.log(data)
+                    if (data == "1"){
                         showToast("Sucesso!", data.split(';')[1])
+                        window.location.href = "<?=url_pesquisa("")?>"
                     }else{
                         showToast("Error", data.split(';')[1],"bg-danger")
                     }
-                },
-                error: function (data) {
-                    //error message
                 }
             });
         }
-    });
-    $.validator.setDefaults({
-
     });
 
 </script>

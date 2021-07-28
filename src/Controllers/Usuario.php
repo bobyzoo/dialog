@@ -19,20 +19,26 @@ class Usuario
 
     public function setCadastro($data): void
     {
-        echo "1";
-        die();
-        $usuario = new UsuarioDAO();
 
+        $usuario = new UsuarioDAO();
         foreach ($_POST as $key => $value) {
             if (substr($key, 0, 4) == "usu_") {
                 $usuario->$key = $value;
                 if ($key == "usu_password") {
                     $usuario->usu_password = hash("ripemd160", $value);
                 }
+                if ($key == "usuario_tipo") {
+                    $usuario->usu_password = hash("ripemd160", $value);
+                }
                 if ($value == "") {
                     $usuario->$key = null;
                 }
             }
+        }
+        if ($_POST['usuario_tipo'] == "psicologo") {
+            $usuario->usuario_tipo_id = 3;
+        }else{
+            $usuario->usuario_tipo_id = 2;
         }
 
         $usuario->save();
