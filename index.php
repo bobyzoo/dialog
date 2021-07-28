@@ -18,6 +18,9 @@ $router->post("/setCadastro", "Usuario:setCadastro", "usuario.setCadastro");
 //AREA PSICOLOGO
 $router->group("psicologo");
 $router->get("/", "WebPsicologo:home", "webpsicologo.pacientes");
+$router->get("/pacientes", "WebPsicologo:pacientes", "webpsicologo.pacientes");
+$router->get("/paciente/{id_user}", "WebPsicologo:paciente", "webpsicologo.paciente");
+
 
 //AREA PACIENTE
 

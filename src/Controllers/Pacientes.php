@@ -21,8 +21,7 @@ class Pacientes
     public function listPaciente()
     {
         foreach (PacienteDAO::getAll() as $paciente) {
-
-            echo "<a class='row py-3 border div-btn text-decoration-none text-white' href='" . URL_BASE . "/pacientes/user/" . $paciente->paciente_id . "'><div class=' col-1 avatar-icon'><i class='fas fa-user mr-2 avatar avatar-32'></i></div><div class='col-3'>" . $paciente->nome . "</div></a>";
+            echo "<a class='row py-3 border div-btn text-decoration-none' href='" . URL_BASE . "/psicologo/paciente/" . $paciente->paciente_id . "'><div class=' col-1 avatar-icon'><i class='fas fa-user mr-2 avatar avatar-32'></i></div><div class='col-3 text-capitalize'>" . $paciente->usu_nome . "</div></a>";
         }
     }
 

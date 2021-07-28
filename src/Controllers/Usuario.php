@@ -37,7 +37,7 @@ class Usuario
         }
         if ($_POST['usuario_tipo'] == "psicologo") {
             $usuario->usuario_tipo_id = 3;
-        }else{
+        } else {
             $usuario->usuario_tipo_id = 2;
         }
 
@@ -62,10 +62,6 @@ class Usuario
                 $paciente->pac_nome_contato_emergencia = $_POST['pac_nome_contato_emergencia'];
                 $paciente->pac_telefone_contato_emergencia = $_POST['pac_telefone_contato_emergencia'];
                 $paciente->save();
-
-                print_r($paciente->paciente_id);
-
-
             } else {
                 echo "0;codigo invalido";
             }
@@ -89,12 +85,27 @@ class Usuario
         session_start();
 
         $usuario = new UsuarioDAO();
+        $psicologo = new PsicologoDAO();
+        $paciente = new PacienteDAO();
         $senha = hash("ripemd160", $_POST['usu_password']);
         $usuario = $usuario->find("usu_password = :usu_password AND usu_login = :usu_login", "usu_password={$senha}&usu_login={$_POST['usu_login']}")->fetch(true);
 
         if ($usuario !== null) {
             $_SESSION['login'] = $usuario[0]->data()->usu_nome;
             $_SESSION['usu_tipo'] = $usuario[0]->data()->usuario_tipo_id;
+            $_SESSION['usuario'] = $usuario[0]->data();
+
+            if ($usuario[0]->data()->usuario_tipo_id == 3) {
+                $psicologo = $psicologo->find("usuario_id = :usuario_id", "usuario_id={$usuario[0]->data()->usuario_id}")->fetch(true);
+                foreach ($psicologo[0]->data() as $key => $value) {
+                    $_SESSION['usuario']->$key = $value;
+                }
+            } else {
+                $paciente = $paciente->find("usuario_id = :usuario_id", "usuario_id={$usuario[0]->data()->usuario_id}")->fetch(true);
+                foreach ($paciente[0]->data() as $key => $value) {
+                    $_SESSION['usuario']->$key = $value;
+                }
+            }
             echo "1";
         } else {
             echo "0";

@@ -5,6 +5,7 @@ namespace Source\Controllers;
 
 
 use League\Plates\Engine;
+use Source\Models\PacienteDAO;
 
 class WebPsicologo
 {
@@ -21,5 +22,20 @@ class WebPsicologo
             "title" => "home"
         ]);
     }
+    public function pacientes($data): void
+    {
+        echo $this->view->render("pacientes", [
+            "title" => "pacientes"
+        ]);
+    }
 
+    public function paciente($data): void{
+        $pacienteDao = new PacienteDAO();
+        $paciente = $pacienteDao->findById($data["id_user"]);
+
+        echo $this->view->render("pacienteUser", [
+            "title" => "PCIENTE",
+            "paciente" => $paciente
+        ]);
+    }
 }

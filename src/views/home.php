@@ -1,12 +1,12 @@
 <?php
 session_start();
-print_r($_SESSION);
-
 
 if ($_SESSION['usu_tipo'] == 3) {
     header("Location: " . url_pesquisa("psicologo"));
     die();
-} else {
+} else if ($_SESSION['usu_tipo'] == 2) {
     header("Location: " . url_pesquisa("paciente"));
     die();
 }
+header("Location: " . url_pesquisa("login"));
+die();

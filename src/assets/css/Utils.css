@@ -35,26 +35,23 @@ i.avatar{
     display: inline-block;
     text-align: center;
     line-height: 32px;
-    color: #fff;
-    background-color: #495057;
     font-style: normal;
-
     font-size: initial;
 }
-
 
 /*DIV-BTN*/
 .div-btn{
     background-color: rgba(0, 0, 0, 0);
 }
 a.div-btn{
-    color: white;
+    color: #c4c4c4;
+    font-size: 16px;
+    font-weight: 500;
+    background: white;
 }
 .div-btn:hover{
-    background-color: #1e2132;
-}
-.div-btn.bgUtils-1:hover{
-    background-color: rgb(47, 49, 71) !important;
+    background: linear-gradient(46deg, #0fadd0, #03bea5);
+    color: white;
 }
 
 /*Configs de font*/
