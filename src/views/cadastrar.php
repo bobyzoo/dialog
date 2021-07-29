@@ -201,15 +201,10 @@
                 </div>
             </div>
         </div>
-        <!-- content-wrapper ends -->
     </div>
-    <!-- page-body-wrapper ends -->
 </div>
-<!-- container-scroller -->
-<!-- plugins:js -->
 <script src="<?= url("assets/vendors/js/vendor.bundle.base.js") ?>"></script>
 <script src="<?= url("assets/vendors/jquery-validation/jquery.validate.min.js") ?>"></script>
-
 
 <script src="<?= url("assets/js/shared/off-canvas.js") ?>"></script>
 <script src="<?= url("assets/js/shared/hoverable-collapse.js") ?>"></script>
@@ -218,6 +213,7 @@
 <script src="<?= url("assets/js/shared/todolist.js") ?>"></script>
 <script src="<?= url("assets/js/shared/st-wizard.js") ?>"></script>
 <script src="<?= url("assets/js/Utils.js") ?>"></script>
+
 <script src="<?= url("assets/js/shared/form-validation.js") ?>"></script>
 
 <script>

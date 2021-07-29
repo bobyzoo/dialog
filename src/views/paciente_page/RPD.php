@@ -55,6 +55,4 @@
 
     }
 </script>
-
-
 <?php $v->end("js") ?>

@@ -11,7 +11,7 @@ class RespostaDAO extends DataLayer
 
     public function __construct()
     {
-        parent::__construct("respostaDAO", ["pergunta_id","aplicacao_questionario_id","res_descricao"], "resposta_id", false);
+        parent::__construct("resposta", ["pergunta_id","aplicacao_questionario_id","res_descricao"], "resposta_id", false);
     }
 
 }

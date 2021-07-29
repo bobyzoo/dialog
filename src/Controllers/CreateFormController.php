@@ -10,11 +10,6 @@ use Source\Models\QuestionarioDAO;
 class CreateFormController
 {
 
-    public function createQuestion()
-    {
-
-    }
-
     public function createForm($idForm, $questionario_id)
     {
 
@@ -40,7 +35,7 @@ class CreateFormController
                     </button>
                 </div>
                 <div class="modal-body" id="modal-body">
-                <form class="forms-sample" id="' . $idForm . '" method="post">';
+                <form class="forms-sample" id="Form' . $idForm . '" method="post" action="'.url_pesquisa("setRespostaQuestionario").'">';
 
 
         $perguntaDAO = new PerguntaDAO();
@@ -49,13 +44,38 @@ class CreateFormController
             PerguntaDAO::getFormatPergunta($pergunta->data());
         }
 
+        echo '<input type="hidden" name="en_questionario" value="'.$questionario_id.'">';
+
 
         echo ' </form></div>
                  <div class="modal-footer">
                     <button type="button" class="btn btn-sm btn-light" data-dismiss="modal">Cancel</button>
-                    <button type="button" id="btnSetPaciente" onclick="setPaciente()" class="btn btn-sm btn-success">Submit</button>
+                    <button type="button" id="btnSetResposta" class="btn btn-sm btn-success">Salvar</button>
                     </div></div></div></div>';
+
+        echo '
+        <script>
+        
+        $("#btnSetResposta").on("click",function() {
+              var form = $("#Form' . $idForm . '")
+              var url = form.attr("action");
+              
+              $.ajax({
+                     type: "POST",
+                     url: url,
+                     data: form.serialize(), 
+              success: function (data)
+                     {
+//                         alert(data); 
+                     }
+                });
+             });
+
+
+</script >';
 
     }
 
 }
+
+

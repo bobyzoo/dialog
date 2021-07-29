@@ -25,12 +25,15 @@ class PerguntaDAO extends DataLayer
 
     public static function getFormatPergunta($pergunta)
     {
+
         if ($pergunta->per_tipo == "text") {
             echo ' <div class="form-group row">
                         <div class="col-12">
                             <label for="input-nome">' . $pergunta->per_descricao . '</label>
-                                <textarea  type="text" rows="5" class="form-control" id="' . $pergunta->per_name_id . '"
-                                    placeholder="' . $pergunta->placeholder . '" name="' . $pergunta->per_name_id . '"></textarea>
+                                <textarea  
+                                    
+                                    type="text" rows="5" class="form-control" id="' . $pergunta->per_name_id . '"
+                                    placeholder="' . $pergunta->placeholder . '" name="' . $pergunta->per_name_id . '_' . $pergunta->pergunta_id . '"></textarea>
                         </div>
                       </div>';
         }
@@ -39,7 +42,7 @@ class PerguntaDAO extends DataLayer
                         <div class="col-12">
                             <label for="">' . $pergunta->per_descricao . '</label>
                             <div class="br-wrapper br-theme-bars-square">
-                                <select id="' . $pergunta->per_name_id . '" name="' . $pergunta->per_name_id . '" autocomplete="off" style="display: none;">
+                                <select id="' . $pergunta->per_name_id . '" name="'  . $pergunta->per_name_id . '_' . $pergunta->pergunta_id .  '" autocomplete="off" style="display: none;">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
