@@ -2,7 +2,7 @@
 
 define("ROOT", getenv("ROOT"));
 define("URL_BASE", getenv("URL_BASE"));
-define("SITE", "Dialog");
+const SITE = "Dialog";
 
 
 //Server settings
