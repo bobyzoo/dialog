@@ -19,11 +19,11 @@ define("MAIL", [
 
 define("DATA_LAYER_CONFIG", [
     "driver" => "mysql",
-    "host" => "localhost",
-    "port" => "3307",
-    "dbname" => "dialog",
-    "username" => "root",
-    "passwd" => "",
+    "host" => getenv("DB_HOST"),
+    "port" => getenv("DB_PORT"),
+    "dbname" => getenv("DB_NAME"),
+    "username" => getenv("DB_USER"),
+    "passwd" => getenv("DB_PASS"),
     "options" => [
         PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,

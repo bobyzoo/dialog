@@ -6,7 +6,7 @@ namespace Source\Models;
 
 use CoffeeCode\DataLayer\DataLayer;
 
-class PsicologoDAO
+class PsicologoDAO  extends DataLayer
 {
     public function __construct()
     {
