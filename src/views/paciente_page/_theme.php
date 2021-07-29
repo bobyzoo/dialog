@@ -1,6 +1,5 @@
 <?php
-ob_end_clean();
-session_start();
+
 
 if (empty($_SESSION["login"])) {
     header("Location: " . url_pesquisa("login"));

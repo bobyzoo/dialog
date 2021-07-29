@@ -18,7 +18,6 @@
             </div>
             <form action="ajax/setPaciente" class="forms-sample"  id="frmPaciente" method="post">
                 <div class="modal-body">
-
                     <div class="form-group row">
                         <div class="col-9">
                             <label for="input-nome">Nome completo</label>

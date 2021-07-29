@@ -14,11 +14,12 @@ var_dump($paciente);
                     <span></span>
                 </div>
             </div>
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <div class="text-capitalize" "> <?= $paciente->usu_nome ?> </div>
+                </h5>
+            </div>
             <div class="card-body">
-                <div class="row">
-                    <div class='col-3 py-2 text-capitalize'><h3><?= $paciente->usu_nome ?></h3></div>
-                </div>
-
                 <div class="row text-center pb-4 px-2">
                     <a class="py-2 ml-5 col-2 div-btn font-size-24 text-center text-decoration-none color-white div-btn mr-2 bgUtils-1"
                        href="#">

@@ -12,20 +12,6 @@
             transition: 0.5s;
         }
     </style>
-<!--    <div class="container text-center my-5">-->
-<!--        <a href="--><?//=url_pesquisa("pacientes")?><!--" class="btn col-3 btn-sm btn text-center mx-4 div-btn a-item-box" >-->
-<!--            <div><i class=" mr-0 fas fa-users bg-linkedin p-3 rounded mb-2"></i></div>-->
-<!--            <span>Meus Pacientes</span>-->
-<!--        </a>-->
-<!--        <a href="" class="btn col-3 btn-sm btn text-center mx-4 div-btn a-item-box">-->
-<!--            <div><i class="mr-0 fas fa-comments bg-linkedin p-3 rounded mb-2"></i></div>-->
-<!--            <span>Chat Pacientes</span>-->
-<!--        </a>-->
-<!--        <a href="" class="btn col-3 btn-sm btn text-center mx-4 div-btn a-item-box" data-toggle="modal" data-target="#modalRemote" href="#">-->
-<!--            <div><i class=" mr-0 fas fa-user-plus bg-linkedin p-3 rounded mb-2"></i></div>-->
-<!--            <span>Adicionar Pacientes</span>-->
-<!--        </a>-->
-<!--    </div>-->
     <div class="row">
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
@@ -64,14 +50,4 @@
 <?php $v->start("js") ?>
 
     <script src="<?= url("assets/js/Utils.js") ?>"></script>
-    <script>
-        $.ajax({
-            url: "pacientes/formSetPaciente",
-            type: "POST",
-            data: "",
-            success: function (data) {
-                $("#modal").html(data);
-            }
-        });
-    </script>
 <?php $v->end("js") ?>

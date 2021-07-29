@@ -24,10 +24,14 @@ $router->get("/paciente/{id_user}/rpd", "WebPsicologo:rpd", "webpsicologo.rpd");
 
 
 //AREA PACIENTE
+$router->group("paciente");
+$router->get("/", "WebPaciente:home", "webpaciente.home");
+$router->get("/rpd", "WebPaciente:rpd", "webpaciente.rpd");
+$router->get("/form/rpd", "FormPaciente:setRpd", "formpaciente.setRpd");
 
-//
-$router->group("pacientes");
-$router->get("/", "Web:pacientes", "web.pacientes");
+
+
+
 $router->post("/formSetPaciente", "Pacientes:formSetPaciente", "pacientes.formSetPaciente");
 $router->post("/setPaciente", "Pacientes:setPaciente", "pacientes.setPaciente");
 $router->get("/getPacientes", "Pacientes:listPaciente", "pacientes.listPaciente");
