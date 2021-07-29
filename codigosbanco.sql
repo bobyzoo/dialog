@@ -8,7 +8,7 @@ CREATE TABLE `dialog`.`usuario`
     `usu_telefone`        VARCHAR(20)  NULL,
     `usu_data_cadastro`   DATE         NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `usu_data_nascimento` DATE         NOT NULL,
-    `usuario_tipo_id`     INT NOT NULL,
+    `usuario_tipo_id`     INT          NOT NULL,
     `usu_ativo`           BOOLEAN      NOT NULL DEFAULT TRUE,
     PRIMARY KEY (`usuario_id`),
     FOREIGN KEY (`usuario_tipo_id`) REFERENCES dialog.usuario_tipo (usuario_tipo_id)
@@ -64,8 +64,57 @@ CREATE TABLE `dialog`.`usuario_tipo_permissao`
     FOREIGN KEY (`permissoes_id`) REFERENCES dialog.permissoes (permissoes_id)
 ) ENGINE = MyISAM;
 
-INSERT INTO dialog.usuario (usuario_id, usu_password, usu_login, usu_email, usu_nome, usu_telefone, usu_data_cadastro, usu_data_nascimento, usu_ativo,usuario_tipo_id) VALUES (1, 'd1d92025edb756d2fbfd9b646dd4464d7f5b8e13', 'teste', 'teste@gmail.com', 'teste', null, '2021-07-22', '2021-07-14', 1,1);
-INSERT INTO dialog.usuario (usuario_id, usu_password, usu_login, usu_email, usu_nome, usu_telefone, usu_data_cadastro, usu_data_nascimento, usu_ativo,usuario_tipo_id) VALUES (5, 'd1d92025edb756d2fbfd9b646dd4464d7f5b8e13', 'testePsicologo', 'testePsicologo@teste.com', 'Psicologo TESTE', '156165156165', '2021-07-22', '2021-06-28', 1,3);
-INSERT INTO dialog.usuario (usuario_id, usu_password, usu_login, usu_email, usu_nome, usu_telefone, usu_data_cadastro, usu_data_nascimento, usu_ativo,usuario_tipo_id) VALUES (8, 'd1d92025edb756d2fbfd9b646dd4464d7f5b8e13', 'pacienteteste', 'pacienteteste@teste.com', 'Paciente Teste', null, '2021-07-22', '1990-03-25', 1,2);
+INSERT INTO dialog.usuario (usuario_id, usu_password, usu_login, usu_email, usu_nome, usu_telefone, usu_data_cadastro,
+                            usu_data_nascimento, usu_ativo, usuario_tipo_id)
+VALUES (1, 'd1d92025edb756d2fbfd9b646dd4464d7f5b8e13', 'teste', 'teste@gmail.com', 'teste', null, '2021-07-22',
+        '2021-07-14', 1, 1);
+INSERT INTO dialog.usuario (usuario_id, usu_password, usu_login, usu_email, usu_nome, usu_telefone, usu_data_cadastro,
+                            usu_data_nascimento, usu_ativo, usuario_tipo_id)
+VALUES (5, 'd1d92025edb756d2fbfd9b646dd4464d7f5b8e13', 'testePsicologo', 'testePsicologo@teste.com', 'Psicologo TESTE',
+        '156165156165', '2021-07-22', '2021-06-28', 1, 3);
+INSERT INTO dialog.usuario (usuario_id, usu_password, usu_login, usu_email, usu_nome, usu_telefone, usu_data_cadastro,
+                            usu_data_nascimento, usu_ativo, usuario_tipo_id)
+VALUES (8, 'd1d92025edb756d2fbfd9b646dd4464d7f5b8e13', 'pacienteteste', 'pacienteteste@teste.com', 'Paciente Teste',
+        null, '2021-07-22', '1990-03-25', 1, 2);
+
+
+CREATE TABLE `dialog`.`questionario`
+(
+    `questionario_id` INT          NOT NULL AUTO_INCREMENT,
+    `que_nome`        varchar(255) NOT NULL,
+    PRIMARY KEY (`questionario_id`)
+) ENGINE = MyISAM;
+
+
+CREATE TABLE `dialog`.`pergunta`
+(
+    `pergunta_id`     INT          NOT NULL AUTO_INCREMENT,
+    `questionario_id` INT          NOT NULL,
+    `per_descricao`   varchar(255) NOT NULL,
+    `per_tipo`        varchar(255) NOT NULL,
+    PRIMARY KEY (`pergunta_id`),
+    FOREIGN KEY (`questionario_id`) REFERENCES dialog.questionario (questionario_id)
+) ENGINE = MyISAM;
+
+CREATE TABLE `dialog`.`aplicacao_questionario`
+(
+    `aplicacao_questionario_id` INT NOT NULL AUTO_INCREMENT,
+    `questionario_id`           INT NOT NULL,
+    `apq_usuario_id`            INT NOT NULL,
+    PRIMARY KEY (`aplicacao_questionario_id`),
+    FOREIGN KEY (`questionario_id`) REFERENCES dialog.questionario (questionario_id),
+    FOREIGN KEY (`apq_usuario_id`) REFERENCES dialog.usuario (usuario_id)
+) ENGINE = MyISAM;
+
+CREATE TABLE `dialog`.`resposta`
+(
+    `resposta_id`               INT NOT NULL AUTO_INCREMENT,
+    `pergunta_id`               INT NOT NULL,
+    `aplicacao_questionario_id` INT NOT NULL,
+    `res_descricao`             text,
+    PRIMARY KEY (`resposta_id`),
+    FOREIGN KEY (`pergunta_id`) REFERENCES dialog.pergunta (pergunta_id),
+    FOREIGN KEY (`aplicacao_questionario_id`) REFERENCES dialog.aplicacao_questionario (aplicacao_questionario_id)
+) ENGINE = MyISAM;
 
 
