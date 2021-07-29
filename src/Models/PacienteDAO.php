@@ -42,7 +42,7 @@ class PacienteDAO extends DataLayer
             $paciente = $pacienteDao->findById($paciente_id);
             $pacienteObj = $paciente->data();
             $usuarioDao = new UsuarioDAO();
-            $usuario = $usuarioDao->find("usuario_id = :usuario_id", "usuario_id={$paciente->usuario_id}")->fetch(true);;
+            $usuario = $usuarioDao->find("usuario_id = :usuario_id", "usuario_id={$paciente->usuario_id}")->fetch(true);
             foreach ($usuario[0]->data() as $key => $value) {
                 $pacienteObj->$key = $value;
             }

@@ -92,6 +92,9 @@ CREATE TABLE `dialog`.`pergunta`
     `questionario_id` INT          NOT NULL,
     `per_descricao`   varchar(255) NOT NULL,
     `per_tipo`        varchar(255) NOT NULL,
+    `per_name_id`     varchar(255) NOT NULL,
+    `placeholder`     varchar(255) NOT NULL DEFAULT 'Escreva aqui...',
+    `per_required` BOOL NOT NULL DEFAULT FALSE,
     PRIMARY KEY (`pergunta_id`),
     FOREIGN KEY (`questionario_id`) REFERENCES dialog.questionario (questionario_id)
 ) ENGINE = MyISAM;
@@ -117,4 +120,17 @@ CREATE TABLE `dialog`.`resposta`
     FOREIGN KEY (`aplicacao_questionario_id`) REFERENCES dialog.aplicacao_questionario (aplicacao_questionario_id)
 ) ENGINE = MyISAM;
 
+
+INSERT INTO dialog.questionario (que_nome) VALUES ('Registro de Pensamentos Disfuncionais');
+INSERT INTO dialog.pergunta (questionario_id, per_descricao, per_tipo,per_required,per_name_id,placeholder) VALUES (1, 'O que está acontecendo?', 'text',TRUE,'txtAcontecendo','O que está acontecendo? (Situação)');
+INSERT INTO dialog.pergunta (questionario_id, per_descricao, per_tipo,per_required,per_name_id) VALUES (1, 'O quanto esse pensamento é verdade para você?', 'bars-square',TRUE,'qntPensamento');
+INSERT INTO dialog.pergunta (questionario_id, per_descricao, per_tipo,per_required,per_name_id) VALUES (1, 'O que você está sentindo?', 'text',TRUE,'txtSentindo');
+INSERT INTO dialog.pergunta (questionario_id, per_descricao, per_tipo,per_required,per_name_id) VALUES (1, 'Qual a intensidade dessa emoção?', 'bars-square',TRUE,'qntEmocoes');
+INSERT INTO dialog.pergunta (questionario_id, per_descricao, per_tipo,per_required,per_name_id) VALUES (1, 'O que você fez nesse situação? (Comportamento)', 'text',TRUE,'txtFezSituacao');
+INSERT INTO dialog.pergunta (questionario_id, per_descricao, per_tipo,per_name_id) VALUES (1, 'Quais fatos podem contradizer esses pensamentos', 'text','txtFatosContradizemPensamentos');
+INSERT INTO dialog.pergunta (questionario_id, per_descricao, per_tipo,per_name_id) VALUES (1, 'Pode haver uma outra forma de entender essa situação, baseada nos fotos acima? Caso positivo, qual?(Reavaliação do pensamento inicial)', 'text','txtOutraFormaResposta');
+INSERT INTO dialog.pergunta (questionario_id, per_descricao, per_tipo,per_name_id) VALUES (1, 'Quanto você acredita no pensamento inicial?', 'bars-square','qntPensamentoInicial');
+INSERT INTO dialog.pergunta (questionario_id, per_descricao, per_tipo,per_name_id) VALUES (1, 'E agora, como se sente (emoções)?', 'text','txtSenteEmocoes');
+INSERT INTO dialog.pergunta (questionario_id, per_descricao, per_tipo,per_name_id) VALUES (1, 'Qual a intensidade dessa emoção?', 'bars-square','qntIntensidadeEmocoes');
+INSERT INTO dialog.pergunta (questionario_id, per_descricao, per_tipo,per_name_id) VALUES (1, 'O que você aprendeu analisando esses pensamentos?', 'text','txtAprendeuAnalisandoPensamento');
 

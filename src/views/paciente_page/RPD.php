@@ -33,40 +33,12 @@
     </div>
 </div>
 
-<div id="modal">
-    <div class="modal fade" id="modalRemote" tabindex="-1" role="dialog"
-         aria-labelledby="modalRemoteLabel" style="display: none;" aria-hidden="true">
-
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content" id="modal-content">
-                <div class="loader-demo-box position-absolute loading hide" id="loadingFrmCadastroPaciente">
-                    <div class="dot-opacity-loader">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalRemoteLabel">Inserir novo RPD</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body" id="modal-body">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<div id="modal"></div>
 
 <?php $v->start("js") ?>
 <script src="<?= url("assets/vendors/jquery-bar-rating/jquery.barrating.min.js") ?>"></script>
 <script src="<?= url("assets/js/Utils.js") ?>"></script>
 <script>
-
-
-
-
     function getFormSetRpd(){
 
         $.ajax({
@@ -74,14 +46,14 @@
             type: "GET",
             data: "",
             success: function (data) {
-                $("#modal-body").html(data);
+                $("#modal").html(data);
+                showModal('modalRemote');
+
             }
         });
 
-        showModal('modalRemote')
+
     }
-
-
 </script>
 
 
