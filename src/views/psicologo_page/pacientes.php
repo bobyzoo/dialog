@@ -38,6 +38,20 @@
 
 <script src="<?= url("assets/js/Utils.js") ?>"></script>
 <script>
+    function getPaciente(idTabela = "listPacientes") {
+        showDiv("loadingTblPacientes");
+        $.ajax({
+            type: "GET",
+            url: URL_BASE + "psicologo/pacientes/listPacientes",
+            success: function (data) {
+                $("#" + idTabela).html(data);
+                hideDiv("loadingTblPacientes");
+            },
+            error: function () {
+                alert('Error');
+            }
+        });
+    }
     getPaciente()
     // $.ajax({
     //     url: "pacientes/formSetPaciente",

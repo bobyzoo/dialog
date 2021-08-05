@@ -64,16 +64,19 @@ CREATE TABLE `u217629253_dialog`.`usuario_tipo_permissao`
     FOREIGN KEY (`permissoes_id`) REFERENCES u217629253_dialog.permissoes (permissoes_id)
 ) ENGINE = MyISAM;
 
-INSERT INTO u217629253_dialog.usuario (usuario_id, usu_password, usu_login, usu_email, usu_nome, usu_telefone, usu_data_cadastro,
-                            usu_data_nascimento, usu_ativo, usuario_tipo_id)
+INSERT INTO u217629253_dialog.usuario (usuario_id, usu_password, usu_login, usu_email, usu_nome, usu_telefone,
+                                       usu_data_cadastro,
+                                       usu_data_nascimento, usu_ativo, usuario_tipo_id)
 VALUES (1, 'd1d92025edb756d2fbfd9b646dd4464d7f5b8e13', 'teste', 'teste@gmail.com', 'teste', null, '2021-07-22',
         '2021-07-14', 1, 1);
-INSERT INTO u217629253_dialog.usuario (usuario_id, usu_password, usu_login, usu_email, usu_nome, usu_telefone, usu_data_cadastro,
-                            usu_data_nascimento, usu_ativo, usuario_tipo_id)
+INSERT INTO u217629253_dialog.usuario (usuario_id, usu_password, usu_login, usu_email, usu_nome, usu_telefone,
+                                       usu_data_cadastro,
+                                       usu_data_nascimento, usu_ativo, usuario_tipo_id)
 VALUES (5, 'd1d92025edb756d2fbfd9b646dd4464d7f5b8e13', 'testePsicologo', 'testePsicologo@teste.com', 'Psicologo TESTE',
         '156165156165', '2021-07-22', '2021-06-28', 1, 3);
-INSERT INTO u217629253_dialog.usuario (usuario_id, usu_password, usu_login, usu_email, usu_nome, usu_telefone, usu_data_cadastro,
-                            usu_data_nascimento, usu_ativo, usuario_tipo_id)
+INSERT INTO u217629253_dialog.usuario (usuario_id, usu_password, usu_login, usu_email, usu_nome, usu_telefone,
+                                       usu_data_cadastro,
+                                       usu_data_nascimento, usu_ativo, usuario_tipo_id)
 VALUES (8, 'd1d92025edb756d2fbfd9b646dd4464d7f5b8e13', 'pacienteteste', 'pacienteteste@teste.com', 'Paciente Teste',
         null, '2021-07-22', '1990-03-25', 1, 2);
 
@@ -104,11 +107,13 @@ CREATE TABLE `u217629253_dialog`.`aplicacao_questionario`
     `aplicacao_questionario_id` INT  NOT NULL AUTO_INCREMENT,
     `questionario_id`           INT  NOT NULL,
     `apq_usuario_id`            INT  NOT NULL,
-    `apq_data`                  DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `apq_data_cadastro`         DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `apq_ultima_atualizacao`    DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`aplicacao_questionario_id`),
     FOREIGN KEY (`questionario_id`) REFERENCES u217629253_dialog.questionario (questionario_id),
     FOREIGN KEY (`apq_usuario_id`) REFERENCES u217629253_dialog.usuario (usuario_id)
 ) ENGINE = MyISAM;
+
 
 CREATE TABLE `u217629253_dialog`.`resposta`
 (
@@ -124,7 +129,8 @@ CREATE TABLE `u217629253_dialog`.`resposta`
 
 INSERT INTO u217629253_dialog.questionario (que_nome)
 VALUES ('Registro de Pensamentos Disfuncionais');
-INSERT INTO u217629253_dialog.pergunta (questionario_id, per_descricao, per_tipo, per_required, per_name_id, placeholder)
+INSERT INTO u217629253_dialog.pergunta (questionario_id, per_descricao, per_tipo, per_required, per_name_id,
+                                        placeholder)
 VALUES (1, 'O que está acontecendo?', 'text', TRUE, 'txtAcontecendo', 'O que está acontecendo? (Situação)');
 INSERT INTO u217629253_dialog.pergunta (questionario_id, per_descricao, per_tipo, per_required, per_name_id)
 VALUES (1, 'O quanto esse pensamento é verdade para você?', 'bars-square', TRUE, 'qntPensamento');

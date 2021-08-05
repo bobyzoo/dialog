@@ -9,6 +9,10 @@
 <link rel="stylesheet" href="<?= url("assets/vendors/jquery-bar-rating/bars-pill.css") ?>"/>
 <link rel="stylesheet" href="<?= url("assets/vendors/jquery-bar-rating/bars-reversed.css") ?>"/>
 <link rel="stylesheet" href="<?= url("assets/vendors/jquery-bar-rating/bars-square.css") ?>"/>
+<link rel="stylesheet" href="<?= url("assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css") ?>"/>
+<link rel="stylesheet"
+      href="<?= url("assets/vendors/datatables.net-fixedcolumns-bs4/fixedColumns.bootstrap4.min.css") ?>"/>
+
 <div class="container">
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
@@ -28,6 +32,9 @@
             </div>
             <div class="card-body">
                 <div class="btn btn-lg btn-primary" onclick="getFormSetRpd()">Criar novo RPD</div>
+                <div id="table-rpd">
+
+                </div>
             </div>
         </div>
     </div>
@@ -38,9 +45,11 @@
 <?php $v->start("js") ?>
 <script src="<?= url("assets/vendors/jquery-bar-rating/jquery.barrating.min.js") ?>"></script>
 <script src="<?= url("assets/js/Utils.js") ?>"></script>
-<script>
-    function getFormSetRpd(){
+<script src="<?= url("assets/vendors/datatables.net/jquery.dataTables.js") ?>"></script>
+<script src="<?= url("assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js") ?>"></script>
 
+<script>
+    function getFormSetRpd() {
         $.ajax({
             url: "form/rpd",
             type: "GET",
@@ -51,8 +60,33 @@
 
             }
         });
-
-
     }
+
+    function getTableRpd() {
+
+        $.ajax({
+            url: "rpd/listrpd/1/rpd/list",
+            type: "GET",
+            data: "",
+            success: function (data) {
+                $("#table-rpd").html(data);
+                $('#order-listing').DataTable({
+                    "iDisplayLength": 2,
+                    "bLengthChange": false,
+                    "language": {
+                        search: "Procurar :"
+                    }
+                });
+                $('#order-listing').each(function () {
+                    var datatable = $(this);
+                    search_input.attr('placeholder', 'Digite aqui');
+                    var s = datatable.closest('.dataTables_wrapper').find(".dataTables_filter").append('');
+                });
+            }
+        });
+    }
+
+    getTableRpd();
 </script>
+<script src="<?= url("assets/js/shared/data-table.js") ?>"></script>
 <?php $v->end("js") ?>

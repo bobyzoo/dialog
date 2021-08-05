@@ -24,8 +24,11 @@ $router->post("/setRespostaQuestionario", "ResponseFormController:setAplicacaoQu
 $router->group("psicologo");
 $router->get("/", "WebPsicologo:home", "webpsicologo.pacientes");
 $router->get("/pacientes", "WebPsicologo:pacientes", "webpsicologo.pacientes");
+$router->get("/pacientes/listPacientes", "Pacientes:listPaciente", "Pacientes.listPaciente");
 $router->get("/paciente/{id_user}", "WebPsicologo:pacienteUser", "webpsicologo.pacienteUser");
 $router->get("/paciente/{id_user}/rpd", "WebPsicologo:rpd", "webpsicologo.rpd");
+$router->get("/paciente/{id_user}/rpd/list", "TablePsicologo:getListRpdUser", "tablepsicologo.getListRpdUser");
+
 
 
 //AREA PACIENTE
@@ -33,18 +36,12 @@ $router->group("paciente");
 $router->get("/", "WebPaciente:home", "webpaciente.home");
 $router->get("/rpd", "WebPaciente:rpd", "webpaciente.rpd");
 $router->get("/form/rpd", "FormPaciente:setRpd", "formpaciente.setRpd");
+$router->get("/rpd/listrpd/{id_user}", "TablePaciente:getListRpdUser", "tablepaciente.getListRpdUser");
 
 
 
 
-$router->post("/formSetPaciente", "Pacientes:formSetPaciente", "pacientes.formSetPaciente");
-$router->post("/setPaciente", "Pacientes:setPaciente", "pacientes.setPaciente");
-$router->get("/getPacientes", "Pacientes:listPaciente", "pacientes.listPaciente");
-$router->get("/user/{id_user}", "Web:pacienteUser", "pacientes.pacienteUser");
-$router->get("/user/prontuario/{id_user}", "Pacientes:prontuario", "pacientes.prontuario");
-$router->post("/user/prontuario/setProntuario", "Pacientes:setProntuario", "pacientes.setProntuario");
-$router->post("/user/prontuario/getProntuario", "Pacientes:getProntuario", "pacientes.getProntuario");
-//$router->get("/dashboard","Admin:dashboard","admin.dashboard");
+
 
 
 $router->group("ops");
