@@ -28,7 +28,7 @@ $router->get("/pacientes/listPacientes", "Pacientes:listPaciente", "Pacientes.li
 $router->get("/paciente/{id_user}", "WebPsicologo:pacienteUser", "webpsicologo.pacienteUser");
 $router->get("/paciente/{id_user}/rpd", "WebPsicologo:rpd", "webpsicologo.rpd");
 $router->get("/paciente/{id_user}/rpd/list", "TablePsicologo:getListRpdUser", "tablepsicologo.getListRpdUser");
-
+$router->get("/viewform/{id_aplicacao_questionario}", "DocumentoPsicologo:rpd", "documentopsicologo.rpd");
 
 
 //AREA PACIENTE

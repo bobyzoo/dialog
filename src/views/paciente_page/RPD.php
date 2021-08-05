@@ -65,7 +65,7 @@
     function getTableRpd() {
 
         $.ajax({
-            url: "rpd/listrpd/1/rpd/list",
+            url: "rpd/listrpd/1",
             type: "GET",
             data: "",
             success: function (data) {

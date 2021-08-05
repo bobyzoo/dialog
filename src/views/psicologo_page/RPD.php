@@ -31,7 +31,7 @@
                 </h5>
             </div>
             <div class="card-body">
-                <div id="table-rpd"> </div>
+                <div id="table-rpd"></div>
             </div>
         </div>
     </div>
@@ -66,6 +66,20 @@
                     search_input.attr('placeholder', 'Digite aqui');
                     var s = datatable.closest('.dataTables_wrapper').find(".dataTables_filter").append('');
                 });
+            }
+        });
+    }
+
+    function viewAplicacao(idAplicacao) {
+        console.log(idAplicacao)
+        $.ajax({
+            url: "<?=url_pesquisa("psicologo/viewform/")?>"+idAplicacao,
+            type: "GET",
+            data: "",
+            success: function (data) {
+                $("#modal").html(data);
+                showModal('modalRemote');
+
             }
         });
     }

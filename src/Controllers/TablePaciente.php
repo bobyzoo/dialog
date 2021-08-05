@@ -16,6 +16,7 @@ class TablePaciente
 
     public function getListRpdUser($data): void{
 
+
         echo $this->view->render("get_rpd_user", [
             "title" => "RPD"
         ]);

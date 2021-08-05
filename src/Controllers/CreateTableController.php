@@ -32,8 +32,8 @@ class CreateTableController
                      id='" . $data->data()->aplicacao_questionario_id . "'><i class='far fa-trash-alt mr-0'></i></div>";
                 }
                 if ($tipo == "view") {
-                    echo "<a class='btn btn-sm btn-primary mx-1 p-2 text-center  text-decoration-none text-white' href='#'
-                     id='" . $data->data()->aplicacao_questionario_id . "'><i class='fas fa-eye mr-0'></i></div>";
+                    echo "<a class='btn btn-sm btn-primary mx-1 p-2 text-center  text-decoration-none text-white' href='#' onclick='viewAplicacao(".$data->data()->aplicacao_questionario_id .")'
+                     id='" . $data->data()->aplicacao_questionario_id . "'><i class='fas fa-eye mr-0'></i></a>";
                 }
             }
             echo "</td>";
