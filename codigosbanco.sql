@@ -104,15 +104,17 @@ CREATE TABLE `u217629253_dialog`.`pergunta`
 
 CREATE TABLE `u217629253_dialog`.`aplicacao_questionario`
 (
-    `aplicacao_questionario_id` INT  NOT NULL AUTO_INCREMENT,
-    `questionario_id`           INT  NOT NULL,
-    `apq_usuario_id`            INT  NOT NULL,
-    `apq_data_cadastro`         DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `apq_ultima_atualizacao`    DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `aplicacao_questionario_id` INT     NOT NULL AUTO_INCREMENT,
+    `questionario_id`           INT     NOT NULL,
+    `apq_usuario_id`            INT     NOT NULL,
+    `apq_data_cadastro`         DATE    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `apq_ultima_atualizacao`    DATE    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `apq_ativo`                 BOOLEAN NOT NULL DEFAULT TRUE,
     PRIMARY KEY (`aplicacao_questionario_id`),
     FOREIGN KEY (`questionario_id`) REFERENCES u217629253_dialog.questionario (questionario_id),
     FOREIGN KEY (`apq_usuario_id`) REFERENCES u217629253_dialog.usuario (usuario_id)
 ) ENGINE = MyISAM;
+
 
 
 CREATE TABLE `u217629253_dialog`.`resposta`

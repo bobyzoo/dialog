@@ -32,7 +32,8 @@ class CreateDocumentoController
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body" id="modal-body">';
+                
+                <div class="modal-body" id="modal-body"><a type="button" class="btn btn-sm btn-primary text-white mb-4 text-center"  onClick="imprimeModal()"> <i class="fas fa-print mr-0"></i></a>';
 
         $perguntaDAO = new PerguntaDAO();
         $perguntas = $perguntaDAO->getPerguntasByIdQuestionario($aplicacao_questionario->questionario_id);

@@ -5,6 +5,7 @@ namespace Source\Controllers;
 
 
 use League\Plates\Engine;
+use Source\Models\AplicacaoQuestionarioDAO;
 
 class TablePaciente
 {
@@ -20,5 +21,12 @@ class TablePaciente
         echo $this->view->render("get_rpd_user", [
             "title" => "RPD"
         ]);
+    }
+    public function deleteItem($data): void{
+
+        $AplicacaoQuestionarioDAO = new AplicacaoQuestionarioDAO();
+        $Aplicacao = $AplicacaoQuestionarioDAO->findById($data['aplicacao_questionario_id']);
+        $Aplicacao->destroy();
+
     }
 }

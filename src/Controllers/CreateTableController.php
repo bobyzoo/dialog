@@ -28,7 +28,7 @@ class CreateTableController
                     <i class='far fa-edit mr-0'></i></div>";
                 }
                 if ($tipo == "excluir") {
-                    echo "<a class='btn btn-sm btn-danger mx-1 p-2 text-center  text-decoration-none text-white' href='#'
+                    echo "<a class='btn btn-sm btn-danger mx-1 p-2 text-center  text-decoration-none text-white'  onclick='deleteItem(".$data->data()->aplicacao_questionario_id .")'
                      id='" . $data->data()->aplicacao_questionario_id . "'><i class='far fa-trash-alt mr-0'></i></div>";
                 }
                 if ($tipo == "view") {

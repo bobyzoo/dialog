@@ -44,7 +44,7 @@
 <script src="<?= url("assets/js/Utils.js") ?>"></script>
 <script src="<?= url("assets/vendors/datatables.net/jquery.dataTables.js") ?>"></script>
 <script src="<?= url("assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js") ?>"></script>
-
+<script type="text/javascript" src="<?= url("assets/js/printthis/printThis.js") ?>"></script>
 <script>
     function getTableRpds() {
 
@@ -86,6 +86,24 @@
 
     getTableRpds();
 
+   function imprimeModal(){
+        $("#modal").printThis({
+            debug: false,
+            importCSS: true,
+            importStyle: true,
+            printContainer: true,
+            // loadCSS: "../css/style.css",
+            pageTitle: "My Modal",
+            removeInline: false,
+            printDelay: 333,
+            header: null,
+            formValues: true
+        });
+    }
+
+    function deleteItem(){
+
+    }
 
 </script>
 <script src="<?= url("assets/js/shared/data-table.js") ?>"></script>

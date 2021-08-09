@@ -86,6 +86,18 @@
         });
     }
 
+    function deleteItem(aplicacao_questionario_id){
+        $.ajax({
+            url: "<?=url_pesquisa("paciente/delete/")?>"+aplicacao_questionario_id,
+            type: "GET",
+            data: "",
+            success: function (data) {
+                showToast("Sucesso!", "Apagado com sucesso!")
+                getTableRpd()
+            }
+        });
+    }
+
     getTableRpd();
 </script>
 <script src="<?= url("assets/js/shared/data-table.js") ?>"></script>

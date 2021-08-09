@@ -38,6 +38,10 @@ if (empty($_SESSION["login"])) {
     <link rel="stylesheet" href="<?= url("assets/vendors/simplemde/simplemde.min.css") ?>">
 
 
+    <link rel="stylesheet" href="<?= url("assets/css/printthis/normalize.css") ?>">
+    <link rel="stylesheet" href="<?= url("assets/css/printthis/skeleton.css") ?>">
+
+
 
 
     <link rel="stylesheet" href="<?= url("assets/vendors/dropzone/dropzone.css") ?>">
@@ -129,7 +133,7 @@ if (empty($_SESSION["login"])) {
 <script src="<?= url("assets/js/shared/todolist.js") ?>"></script>
 <!-- endinject -->
 
-
+<script type="text/javascript" src="<?= url("assets/js/printthis/printThis.js") ?>"></script>
 
 <script src="<?= url("assets/vendors/jquery-bar-rating/jquery.barrating.min.js") ?>"></script>
 <script src="<?= url("assets/vendors/jquery-asColor/jquery-asColor.min.js") ?>"></script>
