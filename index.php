@@ -38,6 +38,7 @@ $router->get("/rpd", "WebPaciente:rpd", "webpaciente.rpd");
 $router->get("/form/rpd", "FormPaciente:setRpd", "formpaciente.setRpd");
 $router->get("/rpd/listrpd/{id_user}", "TablePaciente:getListRpdUser", "tablepaciente.getListRpdUser");
 $router->get("/delete/{aplicacao_questionario_id}", "TablePaciente:deleteItem", "tablepaciente.deleteItem");
+$router->get("/edit/{aplicacao_questionario_id}", "FormPaciente:editItem", "formpaciente.editItem");
 
 
 

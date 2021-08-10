@@ -79,7 +79,7 @@
                 });
                 $('#order-listing').each(function () {
                     var datatable = $(this);
-                    search_input.attr('placeholder', 'Digite aqui');
+                    // search_input.attr('placeholder', 'Digite aqui');
                     var s = datatable.closest('.dataTables_wrapper').find(".dataTables_filter").append('');
                 });
             }
@@ -94,6 +94,17 @@
             success: function (data) {
                 showToast("Sucesso!", "Apagado com sucesso!")
                 getTableRpd()
+            }
+        });
+    }
+    function editItem(aplicacao_questionario_id){
+        $.ajax({
+            url: "<?=url_pesquisa("paciente/edit/")?>"+aplicacao_questionario_id,
+            type: "GET",
+            data: "",
+            success: function (data) {
+                $("#modal").html(data);
+                showModal('modalRemote');
             }
         });
     }

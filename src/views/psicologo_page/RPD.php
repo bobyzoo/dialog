@@ -101,9 +101,7 @@
         });
     }
 
-    function deleteItem(){
 
-    }
 
 </script>
 <script src="<?= url("assets/js/shared/data-table.js") ?>"></script>

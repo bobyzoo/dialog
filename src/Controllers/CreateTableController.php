@@ -6,7 +6,7 @@ namespace Source\Controllers;
 
 class CreateTableController
 {
-    public function createTable($idTable, $questionario_id, $colunas, $datas, $botoes = [])
+    public function createTable($idTable, $questionario_id, $colunas, $datas = [], $botoes = [])
     {
         echo ' <div class="table-responsive"><table id="order-listing" class="table"><thead><tr>';
         foreach ($colunas as $col) {
@@ -23,16 +23,15 @@ class CreateTableController
             echo "<td class='text-center'>";
             foreach ($botoes as $tipo) {
                 if ($tipo == "editar") {
-                    echo "<a class='btn btn-sm btn-primary mx-1 p-2 text-center text-decoration-none text-white' 
-                    href='" . url_pesquisa("rpd/edit/" . $data->data()->aplicacao_questionario_id) . "' id='" .  $data->data()->aplicacao_questionario_id . "'>
-                    <i class='far fa-edit mr-0'></i></div>";
+                    echo "<a class='btn btn-sm btn-primary mx-1 p-2 text-center text-decoration-none text-white' onclick='editItem(" . $data->data()->aplicacao_questionario_id . ")'>
+                    <i class='far fa-edit mr-0'></i></a>";
                 }
                 if ($tipo == "excluir") {
-                    echo "<a class='btn btn-sm btn-danger mx-1 p-2 text-center  text-decoration-none text-white'  onclick='deleteItem(".$data->data()->aplicacao_questionario_id .")'
-                     id='" . $data->data()->aplicacao_questionario_id . "'><i class='far fa-trash-alt mr-0'></i></div>";
+                    echo "<a class='btn btn-sm btn-danger mx-1 p-2 text-center  text-decoration-none text-white'  onclick='deleteItem(" . $data->data()->aplicacao_questionario_id . ")'
+                     id='" . $data->data()->aplicacao_questionario_id . "'><i class='far fa-trash-alt mr-0'></i></a>";
                 }
                 if ($tipo == "view") {
-                    echo "<a class='btn btn-sm btn-primary mx-1 p-2 text-center  text-decoration-none text-white' href='#' onclick='viewAplicacao(".$data->data()->aplicacao_questionario_id .")'
+                    echo "<a class='btn btn-sm btn-primary mx-1 p-2 text-center  text-decoration-none text-white' href='#' onclick='viewAplicacao(" . $data->data()->aplicacao_questionario_id . ")'
                      id='" . $data->data()->aplicacao_questionario_id . "'><i class='fas fa-eye mr-0'></i></a>";
                 }
             }

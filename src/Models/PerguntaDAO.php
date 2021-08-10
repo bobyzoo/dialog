@@ -23,37 +23,39 @@ class PerguntaDAO extends DataLayer
         return $this->find("questionario_id = :questionario_id", "questionario_id={$questionario_id}")->fetch(true);
     }
 
-    public static function getFormatPergunta($pergunta)
+    public static function getFormatPergunta($pergunta, $aplicacao_questionario = false)
     {
+        $resposta = false;
+        if ($aplicacao_questionario) {
+            $RespostaDAO = new RespostaDAO();
+            $resposta = $RespostaDAO->find("pergunta_id = :pergunta_id AND aplicacao_questionario_id = :aplicacao_questionario_id", "pergunta_id={$pergunta->pergunta_id}&aplicacao_questionario_id={$aplicacao_questionario->aplicacao_questionario_id}")->fetch(true)[0];
+
+        }
 
         if ($pergunta->per_tipo == "text") {
+            $value = "";
+
+            if ($resposta) {
+                $value = $resposta->res_descricao;
+            }
             echo ' <div class="form-group row">
                         <div class="col-12">
                             <label for="input-nome">' . $pergunta->per_descricao . '</label>
-                                <textarea  
-                                    
-                                    type="text" rows="5" class="form-control" id="' . $pergunta->per_name_id . '"
-                                    placeholder="' . $pergunta->placeholder . '" name="' . $pergunta->per_name_id . '_' . $pergunta->pergunta_id . '"></textarea>
+                                <textarea  type="text" rows="5" class="form-control"  id="' . $pergunta->per_name_id . '"
+                                    placeholder="' . $pergunta->placeholder . '" name="' . $pergunta->per_name_id . '_' . $pergunta->pergunta_id . '">' . $value . '</textarea>
                         </div>
                       </div>';
         }
         if ($pergunta->per_tipo == "bars-square") {
+            $selected = false;
+            if ($resposta){
+                $selected = $resposta->res_descricao;
+            }
             echo '    <div class="form-group row">
                         <div class="col-12">
-                            <label for="">' . $pergunta->per_descricao . '</label>
+                            <label for="">' . $pergunta->per_descricao . '!!!!</label>
                             <div class="br-wrapper br-theme-bars-square">
-                                <select id="' . $pergunta->per_name_id . '" name="' . $pergunta->per_name_id . '_' . $pergunta->pergunta_id . '" autocomplete="off" style="display: none;">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                </select>
+                               ' . self::selectQuestionNumbers($pergunta, $selected) . '
                             </div>
                         </div>
                        </div>';
@@ -74,23 +76,22 @@ class PerguntaDAO extends DataLayer
         $resposta = $respostaDAO->find("pergunta_id = :pergunta_id AND aplicacao_questionario_id = :aplicacao_questionario_id", "pergunta_id={$pergunta->pergunta_id}&aplicacao_questionario_id={$aplicacao_questionario->aplicacao_questionario_id}")->fetch(true)[0];
 
         if ($pergunta->per_tipo == "text") {
-            if (!$resposta){
+            if (!$resposta) {
                 self::perguntaNaoRespondida($pergunta->per_descricao);
-            }else{
+            } else {
 
                 echo ' <div class="form-group row  border-bottom">
                         <div class="col-12">
                             <label for="input-nome font-size-17 font-weight-bold"><strong>' . $pergunta->per_descricao . '</strong></label><br>
-                            <label for="input-nome">' . $resposta->res_descricao . '</label>
-                                
+                            <label for="input-nome">' . $resposta->res_descricao . '</label>     
                         </div>
                       </div>';
             }
         }
         if ($pergunta->per_tipo == "bars-square") {
-            if (!$resposta){
+            if (!$resposta) {
                 self::perguntaNaoRespondida($pergunta->per_descricao);
-            }else{
+            } else {
                 echo '    <div class="form-group row border-bottom pb-3">
                         <div class="col-12">
                             <label for=""><strong>' . $pergunta->per_descricao . '</strong></label>
@@ -98,8 +99,6 @@ class PerguntaDAO extends DataLayer
                                 <select disabled id="' . $pergunta->per_name_id . '" name="' . $pergunta->per_name_id . '_' . $pergunta->pergunta_id . '" autocomplete="off" style="display: none;">
                                 ';
                 echo '<option value="' . $resposta->res_descricao . '">' . $resposta->res_descricao . '</option>';
-
-
                 echo '
                                 </select>
                             </div>
@@ -115,7 +114,8 @@ class PerguntaDAO extends DataLayer
         }
     }
 
-    public static function  perguntaNaoRespondida($pergunta){
+    public static function perguntaNaoRespondida($pergunta)
+    {
         echo ' <div class="form-group row  border-bottom">
                         <div class="col-12">
                             <label for="input-nome font-size-17 font-weight-bold"><strong>' . $pergunta . '</strong></label><br>
@@ -123,6 +123,20 @@ class PerguntaDAO extends DataLayer
                                 
                         </div>
                       </div>';
+    }
+
+    public static function selectQuestionNumbers($pergunta, $selected = false, $range = [1, 10])
+    {
+        $selectedText = ' <select id="' . $pergunta->per_name_id . '" name="' . $pergunta->per_name_id . '_' . $pergunta->pergunta_id . '" autocomplete="off" style="display: none;">';
+        for ($c = $range[0]; $c <= $range[1]; $c++) {
+            if ($selected and $selected == $c) {
+                $selectedText .= '<option selected value="' . $c . '">' . $c . '</option>';
+            } else {
+                $selectedText .= '<option value="' . $c . '">' . $c . '</option>';
+            }
+        }
+        $selectedText .= ' </select>';
+        return $selectedText;
     }
 
 }

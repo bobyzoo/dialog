@@ -22,4 +22,12 @@ class FormPaciente
         ]);
     }
 
+    public function editItem($data): void{
+
+        echo $this->view->render("edit_form", [
+            "title" => "Editar",
+            "aplicacao_questionario_id" => $data["aplicacao_questionario_id"]
+        ]);
+    }
+
 }
