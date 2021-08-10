@@ -29,7 +29,9 @@ class PerguntaDAO extends DataLayer
         if ($aplicacao_questionario) {
             $RespostaDAO = new RespostaDAO();
             $resposta = $RespostaDAO->find("pergunta_id = :pergunta_id AND aplicacao_questionario_id = :aplicacao_questionario_id", "pergunta_id={$pergunta->pergunta_id}&aplicacao_questionario_id={$aplicacao_questionario->aplicacao_questionario_id}")->fetch(true)[0];
-
+            if ($resposta == null){
+                $resposta = "";
+            }
         }
 
         if ($pergunta->per_tipo == "text") {
