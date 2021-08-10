@@ -12,20 +12,7 @@ function showToast(title, content,color = "bg-success") {
 
 
 //PACIENTES
-function getPaciente(idTabela = "listPacientes") {
-    showDiv("loadingTblPacientes");
-    $.ajax({
-        type: "GET",
-        url: URL_BASE + "pacientes/getPacientes",
-        success: function (data) {
-            $("#" + idTabela).html(data);
-            hideDiv("loadingTblPacientes");
-        },
-        error: function () {
-            alert('Error');
-        }
-    });
-}
+
 
 function setPaciente(modalCadastro = 0) {
     showDiv("loadingFrmCadastroPaciente");
