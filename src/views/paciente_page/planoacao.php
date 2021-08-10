@@ -25,16 +25,13 @@
             </div>
             <div class="card-header">
                 <h5 class="mb-0">
-                    <div class="text-capitalize"> Registro de Pensamentos
-                        Disfuncionais - RPD
+                    <div class="text-capitalize"> Plano de Ação
                     </div>
                 </h5>
             </div>
             <div class="card-body">
-                <div class="btn btn-lg btn-primary" onclick="getFormSetRpd()">Criar novo RPD</div>
-                <div id="table-rpd">
-
-                </div>
+                <div class="btn btn-lg btn-primary" onclick="getFormSetPlanoDeAcao()">Criar novo plano de ação</div>
+                <div id="table-pda"></div>
             </div>
         </div>
     </div>
@@ -49,9 +46,9 @@
 <script src="<?= url("assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js") ?>"></script>
 
 <script>
-    function getFormSetRpd() {
+    function getFormSetPlanoDeAcao() {
         $.ajax({
-            url: "form/rpd",
+            url: "<?=url_pesquisa("paciente/create/4")?>",
             type: "GET",
             data: "",
             success: function (data) {
@@ -61,14 +58,13 @@
             }
         });
     }
-
     function getTableRpd() {
         $.ajax({
-            url: "<?=url_pesquisa("paciente/table/all/1")?>",
+            url: "<?=url_pesquisa("paciente/table/all/4")?>",
             type: "GET",
             data: "",
             success: function (data) {
-                $("#table-rpd").html(data);
+                $("#table-pda").html(data);
                 $('#order-listing').DataTable({
                     "iDisplayLength": 5,
                     "bLengthChange": false,
@@ -84,7 +80,6 @@
             }
         });
     }
-
     function deleteItem(aplicacao_questionario_id){
         $.ajax({
             url: "<?=url_pesquisa("paciente/delete/")?>"+aplicacao_questionario_id,

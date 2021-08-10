@@ -28,6 +28,8 @@ $router->get("/pacientes/listPacientes", "Pacientes:listPaciente", "Pacientes.li
 $router->get("/paciente/{id_user}", "WebPsicologo:pacienteUser", "webpsicologo.pacienteUser");
 $router->get("/paciente/{id_user}/rpd", "WebPsicologo:rpd", "webpsicologo.rpd");
 $router->get("/paciente/{id_user}/rpd/list", "TablePsicologo:getListRpdUser", "tablepsicologo.getListRpdUser");
+$router->get("/paciente/{id_user}/planoacao", "WebPsicologo:planoAcao", "tablepsicologo.planoAcao");
+$router->get("/paciente/{id_user}/planoacao/list", "TablePsicologo:getListPlanoAcaoUser", "TablePsicologo.getListPlanoAcaoUser");
 $router->get("/viewform/{id_aplicacao_questionario}", "DocumentoPsicologo:rpd", "documentopsicologo.rpd");
 
 
@@ -39,6 +41,9 @@ $router->get("/form/rpd", "FormPaciente:setRpd", "formpaciente.setRpd");
 $router->get("/rpd/listrpd/{id_user}", "TablePaciente:getListRpdUser", "tablepaciente.getListRpdUser");
 $router->get("/delete/{aplicacao_questionario_id}", "TablePaciente:deleteItem", "tablepaciente.deleteItem");
 $router->get("/edit/{aplicacao_questionario_id}", "FormPaciente:editItem", "formpaciente.editItem");
+$router->get("/create/{questionario_id}", "FormPaciente:createItem", "formpaciente.createItem");
+$router->get("/table/all/{questionario_id}", "TablePaciente:listAll", "TablePaciente.listAll");
+$router->get("/planoacao", "WebPaciente:planoAcao", "webpaciente.planoacao");
 
 
 

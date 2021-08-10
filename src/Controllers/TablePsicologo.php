@@ -24,6 +24,22 @@ class TablePsicologo
         ]);
     }
 
+
+    public function getListPlanoAcaoUser($data): void{
+
+        session_start();
+
+        $CreateFormController = new CreateTableController();
+        $AplicacaoQuestionarioDAO = new AplicacaoQuestionarioDAO();
+        $cabecalho = ["id", "Data de preenchimento", "Ultima data atualização", ""];
+        $aplicacoes = $AplicacaoQuestionarioDAO->getByUsuarioIdQuestionarioId($data["id_user"],4);
+        if ($aplicacoes == null){
+            $aplicacoes = [];
+        }
+        $CreateFormController->createTable("Rdp", 1, $cabecalho, $aplicacoes, ["editar", "excluir"]);
+
+    }
+
     public function deleteItem($data): void{
 
         $AplicacaoQuestionarioDAO = new AplicacaoQuestionarioDAO();

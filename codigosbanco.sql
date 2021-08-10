@@ -157,3 +157,15 @@ VALUES (1, 'Qual a intensidade dessa emoção?', 'bars-square', 'qntIntensidadeE
 INSERT INTO u217629253_dialog.pergunta (questionario_id, per_descricao, per_tipo, per_name_id)
 VALUES (1, 'O que você aprendeu analisando esses pensamentos?', 'text', 'txtAprendeuAnalisandoPensamento');
 
+
+
+INSERT INTO questionario (que_nome) VALUES ('Plano de Ação');
+INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (4, 'O objetivo com este plano de ação é ...', 'text', 'txtObjetivoPlanoDeAcao', DEFAULT, DEFAULT);
+INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (4, 'O que eu vou fazer (ações práticas)?', 'text', 'txtOqueVouFazer', DEFAULT, DEFAULT);
+INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (4, 'Existe algum obstáculo ou dificuldade?', 'text', 'txtObstaculoOuDificuldade', DEFAULT, DEFAULT);
+INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (4, 'Como vou lidar com esses obstáculos ou dificuldades?
+        ', 'text', 'txtLidarObstaculosOuDificuldade', DEFAULT, DEFAULT);
+INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (4, 'Quando vou colocar este plano na prática?
+        ', 'text', 'txtPlanoEmPratica', DEFAULT, DEFAULT);
+INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (4, 'Quais foram os resultados?', 'text', 'txtResultados', DEFAULT, DEFAULT);
+INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (4, 'O que eu aprendi?', 'text', 'txtAprendi', DEFAULT, DEFAULT);

@@ -44,7 +44,7 @@ var_dump($paciente);
                         <div class="font-size-14 font-weight-medium mb-2">Monitoramento <br> de humor</div>
                     </a>
                     <a class="py-2 col-2 div-btn font-size-24 text-center text-decoration-none color-white div-btn mx-2 bgUtils-1 "
-                       href="#">
+                       href="<?= url_pesquisa("psicologo/paciente/" . $paciente->paciente_id . "/planoacao") ?>">
                         <div class='text-center mb-3'><i class='fas fa-tasks avatar avatar-32'></i></div>
                         <div class="font-size-14 font-weight-medium mb-2">Planos de ações</div>
                         <div class="font-size-11 ">(Tarefas semanais)</div>

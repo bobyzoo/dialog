@@ -37,5 +37,12 @@ class WebPaciente
         ]);
     }
 
+    public function planoAcao($data): void{
+
+        echo $this->view->render("planoacao", [
+            "title" => "Plano de Ação",
+            "paciente" =>  $_SESSION['usuario']
+        ]);
+    }
 
 }

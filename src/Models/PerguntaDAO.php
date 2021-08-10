@@ -75,8 +75,7 @@ class PerguntaDAO extends DataLayer
 
 
         $respostaDAO = new RespostaDAO();
-        $resposta = $respostaDAO->find("pergunta_id = :pergunta_id AND aplicacao_questionario_id = :aplicacao_questionario_id", "pergunta_id={$pergunta->pergunta_id}&aplicacao_questionario_id={$aplicacao_questionario->aplicacao_questionario_id}")->fetch(true)[0];
-
+        $resposta = $respostaDAO->getRespostaByPerguntaIdAplicacaoQuestionarioId($pergunta->pergunta_id,$aplicacao_questionario->aplicacao_questionario_id);
         if ($pergunta->per_tipo == "text") {
             if (!$resposta) {
                 self::perguntaNaoRespondida($pergunta->per_descricao);

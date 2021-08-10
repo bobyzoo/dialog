@@ -29,5 +29,12 @@ class FormPaciente
             "aplicacao_questionario_id" => $data["aplicacao_questionario_id"]
         ]);
     }
+    public function createItem($data): void{
+
+        echo $this->view->render("create_form", [
+            "title" => "cadastrar",
+            "questionario_id" => $data["questionario_id"]
+        ]);
+    }
 
 }

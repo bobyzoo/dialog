@@ -43,4 +43,12 @@ class WebPsicologo
             "paciente" => PacienteDAO::getPacienteID("",$data["id_user"])
         ]);
     }
+
+    public function planoAcao($data): void{
+
+        echo $this->view->render("planoacao", [
+            "title" => "Plano de Ação",
+            "paciente" => PacienteDAO::getPacienteID("",$data["id_user"])
+        ]);
+    }
 }
