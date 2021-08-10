@@ -68,11 +68,12 @@ class CreateFormController
                      data: form.serialize(), 
               success: function (data)
                      {
-//                         alert(data); 
+                         hideModal("modalRemote");
+                         getTableRpd();
+                         showToast("Sucesso!", "RPD criado com sucesso")
                      }
                 });
              });
-
 
 </script >';
 
@@ -139,7 +140,9 @@ class CreateFormController
                      data: form.serialize(),
               success: function (data)
                      {
-//                         alert(data);
+                      hideModal("modalRemote");
+                         getTableRpd();
+                         showToast("Sucesso!", "RPD editado com sucesso")
                      }
                 });
              });

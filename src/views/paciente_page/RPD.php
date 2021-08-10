@@ -63,7 +63,6 @@
     }
 
     function getTableRpd() {
-
         $.ajax({
             url: "rpd/listrpd/1",
             type: "GET",
@@ -71,7 +70,7 @@
             success: function (data) {
                 $("#table-rpd").html(data);
                 $('#order-listing').DataTable({
-                    "iDisplayLength": 2,
+                    "iDisplayLength": 5,
                     "bLengthChange": false,
                     "language": {
                         search: "Procurar :"
