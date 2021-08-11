@@ -42,7 +42,7 @@
         showDiv("loadingTblPacientes");
         $.ajax({
             type: "GET",
-            url: URL_BASE + "psicologo/pacientes/listPacientes",
+            url:"<?=url_pesquisa("psicologo/pacientes/listPacientes")?>",
             success: function (data) {
                 $("#" + idTabela).html(data);
                 hideDiv("loadingTblPacientes");
