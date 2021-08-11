@@ -58,7 +58,7 @@
             }
         });
     }
-    function getTableRpd() {
+    function getTable() {
         $.ajax({
             url: "<?=url_pesquisa("paciente/table/all/4")?>",
             type: "GET",
@@ -87,14 +87,14 @@
             data: "",
             success: function (data) {
                 showToast("Sucesso!", "Apagado com sucesso!")
-                getTableRpd()
+                getTable()
             }
         });
     }
     function editItem(aplicacao_questionario_id){
         $.ajax({
             url: "<?=url_pesquisa("paciente/edit/")?>"+aplicacao_questionario_id,
-            type: "GET",
+            type: "POST",
             data: "",
             success: function (data) {
                 $("#modal").html(data);
@@ -103,7 +103,7 @@
         });
     }
 
-    getTableRpd();
+    getTable();
 </script>
 <script src="<?= url("assets/js/shared/data-table.js") ?>"></script>
 <?php $v->end("js") ?>

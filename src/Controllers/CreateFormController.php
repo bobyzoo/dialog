@@ -11,9 +11,13 @@ use Source\Models\QuestionarioDAO;
 class CreateFormController
 {
 
-    public function createForm($idForm, $questionario_id)
+    public function createForm($idForm, $questionario_id, $usuario_id = false)
     {
 
+        if ($usuario_id == false) {
+            session_start();
+            $usuario_id = $_SESSION['usuario']->usuario_id;
+        }
         $questionarioDAO = new QuestionarioDAO();
         $questionario = $questionarioDAO->findById($questionario_id)->data();
 
@@ -36,7 +40,7 @@ class CreateFormController
                     </button>
                 </div>
                 <div class="modal-body" id="modal-body">
-                <form class="forms-sample" id="Form' . $idForm . '" method="post" action="' . url_pesquisa("setRespostaQuestionario") . '">';
+                <form class="forms-sample" id="Form' . $idForm . '" method="post" action="' . url_pesquisa("setRespostaQuestionario/$questionario_id/$usuario_id") . '">';
 
 
         $perguntaDAO = new PerguntaDAO();
@@ -69,8 +73,8 @@ class CreateFormController
               success: function (data)
                      {
                          hideModal("modalRemote");
-                         getTableRpd();
-                         showToast("Sucesso!", "RPD criado com sucesso")
+                         getTable();
+                         showToast("Sucesso!", "Registro salvo com sucesso")
                      }
                 });
              });
@@ -79,7 +83,7 @@ class CreateFormController
 
     }
 
-    public function editForm($idForm, $aplicacao_questionario_id)
+    public function editForm($idForm, $aplicacao_questionario_id, $usuario_id = 0)
     {
 
         $AplicacaoQuestionarioDAO = new AplicacaoQuestionarioDAO();
@@ -107,7 +111,7 @@ class CreateFormController
                     </button>
                 </div>
                 <div class="modal-body" id="modal-body">
-                <form class="forms-sample" id="Form' . $idForm . '" method="post" action="' . url_pesquisa("setRespostaQuestionario") . '">';
+                <form class="forms-sample" id="Form' . $idForm . '" method="post" action="' . url_pesquisa("setRespostaQuestionario/$Questionario->questionario_id/0") . '">';
 
 
         $perguntaDAO = new PerguntaDAO();
@@ -118,7 +122,7 @@ class CreateFormController
 
         echo '<input type="hidden" name="en_questionario" value="' . $Questionario->questionario_id . '">';
         echo '<input type="hidden" name="editar" value="1">';
-        echo '<input type="hidden" name="aplicacao_questionario_id" value="'.$AplicacaoQuestionario->aplicacao_questionario_id.'">';
+        echo '<input type="hidden" name="aplicacao_questionario_id" value="' . $AplicacaoQuestionario->aplicacao_questionario_id . '">';
 
 
         echo ' </form></div>
@@ -141,8 +145,8 @@ class CreateFormController
               success: function (data)
                      {
                       hideModal("modalRemote");
-                         getTableRpd();
-                         showToast("Sucesso!", "RPD editado com sucesso")
+                         getTable();
+                         showToast("Sucesso!", "Registro editado com sucesso")
                      }
                 });
              });

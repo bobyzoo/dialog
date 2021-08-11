@@ -22,11 +22,9 @@ class TablePaciente
         ]);
     }
     public function deleteItem($data): void{
-
         $AplicacaoQuestionarioDAO = new AplicacaoQuestionarioDAO();
-        $Aplicacao = $AplicacaoQuestionarioDAO->findById($data['aplicacao_questionario_id']);
-        $Aplicacao->destroy();
-
+        $AplicacaoQuestionarioDAO->remove($data['aplicacao_questionario_id']);
+        echo "1;";
     }
     public function listAll($data): void{
 
@@ -43,7 +41,7 @@ class TablePaciente
             $aplicacoes = [];
         }
 
-        $CreateFormController->createTable("Rdp", 1, $cabecalho, $aplicacoes, ["editar", "excluir"]);
+        $CreateFormController->createTable("table", 1, $cabecalho, $aplicacoes, ["editar", "excluir"]);
 
     }
 }

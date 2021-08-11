@@ -49,9 +49,9 @@
     function getTableRpds() {
 
         $.ajax({
-            url: "<?=url_pesquisa("psicologo/paciente/8/rpd/list")?>",
+            url: "<?=url_pesquisa("psicologo/paciente/$paciente->usuario_id/table/all/1")?>",
             type: "GET",
-            data: "",
+            data: {botoes:["view"]},
             success: function (data) {
                 $("#table-rpd").html(data);
                 $('#order-listing').DataTable({

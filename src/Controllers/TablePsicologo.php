@@ -47,4 +47,24 @@ class TablePsicologo
         $Aplicacao->destroy();
 
     }
+
+    public function listAll($data): void{
+
+        session_start();
+
+        $CreateFormController = new CreateTableController();
+        $AplicacaoQuestionarioDAO = new AplicacaoQuestionarioDAO();
+        $cabecalho = ["id", "Data de preenchimento", "Ultima data atualização", ""];
+
+        $botoes = $_GET["botoes"];
+
+
+        $aplicacoes = $AplicacaoQuestionarioDAO->getByUsuarioIdQuestionarioId($data['id_user'],$data["questionario_id"]);
+        if ($aplicacoes == null){
+            $aplicacoes = [];
+        }
+
+        $CreateFormController->createTable("teste", $data["questionario_id"], $cabecalho, $aplicacoes, $botoes);
+
+    }
 }

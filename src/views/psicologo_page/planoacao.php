@@ -1,6 +1,7 @@
 <?php $v->layout("_theme", [
     "title" => "Pacientes"
 ]);
+
 ?>
 <link rel="stylesheet" href="<?= url("assets/vendors/jquery-bar-rating/bars-square.css") ?>"/>
 <link rel="stylesheet" href="<?= url("assets/vendors/jquery-bar-rating/bars-1to10.css") ?>"/>
@@ -48,7 +49,7 @@
 <script>
     function getFormSetPlanoDeAcao() {
         $.ajax({
-            url: "<?=url_pesquisa("paciente/create/4")?>",
+            url: "<?=url_pesquisa("psicologo/create/4/$paciente->usuario_id")?>",
             type: "GET",
             data: "",
             success: function (data) {
@@ -58,12 +59,12 @@
             }
         });
     }
-    function getTablePlanoAcao() {
+    function getTable() {
 
         $.ajax({
-            url: "<?=url_pesquisa("psicologo/paciente/8/planoacao/list")?>",
+            url: "<?=url_pesquisa("psicologo/paciente/$paciente->usuario_id/table/all/4")?>",
             type: "GET",
-            data: "",
+            data: {botoes : ["editar", "excluir"]},
             success: function (data) {
                 $("#table-pda").html(data);
                 $('#order-listing').DataTable({
@@ -75,7 +76,7 @@
                 });
                 $('#order-listing').each(function () {
                     var datatable = $(this);
-                    search_input.attr('placeholder', 'Digite aqui');
+                    // search_input.attr('placeholder', 'Digite aqui');
                     var s = datatable.closest('.dataTables_wrapper').find(".dataTables_filter").append('');
                 });
             }
@@ -83,18 +84,18 @@
     }
     function deleteItem(aplicacao_questionario_id){
         $.ajax({
-            url: "<?=url_pesquisa("paciente/delete/")?>"+aplicacao_questionario_id,
+            url: "<?=url_pesquisa("psicologo/delete/")?>"+aplicacao_questionario_id,
             type: "GET",
             data: "",
             success: function (data) {
                 showToast("Sucesso!", "Apagado com sucesso!")
-                getTableRpd()
+                getTable()
             }
         });
     }
     function editItem(aplicacao_questionario_id){
         $.ajax({
-            url: "<?=url_pesquisa("paciente/edit/")?>"+aplicacao_questionario_id,
+            url: "<?=url_pesquisa("psicologo/edit/")?>"+aplicacao_questionario_id,
             type: "GET",
             data: "",
             success: function (data) {
@@ -104,7 +105,7 @@
         });
     }
 
-    getTablePlanoAcao();
+    getTable();
 </script>
 <script src="<?= url("assets/js/shared/data-table.js") ?>"></script>
 <?php $v->end("js") ?>
