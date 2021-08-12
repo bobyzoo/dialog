@@ -53,14 +53,6 @@
         });
     }
     getPaciente()
-    // $.ajax({
-    //     url: "pacientes/formSetPaciente",
-    //     type: "POST",
-    //     data: "",
-    //     success: function (data) {
-    //         $("#modal").html(data);
-    //     }
-    // });
 </script>
 
 

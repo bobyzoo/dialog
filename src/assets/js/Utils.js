@@ -1,5 +1,3 @@
-const URL_BASE = "http://localhost/Site/dialog/";
-
 
 function showToast(title, content,color = "bg-success") {
     $('#toats-header').attr('class','')
@@ -10,27 +8,6 @@ function showToast(title, content,color = "bg-success") {
     $('.toast').toast('show');
 }
 
-
-//PACIENTES
-
-
-function setPaciente(modalCadastro = 0) {
-    showDiv("loadingFrmCadastroPaciente");
-    $.ajax({
-        type: "POST",
-        url: URL_BASE + "pacientes/setPaciente",
-        data: $('#frmPaciente').serialize(),
-        success: function (data) {
-            document.getElementById("frmPaciente").reset();
-            hideModal("modalRemote");
-            getPaciente();
-            hideDiv("loadingFrmCadastroPaciente");
-        },
-        error: function () {
-            alert('Error');
-        }
-    });
-}
 
 //PRONTUARIO
 

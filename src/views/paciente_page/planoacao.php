@@ -48,7 +48,7 @@
 <script>
     function getFormSetPlanoDeAcao() {
         $.ajax({
-            url: "<?=url_pesquisa("paciente/create/4")?>",
+            url: "<?=url_pesquisa("paciente/create/pla")?>",
             type: "GET",
             data: "",
             success: function (data) {
@@ -60,7 +60,7 @@
     }
     function getTable() {
         $.ajax({
-            url: "<?=url_pesquisa("paciente/table/all/4")?>",
+            url: "<?=url_pesquisa("paciente/table/all/pla")?>",
             type: "GET",
             data: "",
             success: function (data) {

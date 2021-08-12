@@ -51,7 +51,7 @@
 <script>
     function getFormSetRpd() {
         $.ajax({
-            url: "<?=url_pesquisa("paciente/create/1")?>",
+            url: "<?=url_pesquisa("paciente/create/rpd")?>",
             type: "GET",
             data: "",
             success: function (data) {
@@ -64,7 +64,7 @@
 
     function getTable() {
         $.ajax({
-            url: "<?=url_pesquisa("paciente/table/all/1")?>",
+            url: "<?=url_pesquisa("paciente/table/all/rpd")?>",
             type: "GET",
             data: "",
             success: function (data) {

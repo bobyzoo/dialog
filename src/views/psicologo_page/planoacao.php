@@ -49,7 +49,7 @@
 <script>
     function getFormSetPlanoDeAcao() {
         $.ajax({
-            url: "<?=url_pesquisa("psicologo/create/4/$paciente->usuario_id")?>",
+            url: "<?=url_pesquisa("psicologo/create/rpd/$paciente->usuario_id")?>",
             type: "GET",
             data: "",
             success: function (data) {
@@ -62,7 +62,7 @@
     function getTable() {
 
         $.ajax({
-            url: "<?=url_pesquisa("psicologo/paciente/$paciente->usuario_id/table/all/4")?>",
+            url: "<?=url_pesquisa("psicologo/paciente/$paciente->usuario_id/table/all/rpd")?>",
             type: "GET",
             data: {botoes : ["editar", "excluir"]},
             success: function (data) {

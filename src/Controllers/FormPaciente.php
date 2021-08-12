@@ -14,14 +14,6 @@ class FormPaciente
         $this->view = Engine::create(dirname(__DIR__, 1) . "/views/paciente_page/forms", "php");
         $this->view->addData(["router" => $router]);
     }
-
-    public function setRpd($data): void{
-
-        echo $this->view->render("set_rpd", [
-            "title" => "RPD"
-        ]);
-    }
-
     public function editItem($data): void{
 
         echo $this->view->render("edit_form", [
@@ -33,7 +25,7 @@ class FormPaciente
 
         echo $this->view->render("create_form", [
             "title" => "cadastrar",
-            "questionario_id" => $data["questionario_id"]
+            "questionario_codigo" => $data["questionario_codigo"]
         ]);
     }
 

@@ -6,6 +6,7 @@ namespace Source\Controllers;
 
 use League\Plates\Engine;
 use Source\Models\AplicacaoQuestionarioDAO;
+use Source\Models\QuestionarioDAO;
 
 class TablePsicologo
 {
@@ -58,13 +59,15 @@ class TablePsicologo
 
         $botoes = $_GET["botoes"];
 
+        $questionario = new QuestionarioDAO();
+        $questionario_id = $questionario->getIdByCodigo($data["questionario_codigo"]);
 
-        $aplicacoes = $AplicacaoQuestionarioDAO->getByUsuarioIdQuestionarioId($data['id_user'],$data["questionario_id"]);
+        $aplicacoes = $AplicacaoQuestionarioDAO->getByUsuarioIdQuestionarioId($data['id_user'],$questionario_id);
         if ($aplicacoes == null){
             $aplicacoes = [];
         }
 
-        $CreateFormController->createTable("teste", $data["questionario_id"], $cabecalho, $aplicacoes, $botoes);
+        $CreateFormController->createTable("teste", $questionario_id, $cabecalho, $aplicacoes, $botoes);
 
     }
 }

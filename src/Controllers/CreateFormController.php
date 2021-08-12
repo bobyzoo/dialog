@@ -11,7 +11,7 @@ use Source\Models\QuestionarioDAO;
 class CreateFormController
 {
 
-    public function createForm($idForm, $questionario_id, $usuario_id = false)
+    public function createForm($idForm, $questionario_codigo, $usuario_id = false)
     {
 
         if ($usuario_id == false) {
@@ -19,7 +19,7 @@ class CreateFormController
             $usuario_id = $_SESSION['usuario']->usuario_id;
         }
         $questionarioDAO = new QuestionarioDAO();
-        $questionario = $questionarioDAO->findById($questionario_id)->data();
+        $questionario = $questionarioDAO->getQuestionarioByCodigo($questionario_codigo)->data();
 
 
         echo '<div class="modal fade" id="modalRemote" tabindex="-1" role="dialog"
@@ -40,16 +40,16 @@ class CreateFormController
                     </button>
                 </div>
                 <div class="modal-body" id="modal-body">
-                <form class="forms-sample" id="Form' . $idForm . '" method="post" action="' . url_pesquisa("setRespostaQuestionario/$questionario_id/$usuario_id") . '">';
+                <form class="forms-sample" id="Form' . $idForm . '" method="post" action="' . url_pesquisa("setRespostaQuestionario/$questionario->questionario_id/$usuario_id") . '">';
 
 
         $perguntaDAO = new PerguntaDAO();
-        $perguntas = $perguntaDAO->getPerguntasByIdQuestionario($questionario_id);
+        $perguntas = $perguntaDAO->getPerguntasByIdQuestionario($questionario->questionario_id);
         foreach ($perguntas as $pergunta) {
             PerguntaDAO::getFormatPergunta($pergunta->data());
         }
 
-        echo '<input type="hidden" name="en_questionario" value="' . $questionario_id . '">';
+        echo '<input type="hidden" name="en_questionario" value="' . $questionario->questionario_id . '">';
         echo '<input type="hidden" name="aplicacao_questionario_id" value="0">';
 
 

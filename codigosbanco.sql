@@ -81,10 +81,12 @@ VALUES (8, 'd1d92025edb756d2fbfd9b646dd4464d7f5b8e13', 'pacienteteste', 'pacient
         null, '2021-07-22', '1990-03-25', 1, 2);
 
 
-CREATE TABLE `u217629253_dialog`.`questionario`
+CREATE TABLE `questionario`
 (
     `questionario_id` INT          NOT NULL AUTO_INCREMENT,
+    `que_codigo`      varchar(255) NOT NULL,
     `que_nome`        varchar(255) NOT NULL,
+
     PRIMARY KEY (`questionario_id`)
 ) ENGINE = MyISAM;
 
@@ -129,8 +131,8 @@ CREATE TABLE `u217629253_dialog`.`resposta`
 ) ENGINE = MyISAM;
 
 
-INSERT INTO u217629253_dialog.questionario (que_nome)
-VALUES ('Registro de Pensamentos Disfuncionais');
+INSERT INTO questionario (que_nome,que_codigo)
+VALUES ('Registro de Pensamentos Disfuncionais','rpd');
 INSERT INTO u217629253_dialog.pergunta (questionario_id, per_descricao, per_tipo, per_required, per_name_id,
                                         placeholder)
 VALUES (1, 'O que está acontecendo?', 'text', TRUE, 'txtAcontecendo', 'O que está acontecendo? (Situação)');
@@ -159,13 +161,13 @@ VALUES (1, 'O que você aprendeu analisando esses pensamentos?', 'text', 'txtApr
 
 
 
-INSERT INTO questionario (que_nome) VALUES ('Plano de Ação');
-INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (4, 'O objetivo com este plano de ação é ...', 'text', 'txtObjetivoPlanoDeAcao', DEFAULT, DEFAULT);
-INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (4, 'O que eu vou fazer (ações práticas)?', 'text', 'txtOqueVouFazer', DEFAULT, DEFAULT);
-INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (4, 'Existe algum obstáculo ou dificuldade?', 'text', 'txtObstaculoOuDificuldade', DEFAULT, DEFAULT);
-INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (4, 'Como vou lidar com esses obstáculos ou dificuldades?
+INSERT INTO questionario (que_nome,que_codigo) VALUES ('Plano de Ação','pla');
+INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (2, 'O objetivo com este plano de ação é ...', 'text', 'txtObjetivoPlanoDeAcao', DEFAULT, DEFAULT);
+INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (2, 'O que eu vou fazer (ações práticas)?', 'text', 'txtOqueVouFazer', DEFAULT, DEFAULT);
+INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (2, 'Existe algum obstáculo ou dificuldade?', 'text', 'txtObstaculoOuDificuldade', DEFAULT, DEFAULT);
+INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (2, 'Como vou lidar com esses obstáculos ou dificuldades?
         ', 'text', 'txtLidarObstaculosOuDificuldade', DEFAULT, DEFAULT);
-INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (4, 'Quando vou colocar este plano na prática?
+INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (2, 'Quando vou colocar este plano na prática?
         ', 'text', 'txtPlanoEmPratica', DEFAULT, DEFAULT);
-INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (4, 'Quais foram os resultados?', 'text', 'txtResultados', DEFAULT, DEFAULT);
-INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (4, 'O que eu aprendi?', 'text', 'txtAprendi', DEFAULT, DEFAULT);
+INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (2, 'Quais foram os resultados?', 'text', 'txtResultados', DEFAULT, DEFAULT);
+INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (2, 'O que eu aprendi?', 'text', 'txtAprendi', DEFAULT, DEFAULT);

@@ -66,6 +66,7 @@ class ResponseFormController
             }
         } //        SE FOR CRIAÇÃO
         else {
+            print_r($data);
             $AplicacaoQuestionarioDAO = new AplicacaoQuestionarioDAO();
             $AplicacaoQuestionarioDAO->questionario_id = $data['questionario_id'];
             $AplicacaoQuestionarioDAO->apq_usuario_id = $data['usuario_id'];

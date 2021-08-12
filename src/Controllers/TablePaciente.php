@@ -6,6 +6,8 @@ namespace Source\Controllers;
 
 use League\Plates\Engine;
 use Source\Models\AplicacaoQuestionarioDAO;
+use Source\Models\QuestionarioDAO;
+
 class TablePaciente
 {
     public function __construct($router)
@@ -14,18 +16,12 @@ class TablePaciente
         $this->view->addData(["router" => $router]);
     }
 
-    public function getListRpdUser($data): void{
-
-
-        echo $this->view->render("get_rpd_user", [
-            "title" => "RPD"
-        ]);
-    }
     public function deleteItem($data): void{
         $AplicacaoQuestionarioDAO = new AplicacaoQuestionarioDAO();
         $AplicacaoQuestionarioDAO->remove($data['aplicacao_questionario_id']);
         echo "1;";
     }
+
     public function listAll($data): void{
 
         session_start();
@@ -35,8 +31,10 @@ class TablePaciente
 
         $AplicacaoQuestionarioDAO = new AplicacaoQuestionarioDAO();
         $cabecalho = ["id", "Data de preenchimento", "Ultima data atualização", ""];
+        $questionario = new QuestionarioDAO();
+        $questionario_id = $questionario->getIdByCodigo($data["questionario_codigo"]);
 
-        $aplicacoes = $AplicacaoQuestionarioDAO->getByUsuarioIdQuestionarioId($_SESSION["usuario"]->usuario_id,$data["questionario_id"]);
+        $aplicacoes = $AplicacaoQuestionarioDAO->getByUsuarioIdQuestionarioId($_SESSION["usuario"]->usuario_id,$questionario_id);
         if ($aplicacoes == null){
             $aplicacoes = [];
         }

@@ -37,9 +37,9 @@ $router->get("/delete/{aplicacao_questionario_id}", "TablePsicologo:deleteItem",
 //FORMULARIO DE EDICAO
 $router->get("/edit/{aplicacao_questionario_id}", "FormPsicologo:editItem", "FormPsicologo.editItem");
 //FORMULARIO DE CRIACAO
-$router->get("/create/{questionario_id}/{usuario_id}", "FormPsicologo:createItem", "FormPsicologo.createItem");
+$router->get("/create/{questionario_codigo}/{usuario_id}", "FormPsicologo:createItem", "FormPsicologo.createItem");
 //TABELAS ALL
-$router->get("/paciente/{id_user}/table/all/{questionario_id}", "TablePsicologo:listAll", "TablePsicologo.listAll");
+$router->get("/paciente/{id_user}/table/all/{questionario_codigo}", "TablePsicologo:listAll", "TablePsicologo.listAll");
 
 
 
@@ -55,9 +55,9 @@ $router->get("/delete/{aplicacao_questionario_id}", "TablePaciente:deleteItem", 
 //FORMULARIO DE EDICAO
 $router->post("/edit/{aplicacao_questionario_id}", "FormPaciente:editItem", "formpaciente.editItem");
 //FORMULARIO DE CRIACAO
-$router->get("/create/{questionario_id}", "FormPaciente:createItem", "formpaciente.createItem");
+$router->get("/create/{questionario_codigo}", "FormPaciente:createItem", "formpaciente.createItem");
 //TABELAS ALL
-$router->get("/table/all/{questionario_id}", "TablePaciente:listAll", "TablePaciente.listAll");
+$router->get("/table/all/{questionario_codigo}", "TablePaciente:listAll", "TablePaciente.listAll");
 
 
 

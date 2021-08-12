@@ -18,7 +18,7 @@ class FormPsicologo
 
         echo $this->view->render("create_form", [
             "title" => "cadastrar",
-            "questionario_id" => $data["questionario_id"],
+            "questionario_codigo" => $data["questionario_codigo"],
             "usuario_id" => $data["usuario_id"],
         ]);
     }

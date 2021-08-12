@@ -49,7 +49,7 @@
     function getTableRpds() {
 
         $.ajax({
-            url: "<?=url_pesquisa("psicologo/paciente/$paciente->usuario_id/table/all/1")?>",
+            url: "<?=url_pesquisa("psicologo/paciente/$paciente->usuario_id/table/all/rpd")?>",
             type: "GET",
             data: {botoes:["view"]},
             success: function (data) {
