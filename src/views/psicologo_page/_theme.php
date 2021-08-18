@@ -155,8 +155,6 @@ if (empty($_SESSION["login"])) {
 
 <script src="<?= url("assets/js/shared/editorDemo.js") ?>"></script>
 
-<script src="<?= url("assets/vendors/js/vendor.bundle.base.js") ?>"
-</script>
 <!-- endinject -->
 <!-- Plugin js for this page -->
 <!-- End plugin js for this page -->

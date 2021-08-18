@@ -70,4 +70,26 @@ class TablePsicologo
         $CreateFormController->createTable("teste", $questionario_id, $cabecalho, $aplicacoes, $botoes);
 
     }
+
+    public function listMonitoramentoHumor($data): void{
+
+        session_start();
+
+        $CreateFormController = new CreateTableController();
+
+
+        $AplicacaoQuestionarioDAO = new AplicacaoQuestionarioDAO();
+        $cabecalho = ["Data de preenchimento", "Humor", "Sentimentos", ""];
+        $questionario = new QuestionarioDAO();
+        $questionario_id = $questionario->getIdByCodigo("mdh");
+
+
+        $aplicacoes = $AplicacaoQuestionarioDAO->getByUsuarioIdQuestionarioId($data['id_user'],$questionario_id,"*");
+        if ($aplicacoes == null){
+            $aplicacoes = [];
+        }
+
+        $CreateFormController->createTableMonitoramentoHumor("tableMonitoramentoHumor", 1, $cabecalho, $aplicacoes, ["excluir"]);
+
+    }
 }

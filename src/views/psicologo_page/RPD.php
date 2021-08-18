@@ -12,7 +12,11 @@
 <link rel="stylesheet" href="<?= url("assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css") ?>"/>
 <link rel="stylesheet"
       href="<?= url("assets/vendors/datatables.net-fixedcolumns-bs4/fixedColumns.bootstrap4.min.css") ?>"/>
-
+<style>
+    .dataTables_filter {
+        display: none;
+    }
+</style>
 <div class="container">
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">

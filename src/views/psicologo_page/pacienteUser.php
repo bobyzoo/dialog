@@ -1,7 +1,6 @@
 <?php $v->layout("_theme", [
     "title" => "Pacientes"
 ]);
-var_dump($paciente);
 ?>
 
 <div class="container">
@@ -21,34 +20,25 @@ var_dump($paciente);
             </div>
             <div class="card-body">
                 <div class="row text-center pb-4 px-2">
-                    <a class="py-2 ml-5 col-2 div-btn font-size-24 text-center text-decoration-none color-white div-btn mr-2 bgUtils-1"
-                       href="#">
-                        <div class='text-center mb-3'><i class='far fa-file avatar avatar-32'></i></div>
-                        <div class="font-size-14 font-weight-medium mb-2">QPC</div>
-                        <div class="font-size-11 ">(Questionario Pré Consulta)</div>
-                    </a>
-                    <a class="py-2 col-2 div-btn font-size-24 text-center text-decoration-none color-white div-btn mx-2 bgUtils-1 "
-                       href="<?= url_pesquisa("psicologo/paciente/" . $paciente->paciente_id . "/rpd") ?>">
-                        <div class='text-center mb-3'><i class='fas fa-poo-storm avatar avatar-32'></i></div>
-                        <div class="font-size-14 font-weight-medium mb-2">RPD</div>
-                        <div class="font-size-11 ">(Registros de pensamentos disfuncionais)</div>
-                    </a>
-                    <a class="py-2 col-2 div-btn font-size-24 text-center text-decoration-none color-white div-btn mx-2 bgUtils-1 "
-                       href="#">
-                        <div class='text-center mb-3'><i class="fas fa-search avatar avatar-32"></i></div>
-                        <div class="font-size-14 font-weight-medium mb-2">Conceituação <br> de casos</div>
-                    </a>
-                    <a class="py-2 col-2 div-btn font-size-24 text-center text-decoration-none color-white div-btn mx-2 bgUtils-1 "
-                       href="#">
-                        <div class='text-center mb-3'><i class="fas fa-smile-beam avatar avatar-32"></i></div>
-                        <div class="font-size-14 font-weight-medium mb-2">Monitoramento <br> de humor</div>
-                    </a>
-                    <a class="py-2 col-2 div-btn font-size-24 text-center text-decoration-none color-white div-btn mx-2 bgUtils-1 "
-                       href="<?= url_pesquisa("psicologo/paciente/" . $paciente->paciente_id . "/planoacao") ?>">
-                        <div class='text-center mb-3'><i class='fas fa-tasks avatar avatar-32'></i></div>
-                        <div class="font-size-14 font-weight-medium mb-2">Planos de ações</div>
-                        <div class="font-size-11 ">(Tarefas semanais)</div>
-                    </a>
+                    <div class="sidebar-menu" style="width: auto !important; min-height: auto !important;">
+                        <nav class="nav">
+                            <div class="nav-item active">
+                                <a href="<?=url_pesquisa("psicologo/paciente/" . $paciente->paciente_id . "/rpd")?>" class="nav-link">
+                                    <i class="menu-icons mdi mdi-weather-lightning-rainy" style="font-size: 50px; margin-bottom: 0 !important;"></i><span class="menu-title text-center">RPD</span>
+                                </a>
+                            </div>
+                            <div class="nav-item active">
+                                <a href="<?=url_pesquisa("psicologo/paciente/" . $paciente->paciente_id . "/planoacao")?>" class="nav-link">
+                                    <i class="menu-icons mdi mdi-checkbox-multiple-marked" style="font-size: 50px; margin-bottom: 0 !important;"></i><span class="menu-title text-center">Planos de ações</span>
+                                </a>
+                            </div>
+                            <div class="nav-item active">
+                                <a href="<?=url_pesquisa("psicologo/paciente/" . $paciente->paciente_id . "/monitoramentohumor")?>" class="nav-link">
+                                    <i class="menu-icons mdi mdi-emoticon" style="font-size: 50px; margin-bottom: 0 !important;"></i><span class="menu-title text-center">Monitoramento de humor</span>
+                                </a>
+                            </div>
+                        </nav>
+                    </div>
 
                 </div>
             </div>

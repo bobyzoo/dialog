@@ -51,4 +51,11 @@ class WebPsicologo
             "paciente" => PacienteDAO::getPacienteID("",$data["id_user"])
         ]);
     }
+    public function humor($data): void{
+
+        echo $this->view->render("humor", [
+            "title" => "Monitoramento de humor",
+            "paciente" =>   PacienteDAO::getPacienteID("",$data["id_user"])
+        ]);
+    }
 }

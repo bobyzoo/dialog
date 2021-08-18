@@ -55,7 +55,7 @@ class TablePaciente
         $questionario = new QuestionarioDAO();
         $questionario_id = $questionario->getIdByCodigo("mdh");
 
-        $aplicacoes = $AplicacaoQuestionarioDAO->getByUsuarioIdQuestionarioId($_SESSION["usuario"]->usuario_id,$questionario_id,"*");
+        $aplicacoes = $AplicacaoQuestionarioDAO->getByUsuarioIdQuestionarioId($_SESSION["usuario"]->usuario_id,$questionario_id);
         if ($aplicacoes == null){
             $aplicacoes = [];
         }

@@ -28,7 +28,8 @@ $router->get("/pacientes", "WebPsicologo:pacientes", "webpsicologo.pacientes");
 $router->get("/pacientes/listPacientes", "Pacientes:listPaciente", "Pacientes.listPaciente");
 $router->get("/paciente/{id_user}", "WebPsicologo:pacienteUser", "webpsicologo.pacienteUser");
 $router->get("/paciente/{id_user}/rpd", "WebPsicologo:rpd", "webpsicologo.rpd");
-$router->get("/paciente/{id_user}/planoacao", "WebPsicologo:planoAcao", "tablepsicologo.planoAcao");
+$router->get("/paciente/{id_user}/planoacao", "WebPsicologo:planoAcao", "webpsicologo.planoAcao");
+$router->get("/paciente/{id_user}/monitoramentohumor", "WebPsicologo:Humor", "webpsicologo.humor");
 
 
 //VIEW FORMATO DOC
@@ -41,6 +42,7 @@ $router->get("/edit/{aplicacao_questionario_id}", "FormPsicologo:editItem", "For
 $router->get("/create/{questionario_codigo}/{usuario_id}", "FormPsicologo:createItem", "FormPsicologo.createItem");
 //TABELAS ALL
 $router->get("/paciente/{id_user}/table/all/{questionario_codigo}", "TablePsicologo:listAll", "TablePsicologo.listAll");
+$router->get("/paciente/{id_user}/table/listMonitoramentoHumor", "TablePsicologo:listMonitoramentoHumor", "TablePsicologo.listMonitoramentoHumor");
 
 
 
@@ -51,7 +53,6 @@ $router->get("/rpd", "WebPaciente:rpd", "webpaciente.rpd");
 $router->get("/planoacao", "WebPaciente:planoAcao", "webpaciente.planoacao");
 $router->get("/humor", "WebPaciente:humor", "webpaciente.humor");
 $router->get("/form_humor", "FormPaciente:humor", "formpaciente.humor");
-$router->get("/table/listMonitoramentoHumor", "TablePaciente:listMonitoramentoHumor", "TablePaciente.listMonitoramentoHumor");
 
 
 //deleta
@@ -62,6 +63,7 @@ $router->post("/edit/{aplicacao_questionario_id}", "FormPaciente:editItem", "for
 $router->get("/create/{questionario_codigo}", "FormPaciente:createItem", "formpaciente.createItem");
 //TABELAS ALL
 $router->get("/table/all/{questionario_codigo}", "TablePaciente:listAll", "TablePaciente.listAll");
+$router->get("/table/listMonitoramentoHumor", "TablePaciente:listMonitoramentoHumor", "TablePaciente.listMonitoramentoHumor");
 
 
 
