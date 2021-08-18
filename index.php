@@ -17,6 +17,7 @@ $router->post("/setCadastro", "Usuario:setCadastro", "usuario.setCadastro");
 
 
 $router->post("/setRespostaQuestionario/{questionario_id}/{usuario_id}", "ResponseFormController:setAplicacaoQuestionario", "ResponseFormController.setAplicacaoQuestionario");
+$router->post("/setRespostaQuestionarioHumor", "ResponseFormController:setRespostaHumor", "ResponseFormController.setRespostaHumor");
 
 
 
@@ -48,6 +49,8 @@ $router->group("paciente");
 $router->get("/", "WebPaciente:home", "webpaciente.home");
 $router->get("/rpd", "WebPaciente:rpd", "webpaciente.rpd");
 $router->get("/planoacao", "WebPaciente:planoAcao", "webpaciente.planoacao");
+$router->get("/humor", "WebPaciente:humor", "webpaciente.humor");
+$router->get("/form_humor", "FormPaciente:humor", "formpaciente.humor");
 
 
 //deleta

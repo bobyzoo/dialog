@@ -85,7 +85,7 @@ if (empty($_SESSION["login"])) {
     <link rel="stylesheet" href="<?= url("assets/vendors/simplemde/simplemde.min.css") ?>">
 </head>
 <body>
-<div class="toast mt-3 hide position-absolute " style="z-index: 100; right: 15px" data-autohide="false" role="alert"
+<div class="toast mt-3 hide position-absolute " style="z-index: 100000; right: 15px" data-autohide="false" role="alert"
      aria-live="assertive" aria-atomic="true" >
     <div class="toast-header" id="toats-header">
     </div>

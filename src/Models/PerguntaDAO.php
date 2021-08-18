@@ -140,4 +140,11 @@ class PerguntaDAO extends DataLayer
         return $selectedText;
     }
 
+    public function getIdByName_id($per_name_id){
+        $result = self::find("per_name_id = :per_name_id", "per_name_id={$per_name_id}","pergunta_id")->fetch(true)[0];
+        if ($result){
+            return $result->data()->pergunta_id;
+        }
+        return 0;
+    }
 }

@@ -29,8 +29,13 @@ if (empty($_SESSION["login"])) {
     <!-- End Plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="<?= url("assets/css/shared/style.css") ?>">
+
+    <link rel="stylesheet" href="<?= url("assets/vendors/select2/select2.min.css") ?>">
+    <link rel="stylesheet" href="<?= url("assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css") ?>">
+    <link rel="stylesheet"href="<?= url("assets/vendors/icheck/all.css") ?>">
     <!-- endinject -->
     <link rel="stylesheet" href="<?= url("assets/css/demo_9/style.css") ?>">
+<!--    <link rel="stylesheet" href="--><?//= url("assets/css/demo_1/style.css") ?><!--">-->
 
     <link rel="stylesheet" href="<?= url("assets/vendors/summernote/dist/summernote-bs4.css") ?>">
     <link rel="stylesheet" href="<?= url("assets/vendors/quill/quill.snow.css") ?>">
@@ -80,7 +85,7 @@ if (empty($_SESSION["login"])) {
     <link rel="stylesheet" href="<?= url("assets/vendors/simplemde/simplemde.min.css") ?>">
 </head>
 <body>
-<div class="toast mt-3 hide position-absolute " style="z-index: 100; right: 15px" data-autohide="false" role="alert"
+<div class="toast mt-3 hide position-absolute " style="z-index: 100000; right: 15px" data-autohide="false" role="alert"
      aria-live="assertive" aria-atomic="true" >
     <div class="toast-header" id="toats-header">
     </div>

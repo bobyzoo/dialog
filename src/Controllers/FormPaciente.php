@@ -28,5 +28,11 @@ class FormPaciente
             "questionario_codigo" => $data["questionario_codigo"]
         ]);
     }
+    public function humor($data): void{
+
+        echo $this->view->render("form_humor", [
+            "title" => "monitoramento de humor"
+        ]);
+    }
 
 }

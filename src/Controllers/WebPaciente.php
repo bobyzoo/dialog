@@ -44,5 +44,12 @@ class WebPaciente
             "paciente" =>  $_SESSION['usuario']
         ]);
     }
+    public function humor($data): void{
+
+        echo $this->view->render("humor", [
+            "title" => "Monitoramento de humor",
+            "paciente" =>  $_SESSION['usuario']
+        ]);
+    }
 
 }
