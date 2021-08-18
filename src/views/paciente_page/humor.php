@@ -31,8 +31,8 @@
             </div>
             <div class="card-body">
                 <div class="btn btn-lg btn-primary" onclick="getFormSetHumor()">Criar novo registro de humor</div>
-<!--                <div id="table-rpd">-->
-<!--                </div>-->
+                <div id="table-rpd">
+                </div>
             </div>
         </div>
     </div>
@@ -59,10 +59,9 @@
             }
         });
     }
-
     function getTable() {
         $.ajax({
-            url: "<?=url_pesquisa("paciente/table/all/rpd")?>",
+            url: "<?=url_pesquisa("paciente/table/all/mdh")?>",
             type: "GET",
             data: "",
             success: function (data) {
@@ -82,7 +81,6 @@
             }
         });
     }
-
     function deleteItem(aplicacao_questionario_id){
         $.ajax({
             url: "<?=url_pesquisa("paciente/delete/")?>"+aplicacao_questionario_id,
@@ -94,7 +92,6 @@
             }
         });
     }
-
     function editItem(aplicacao_questionario_id){
         $.ajax({
             url: "<?=url_pesquisa("paciente/edit/")?>"+aplicacao_questionario_id,

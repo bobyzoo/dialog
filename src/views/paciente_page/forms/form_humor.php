@@ -182,14 +182,15 @@
                     data: form.serialize(),
                     url: form.attr('action'),
                     success: function (data) {
-                        if (data == "1") {
+                        data = data.split(';')
+                        if (data[0] == "1") {
                             hideModal("modalRemote");
                             getTable();
-                            showToast("Sucesso!", "Registro salvo com sucesso")
+                            showToast("Sucesso!", data[1])
                         } else {
-                            // hideModal("modalRemote");
-                            // getTable();
-                            showToast("erro!", data, "bg-danger")
+                            hideModal("modalRemote");
+                            getTable();
+                            showToast("erro!", data[0], "bg-danger")
                         }
                     }
                 });
