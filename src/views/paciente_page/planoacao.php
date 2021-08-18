@@ -17,7 +17,7 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="loader-demo-box position-absolute hide loading" id="loadingTblPacientes">
-                <div class="dot-opacity-loader">
+               <div class="dot-opacity-loader" style="top: 25%">
                     <span></span>
                     <span></span>
                     <span></span>

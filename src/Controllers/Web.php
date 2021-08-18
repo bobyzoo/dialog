@@ -41,24 +41,15 @@ class Web
         ]);
     }
 
-    public function pacientes($data): void
+
+    public function planos($data): void
     {
-        echo $this->view->render("pacientes", [
-            "title" => "pacientes",
-            "pacientes" => PacienteDAO::getAll()
+        echo $this->view->render("planos", [
+            "title" => "planos",
+//            "pacientes" => PacienteDAO::getAll()
         ]);
     }
 
-    public function pacienteUser($data)
-    {
-        $pacienteDao = new PacienteDAO();
-        $paciente = $pacienteDao->findById($data["id_user"]);
-
-        echo $this->view->render("pacienteUser", [
-            "title" => "paciente",
-            "paciente" => $paciente
-        ]);
-    }
 
     public function error($data)
     {

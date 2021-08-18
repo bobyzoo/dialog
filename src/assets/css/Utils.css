@@ -21,9 +21,10 @@ body{
 
 .loading{
     z-index: 2;
-    background-color: rgba(28, 30, 47, 0.98);
+    background-image: linear-gradient(
+            112deg, #176c7d, #0c8574);
     height: 100% !important;
-    border: none !important;
+    border: 1px #d4d4d4 !important;
 }
 .btn-info-blue{
     background-color: #17A2B8;
@@ -69,6 +70,10 @@ a.div-btn{
 }
 .font-size-11{
     font-size: 11px;
+}
+
+.text-yellow{
+    color: #fbdf61;
 }
 
 

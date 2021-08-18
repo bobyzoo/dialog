@@ -27,7 +27,7 @@ class CreateFormController
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content" id="modal-content">
                 <div class="loader-demo-box position-absolute loading hide" id="loading' . $idForm . '">
-                    <div class="dot-opacity-loader">
+                   <div class="dot-opacity-loader" style="top: 25%">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -98,7 +98,7 @@ class CreateFormController
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content" id="modal-content">
                 <div class="loader-demo-box position-absolute loading hide" id="loading' . $idForm . '">
-                    <div class="dot-opacity-loader">
+                   <div class="dot-opacity-loader" style="top: 25%">
                         <span></span>
                         <span></span>
                         <span></span>

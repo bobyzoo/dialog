@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="loader-demo-box position-absolute loading hide" id="loadingFrmCadastroPaciente">
-                <div class="dot-opacity-loader">
+               <div class="dot-opacity-loader" style="top: 25%">
                     <span></span>
                     <span></span>
                     <span></span>

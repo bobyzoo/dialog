@@ -16,6 +16,9 @@ $router->get("/logout", "Usuario:logout", "usuario.logout");
 $router->post("/setCadastro", "Usuario:setCadastro", "usuario.setCadastro");
 
 
+$router->get("/planos", "Web:planos", "web.planos");
+
+
 $router->post("/setRespostaQuestionario/{questionario_id}/{usuario_id}", "ResponseFormController:setAplicacaoQuestionario", "ResponseFormController.setAplicacaoQuestionario");
 $router->post("/setRespostaQuestionarioHumor", "ResponseFormController:setRespostaHumor", "ResponseFormController.setRespostaHumor");
 

@@ -77,7 +77,6 @@ if (empty($_SESSION["login"])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
           integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-<!--    <link rel="stylesheet" href="--><?//= url("assets/css/demo_1/style.css") ?><!--">-->
 
     <!--  CSS TEXT EDITOR  -->
     <link rel="stylesheet" href="<?= url("assets/vendors/summernote/dist/summernote-bs4.css") ?>">
@@ -96,13 +95,8 @@ if (empty($_SESSION["login"])) {
     <div class="container-fluid page-body-wrapper">
         <div class="main-panel">
             <div class="hero-banner">
-                <!-- partial:partials/_navbar.html -->
                 <?php require __DIR__ . "/partials/_navbar.phtml" ?>
-                <!-- partial -->
-                <!-- partial:partials/_settings-panel.html -->
-                <!--                --><?php //require __DIR__ . "/partials/_settings-panel.html"?>
 
-                <!-- partial -->
             </div>
             <div class="content-wrapper container-wrapper-width">
                 <!-- partial:partials/_sidebar.html -->

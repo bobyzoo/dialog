@@ -1,4 +1,4 @@
-/*------------------------------------------------------------------
+pricing-card-body/*------------------------------------------------------------------
  [Master Stylesheet]
 
   Project:	Star Admin
@@ -13629,7 +13629,7 @@ ul {
 
 /* Pricing table */
 .pricing-table .pricing-card .pricing-card-body {
-  padding: 50px 56px 43px; }
+  padding: 40px 20px 56px; }
   .pricing-table .pricing-card .pricing-card-body .plan-features {
     width: 100%;
     margin-bottom: 32px; }
