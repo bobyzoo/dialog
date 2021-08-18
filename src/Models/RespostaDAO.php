@@ -18,5 +18,9 @@ class RespostaDAO extends DataLayer
         return self::find("pergunta_id = :pergunta_id AND aplicacao_questionario_id = :aplicacao_questionario_id", "pergunta_id={$pergunta_id}&aplicacao_questionario_id={$aplicacao_questionario_id}")->fetch(true)[0];
 
     }
+    public function getRespostaByAplicacaoId($aplicacao_questionario_id){
+        return self::find(" aplicacao_questionario_id = :aplicacao_questionario_id", "aplicacao_questionario_id={$aplicacao_questionario_id}")->fetch(true);
+
+    }
 
 }

@@ -38,8 +38,29 @@ class TablePaciente
         if ($aplicacoes == null){
             $aplicacoes = [];
         }
-
         $CreateFormController->createTable("table", 1, $cabecalho, $aplicacoes, ["editar", "excluir"]);
+
+    }
+
+
+    public function listMonitoramentoHumor($data): void{
+
+        session_start();
+
+        $CreateFormController = new CreateTableController();
+
+
+        $AplicacaoQuestionarioDAO = new AplicacaoQuestionarioDAO();
+        $cabecalho = ["Data de preenchimento", "Humor", "Sentimentos", ""];
+        $questionario = new QuestionarioDAO();
+        $questionario_id = $questionario->getIdByCodigo("mdh");
+
+        $aplicacoes = $AplicacaoQuestionarioDAO->getByUsuarioIdQuestionarioId($_SESSION["usuario"]->usuario_id,$questionario_id,"*");
+        if ($aplicacoes == null){
+            $aplicacoes = [];
+        }
+
+        $CreateFormController->createTableMonitoramentoHumor("tableMonitoramentoHumor", 1, $cabecalho, $aplicacoes, ["excluir"]);
 
     }
 }

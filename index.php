@@ -51,6 +51,7 @@ $router->get("/rpd", "WebPaciente:rpd", "webpaciente.rpd");
 $router->get("/planoacao", "WebPaciente:planoAcao", "webpaciente.planoacao");
 $router->get("/humor", "WebPaciente:humor", "webpaciente.humor");
 $router->get("/form_humor", "FormPaciente:humor", "formpaciente.humor");
+$router->get("/table/listMonitoramentoHumor", "TablePaciente:listMonitoramentoHumor", "TablePaciente.listMonitoramentoHumor");
 
 
 //deleta

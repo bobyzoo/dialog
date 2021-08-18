@@ -188,4 +188,4 @@ INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, pla
 INSERT INTO questionario (que_nome,que_codigo) VALUES ('Monitoramento de humor','mdh');
 INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (3, 'Qual seu humor?', 'select', 'selectHumor', DEFAULT, true);
 INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (3, 'Qual seu sentimento?', 'select', 'selectSentimentos', DEFAULT, true);
-INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (3, 'Descreva o que estais sentindo ', 'text', 'txtObstaculoOuDificuldade', 'Comente sobre o que estais sentindo', true);
+INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (3, 'Descreva o que estais sentindo ', 'text', 'txtOqueEstaSentindo', 'Comente sobre o que estais sentindo', true);

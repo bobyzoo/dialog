@@ -102,7 +102,7 @@ class ResponseFormController
         $respostas = [
             'selectHumor' => $data['humor_base'],
             'selectSentimentos' => implode(",", $resposta_sentimentos),
-            'txtObstaculoOuDificuldade' => $data['input_comentario'],
+            'txtOqueEstaSentindo' => $data['input_comentario'],
         ];
 
 

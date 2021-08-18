@@ -14,9 +14,9 @@ class AplicacaoQuestionarioDAO extends DataLayer
         parent::__construct("aplicacao_questionario", ["questionario_id","apq_usuario_id"], "aplicacao_questionario_id", false);
     }
 
-    public function getByUsuarioIdQuestionarioId($apq_usuario_id,$questionario_id){
+    public function getByUsuarioIdQuestionarioId($apq_usuario_id,$questionario_id,$coluns = "aplicacao_questionario_id,apq_data_cadastro,apq_ultima_atualizacao"){
         return self::find("apq_usuario_id = :apq_usuario_id AND questionario_id = :questionario_id AND apq_ativo = 1",
-            "apq_usuario_id={$apq_usuario_id}&questionario_id={$questionario_id}", "aplicacao_questionario_id,apq_data_cadastro,apq_ultima_atualizacao")->fetch(true);
+            "apq_usuario_id={$apq_usuario_id}&questionario_id={$questionario_id}",$coluns)->fetch(true);
     }
 
     public function remove($aplicacao_questionario_id){

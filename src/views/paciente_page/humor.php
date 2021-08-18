@@ -61,9 +61,8 @@
     }
     function getTable() {
         $.ajax({
-            url: "<?=url_pesquisa("paciente/table/all/mdh")?>",
+            url: "<?=url_pesquisa("paciente/table/listMonitoramentoHumor")?>",
             type: "GET",
-            data: "",
             success: function (data) {
                 $("#table-rpd").html(data);
                 $('#order-listing').DataTable({
@@ -75,7 +74,6 @@
                 });
                 $('#order-listing').each(function () {
                     var datatable = $(this);
-                    // search_input.attr('placeholder', 'Digite aqui');
                     var s = datatable.closest('.dataTables_wrapper').find(".dataTables_filter").append('');
                 });
             }
