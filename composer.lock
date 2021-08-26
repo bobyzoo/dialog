@@ -4,8 +4,48 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9fbbefb9216c5faef2a8314f31c59a48",
+    "content-hash": "88d3392c6943aa571fea421e61797ca5",
     "packages": [
+        {
+            "name": "carloswgama/php-pagseguro",
+            "version": "3.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CarlosWGama/php-pagseguro.git",
+                "reference": "b73b296d9340acc44819c393fa91e9ca58a5c99e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CarlosWGama/php-pagseguro/zipball/b73b296d9340acc44819c393fa91e9ca58a5c99e",
+                "reference": "b73b296d9340acc44819c393fa91e9ca58a5c99e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CWG\\PagSeguro\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Carlos W. Gama",
+                    "email": "carloswgama@gmail.com"
+                }
+            ],
+            "description": "Classe para realizar pagamentos comuns e recorrentes no PagSeguro",
+            "support": {
+                "issues": "https://github.com/CarlosWGama/php-pagseguro/issues",
+                "source": "https://github.com/CarlosWGama/php-pagseguro/tree/3.2.0"
+            },
+            "time": "2019-10-10T18:41:38+00:00"
+        },
         {
             "name": "coffeecode/datalayer",
             "version": "1.1.8",
@@ -263,7 +303,10 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "ext-curl": "*",
+        "ext-simplexml": "*"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.1.0"
 }

@@ -35,6 +35,7 @@ class ComposerStaticInit4f2085a4eade3f10bc4714264a5f7315
         array (
             'CoffeeCode\\Router\\' => 18,
             'CoffeeCode\\DataLayer\\' => 21,
+            'CWG\\PagSeguro\\' => 14,
         ),
     );
 
@@ -58,6 +59,10 @@ class ComposerStaticInit4f2085a4eade3f10bc4714264a5f7315
         'CoffeeCode\\DataLayer\\' => 
         array (
             0 => __DIR__ . '/..' . '/coffeecode/datalayer/src',
+        ),
+        'CWG\\PagSeguro\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/carloswgama/php-pagseguro/src',
         ),
     );
 

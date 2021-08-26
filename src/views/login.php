@@ -13,7 +13,7 @@ if (!empty($_SESSION["login"])) {
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Login</title>
+    <title>DialogPsi - Login</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="<?= url("assets/vendors/mdi/css/materialdesignicons.min.css") ?>">
     <link rel="stylesheet" href="<?= url("assets/vendors/flag-icon-css/css/flag-icon.min.css") ?>">
@@ -41,8 +41,8 @@ if (!empty($_SESSION["login"])) {
                 <div class="col-12 col-md-8 h-100 bg-white">
                     <div class="auto-form-wrapper d-flex align-items-center justify-content-center flex-column">
                         <form id="FrmLogin" method="post">
-                            <h3 class="mr-auto">Hello! let's get started</h3>
-                            <p class="mb-5 mr-auto">Enter your details below.</p>
+                            <h3 class="mr-auto">Vamos entrar no DialogPsi...</h3>
+                            <p class="mb-5 mr-auto">Entre com seus dados abaixo.</p>
                             <form action="">
                                 <div class="form-group">
                                     <div class="input-group">
@@ -52,7 +52,7 @@ if (!empty($_SESSION["login"])) {
                         </span>
                                         </div>
                                         <input type="text" class="form-control" name="usu_login" id="usu_login"
-                                               placeholder="Username">
+                                               placeholder="usuario">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -63,27 +63,19 @@ if (!empty($_SESSION["login"])) {
                         </span>
                                         </div>
                                         <input type="password" id="usu_password" name="usu_password"
-                                               class="form-control" placeholder="Password">
+                                               class="form-control" placeholder="senha">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <button type="button" onclick="setLogin()" class="btn btn-primary submit-btn">SIGN
-                                        IN
+                                    <button type="button" onclick="setLogin()" class="btn btn-primary submit-btn">Login
                                     </button>
                                     <a href="cadastrar/novo"
-                                       class="btn text-white btn-primary submit-btn ">CADASTRAR</a>
+                                       class="btn text-white btn-primary submit-btn ">Cadastrar</a>
                                 </div>
                             </form>
                             <div class="wrapper mt-5 text-gray">
-                                <p class="footer-text">Copyright © 2018 Bootstrapdash. All rights reserved.</p>
-                                <ul class="auth-footer text-gray">
-                                    <li>
-                                        <a href="#">Terms & Conditions</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Cookie Policy</a>
-                                    </li>
-                                </ul>
+                                <p class="footer-text">Copyright © 2021 DialogPsi. Todos os direitos reservados.</p>
+
                             </div>
                         </form>
                     </div>

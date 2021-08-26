@@ -22,9 +22,14 @@ session_start();
                         <li><i class="fas fa-users"></i> Até 5 pacientes</li>
                     </ul>
                     <div class="wrapper">
-                        <a href="#" class="btn btn-outline-primary btn-block">Assinar</a>
+                        <form action="https://sandbox.pagseguro.uol.com.br/pre-approvals/request.html" method="post">
+                            <input type="hidden" name="code" value="B10F4E023B3BF758844C2FB53BB27497" />
+                            <input type="hidden" name="iot" value="button" />
+                            <button href="<?=url_pesquisa("pagseguro")?>" class="btn btn-outline-primary btn-block">Assinar</button>
+                        </form>
                     </div>
-                    <p class="mt-3 mb-0 plan-cost text-gray">após 30 dias será cobrado R$ 67,00 ao mês</p>
+                    <p class="mt-3 mb-0 plan-cost text-gray">após 30 dias será cobrado R$ 67,00 ao mês <br>(10% de
+                        desconto no plano anual)</p>
                 </div>
             </div>
             <div class="col-md-4 grid-margin stretch-card pricing-card">
@@ -47,7 +52,7 @@ session_start();
                         <li><i class="fas fa-users"></i> Até 15 pacientes</li>
                     </ul>
                     <div class="wrapper">
-                        <a class="btn btn-outline-primary btn-block disabled" >EM BREVE</a>
+                        <a class="btn btn-outline-primary btn-block disabled">EM BREVE</a>
                     </div>
                 </div>
             </div>
@@ -65,7 +70,7 @@ session_start();
                         <li><i class="fas fa-users-slash"></i> Pacientes ilimitados</li>
                     </ul>
                     <div class="wrapper">
-                        <a class="btn btn-outline-primary btn-block disabled" >EM BREVE</a>
+                        <a class="btn btn-outline-primary btn-block disabled">EM BREVE</a>
                     </div>
                 </div>
             </div>

@@ -7,7 +7,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Star Admin Premium Bootstrap Admin Dashboard Template</title>
+    <title>DialogPsi - Crie sua conta</title>
 
     <!-- endinject -->
     <!-- Plugin css for this page -->
@@ -47,8 +47,8 @@
                 <div class="col-12 col-md-8 h-100 card">
                     <div class="auto-form-wrapper d-flex align-items-center justify-content-center flex-column">
                         <div class="nav-get-started">
-                            <p>Already have an account?</p>
-                            <a class="btn get-started-btn" href="<?=url_pesquisa("login")?>">SIGN IN</a>
+                            <p>Já tem uma conta?</p>
+                            <a class="btn get-started-btn" href="<?=url_pesquisa("login")?>">Entre</a>
                         </div>
                         <form id="FrmCadastroUsuario" method="post" action="<?=url_pesquisa("setCadastro")?>">
                             <h3 class="mr-auto">Cadastrar</h3>
@@ -180,21 +180,13 @@
                                         </div>
                                     </div>
                                     <div class="float-right">
-                                        <button type="submit" class="btn btn-primary">Enviar
+                                        <button type="submit" class="btn btn-primary">Cadastrar
                                         </button>
                                     </div>
                                 </div>
                             </div>
                             <div class="wrapper mt-5 text-gray">
-                                <p class="footer-text">Copyright © 2018 Bootstrapdash. All rights reserved.</p>
-                                <ul class="auth-footer text-gray">
-                                    <li>
-                                        <a href="#">Terms & Conditions</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Cookie Policy</a>
-                                    </li>
-                                </ul>
+                                <p class="footer-text">Copyright © 2021 DialogPsi. Todos os direitos reservados.</p>
                             </div>
                         </form>
                     </div>

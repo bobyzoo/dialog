@@ -3,8 +3,11 @@
 namespace Source\Controllers;
 
 
+use CWG\PagSeguro\PagSeguroAssinaturas;
 use League\Plates\Engine;
+use Source\Models\LogDAO;
 use Source\Models\PacienteDAO;
+use Source\Models\PayPalDAO;
 use Source\Models\UsuarioDAO;
 
 class Web
@@ -41,15 +44,36 @@ class Web
         ]);
     }
 
-
     public function planos($data): void
     {
         echo $this->view->render("planos", [
             "title" => "planos",
-//            "pacientes" => PacienteDAO::getAll()
         ]);
     }
 
+    public function teste($data): void
+    {
+        echo $this->view->render("teste", [
+            "title" => "teste",
+        ]);
+    }
+
+    public function log($data): void
+    {
+        $email = "gabrieldossantosvargas@gmail.com";
+        $token = "9E1F2091C37B4C789CBBCF321C078B97";
+        $sandbox = true;
+
+        $pagseguro = new PagSeguroAssinaturas($email, $token, $sandbox);
+//        if ($_POST['notificationType'] == 'preApproval') {
+            $codigo = $_POST['notificationCode']; //Recebe o código da notificação e busca as informações de como está a assinatura
+            $response = $pagseguro->consultarNotificacao($codigo);
+            $logDAO = new LogDAO();
+            $logDAO->content = json_encode($response);
+            $logDAO->save();
+            die;
+//        }
+    }
 
     public function error($data)
     {

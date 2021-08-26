@@ -24,7 +24,10 @@
     "phpmailer/phpmailer": "6.0.*",
     "coffeecode/datalayer": "1.1.8",
     "coffeecode/router": "1.*",
-    "league/plates": "v4.0.0-alpha"
+    "league/plates": "v4.0.0-alpha",
+    "carloswgama/php-pagseguro": "3.*",
+    "ext-curl": "*",
+    "ext-simplexml": "*"
   }
 }
 

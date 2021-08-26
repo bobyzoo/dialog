@@ -2,6 +2,25 @@
 
 define("ROOT", getenv("ROOT"));
 define("URL_BASE", getenv("URL_BASE"));
+define("URL_NOTIFICACAO", "http://localhost/Site/dialog/log");
+
+const MODE = "sandbox";
+
+define("MOEDA_PAGAMENTO", "BRL");
+if (MODE == "sandbox"){
+    define('EMAIL_PAGSEGURO', 'gabrieldossantosvargas@gmail.com');
+    define('TOKEN_PAGSEGURO', '9E1F2091C37B4C789CBBCF321C078B97');
+    define('URL_PAGSEGURO', 'https://sandbox.pagseguro.uol.com.br');
+    define('URL_WS_PAGSEGURO', 'https://ws.sandbox.pagseguro.uol.com.br');
+    define('URL_STC_PAGSEGURO', 'https://ws.sandbox.pagseguro.uol.com.br');
+}else{
+    define('EMAIL_PAGSEGURO', 'gabrieldossantosvargas@gmail.com');
+    define('TOKEN_PAGSEGURO', '9E1F2091C37B4C789CBBCF321C078B97');
+    define('URL_PAGSEGURO', 'https://pagseguro.uol.com.br');
+    define('URL_WS_PAGSEGURO', 'https://ws.pagseguro.uol.com.br');
+    define('URL_STC_PAGSEGURO', 'https://stc.pagseguro.uol.com.br');
+}
+
 const SITE = "Dialog";
 
 
@@ -51,3 +70,4 @@ function url_pesquisa(string $uri = null): string
 function message(string  $message, string $type):string{
     return "<div class='message {$type}'>{$message}</div>";
 }
+
