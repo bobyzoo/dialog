@@ -13,12 +13,11 @@ $router->get("/login", "Web:login", "web.login");
 $router->get("/teste", "Web:teste", "web.teste");
 $router->post("/pagamento", "PaymentController:payment", "PaymentController.payment");
 $router->post("/log", "Web:log", "web.log");
-$router->post("/paypalInvoice", "PayPalController:invoice", "PayPalController.invoice");
-$router->post("/paypalPayment", "PayPalController:payment", "PayPalController.payment");
+$router->post("/checkout", "PaymentController:checkout", "PaymentController.checkout");
 $router->get("/cadastrar/{codigo_ativacao}", "Web:cadastrar", "web.cadastrar");
-$router->post("/getLogin", "Usuario:getLogin", "usuario.getLogin");
-$router->get("/logout", "Usuario:logout", "usuario.logout");
-$router->post("/setCadastro", "Usuario:setCadastro", "usuario.setCadastro");
+$router->post("/getLogin", "LoginController:getLogin", "usuario.getLogin");
+$router->get("/logout", "LoginController:logout", "LoginController.logout");
+$router->post("/setCadastroPaciente", "Usuario:setCadastroPaciente", "usuario.setCadastroPaciente");
 
 
 $router->get("/planos", "Web:planos", "web.planos");

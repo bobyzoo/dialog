@@ -20,4 +20,10 @@ class UsuarioDAO extends DataLayer
     {
         parent::__construct("usuario", ["usu_password","usu_login","usu_email","usu_nome","usu_data_nascimento","usuario_tipo_id"], "usuario_id",false);
     }
+    public function verificaUsuLoginExist($login){
+        return self::find("usu_login = :login", "login={$login}")->fetch(true) != null;
+    }
+    public function verificaUsuEmailExist($email){
+        return self::find("usu_email = :usu_email", "usu_email={$email}")->fetch(true) != null;
+    }
 }

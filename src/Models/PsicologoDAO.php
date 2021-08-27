@@ -16,4 +16,8 @@ class PsicologoDAO  extends DataLayer
     public function geraCodigo(){
         return random_int(1000,9999);
     }
+
+    public function verificaPsiCodigoExist($code){
+        return self::find("psi_codigo_ativacao = :psi_codigo_ativacao", "psi_codigo_ativacao={$code}")->fetch(true) != null;
+    }
 }

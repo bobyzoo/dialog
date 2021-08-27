@@ -288,11 +288,13 @@ class PagSeguroAssinaturas extends PagSeguroBase {
 
 		$response = $this->post($this->getURLAPI('pre-approvals/'), $dados);
 
-		if ($response['http_code'] == 200) {
-			return $response['body']['code'];
-		} else {
-			throw new \Exception(current($response['body']['errors']), key($response['body']['errors']));
-		}
+        return 200;
+//		if ($response['http_code'] == 200) {
+//			return $response['body']['code'];
+//		} else {
+//		    print_r($response);
+//			throw new \Exception(current($response['body']['errors']), key($response['body']['errors']));
+//		}
 	}
 
 	/**

@@ -6,20 +6,13 @@ define("URL_NOTIFICACAO", "http://localhost/Site/dialog/log");
 
 const MODE = "sandbox";
 
-define("MOEDA_PAGAMENTO", "BRL");
-if (MODE == "sandbox"){
-    define('EMAIL_PAGSEGURO', 'gabrieldossantosvargas@gmail.com');
-    define('TOKEN_PAGSEGURO', '9E1F2091C37B4C789CBBCF321C078B97');
-    define('URL_PAGSEGURO', 'https://sandbox.pagseguro.uol.com.br');
-    define('URL_WS_PAGSEGURO', 'https://ws.sandbox.pagseguro.uol.com.br');
-    define('URL_STC_PAGSEGURO', 'https://ws.sandbox.pagseguro.uol.com.br');
-}else{
-    define('EMAIL_PAGSEGURO', 'gabrieldossantosvargas@gmail.com');
-    define('TOKEN_PAGSEGURO', '9E1F2091C37B4C789CBBCF321C078B97');
-    define('URL_PAGSEGURO', 'https://pagseguro.uol.com.br');
-    define('URL_WS_PAGSEGURO', 'https://ws.pagseguro.uol.com.br');
-    define('URL_STC_PAGSEGURO', 'https://stc.pagseguro.uol.com.br');
-}
+define('EMAIL_PAGSEGURO', 'gabrieldossantosvargas@gmail.com');
+define('TOKEN_PAGSEGURO', '9E1F2091C37B4C789CBBCF321C078B97');
+define('CODIGO_PACOTE_PASICO_ASSINATURA_PAGSEGURO', '4C355A393232FA2CC4690FB31EE85769');
+define('ENVIRONMENT_SANDBOX_PAGEGURO', true);
+define('URL_PAGSEGURO', 'https://sandbox.pagseguro.uol.com.br');
+define('URL_WS_PAGSEGURO', 'https://ws.sandbox.pagseguro.uol.com.br');
+define('URL_STC_PAGSEGURO', 'https://ws.sandbox.pagseguro.uol.com.br');
 
 const SITE = "Dialog";
 
@@ -54,7 +47,7 @@ define("DATA_LAYER_CONFIG", [
 
 function url(string $uri = null): string
 {
-    if ($uri){
+    if ($uri) {
         return ROOT . "/{$uri}";
     }
     return ROOT;
@@ -62,12 +55,14 @@ function url(string $uri = null): string
 
 function url_pesquisa(string $uri = null): string
 {
-    if ($uri){
+    if ($uri) {
         return URL_BASE . "/{$uri}";
     }
     return URL_BASE;
 }
-function message(string  $message, string $type):string{
+
+function message(string $message, string $type): string
+{
     return "<div class='message {$type}'>{$message}</div>";
 }
 

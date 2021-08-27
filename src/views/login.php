@@ -20,6 +20,8 @@ if (!empty($_SESSION["login"])) {
     <link rel="stylesheet" href="<?= url("assets/vendors/ti-icons/css/themify-icons.css") ?>">
     <link rel="stylesheet" href="<?= url("assets/vendors/typicons/typicons.css") ?>">
     <link rel="stylesheet" href="<?= url("assets/vendors/css/vendor.bundle.base.css") ?>">
+
+    <link rel="stylesheet"href="<?= url("assets/vendors/jquery-toast-plugin/jquery.toast.min.css") ?>">
     <link rel="stylesheet" href="<?= url("assets/css/shared/style.css") ?>">
     <link rel="shortcut icon" href="<?= url("assets/images/favicon.png") ?>"/>
 </head>
@@ -94,6 +96,7 @@ if (!empty($_SESSION["login"])) {
 <script src="<?= url("assets/js/shared/misc.js") ?>"></script>
 <script src="<?= url("assets/js/shared/settings.js") ?>"></script>
 <script src="<?= url("assets/js/shared/todolist.js") ?>"></script>
+<script src="<?= url("assets/vendors/jquery-toast-plugin/jquery.toast.min.js") ?>"></script>
 <script src="<?= url("assets/js/Utils.js") ?>"></script>
 
 <script>
@@ -103,17 +106,17 @@ if (!empty($_SESSION["login"])) {
             url: "getLogin",
             data: $('#FrmLogin').serialize(),
             success: function (data) {
-                if (data == "1") {
-                    showToast("Sucesso!", "Login efetuado com sucesso.")
-                    window.location.href = "<?=url_pesquisa("")?>"
+                if (data.split(';')[0] == "1") {
+                    showSuccessToast(data.split(';')[1],1000)
+                    setTimeout(function () {
+                        window.location.href = "<?=url_pesquisa("")?>"
+                    }, 1000);
                 } else {
-                    showToast("Error !", "Usuario ou senha incorretos", "bg-danger")
+                    showDangerToast(data.split(';')[1],6000)
                 }
-                document.getElementById("FrmLogin").reset();
-                console.log(data)
             },
-            error: function () {
-                alert('Error');
+            error: function (data) {
+                console.log(data)
             }
         });
     }

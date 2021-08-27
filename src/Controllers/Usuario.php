@@ -8,14 +8,17 @@ use League\Plates\Engine;
 use Source\Models\PacienteDAO;
 use Source\Models\PsicologoDAO;
 use Source\Models\UsuarioDAO;
+use Source\Controllers\Utils;
 
 class Usuario
 {
+
     public function __construct($router)
     {
         $this->view = Engine::create(dirname(__DIR__, 1) . "/views", "php");
         $this->view->addData(["router" => $router]);
     }
+
 
     public function setCadastro($data): void
     {
@@ -73,50 +76,63 @@ class Usuario
         }
     }
 
+    public function setCadastroPaciente($data): void
+    {
+        $functions_utils = new Utils();
+        $usuario = new UsuarioDAO();
+        $psicologo = new PsicologoDAO();
+
+        if (!$psicologo->verificaPsiCodigoExist($_POST['psi_codigo_ativacao'])) {
+            echo "0;Código de ativação inválido!";
+            die();
+        }
+        if ($usuario->verificaUsuLoginExist($_POST['usu_login'])) {
+            echo "0;Login já existe";
+            die();
+        }
+        if ($usuario->verificaUsuEmailExist($_POST['usu_email'])) {
+            echo "0;Email já cadastrado";
+            die();
+        }
+        foreach ($_POST as $key => $value) {
+            if (substr($key, 0, 4) == "usu_") {
+                $usuario->$key = $value;
+                if ($key == "usu_password") {
+                    $usuario->usu_password = hash("ripemd160", $value);
+                }
+                if ($value == "") {
+                    $usuario->$key = null;
+                }
+            }
+        }
+        $usuario->usuario_tipo_id = 2;
+        $usuario->usu_data_nascimento = $functions_utils->format_date_to_sql($usuario->usu_data_nascimento);
+        $usuario->save();
+
+        $usu = $usuario->find("usu_login = :login", "login={$usuario->usu_login}")->fetch(true);
+        $usuId = $usu[0]->data()->usuario_id;
+        $psicologo = new PsicologoDAO();
+        $psicologo = $psicologo->find("psi_codigo_ativacao = :psi_codigo_ativacao", "psi_codigo_ativacao={$_POST['psi_codigo_ativacao']}")->fetch(true);
+        $paciente = new PacienteDAO();
+        $paciente->usuario_id = $usuId;
+        $paciente->psicologo_id = $psicologo[0]->data()->psicologo_id;
+        $paciente->pac_nome_contato_emergencia = $_POST['pac_nome_contato_emergencia'];
+        $paciente->pac_telefone_contato_emergencia = $_POST['pac_telefone_contato_emergencia'];
+        $paciente->save();
+
+
+        if ($usuario->fail()) {
+            echo "0;".$usuario->fail()->getMessage();
+        } else {
+            echo "1; Cadastrado com sucesso.";
+        }
+    }
+
     function error($data)
     {
         echo "<h1>{$data['errcode']}</h1>";
         var_dump($data);
     }
 
-    public function getLogin($data): void
-    {
-
-        session_start();
-
-        $usuario = new UsuarioDAO();
-        $psicologo = new PsicologoDAO();
-        $paciente = new PacienteDAO();
-        $senha = hash("ripemd160", $_POST['usu_password']);
-        $usuario = $usuario->find("usu_password = :usu_password AND usu_login = :usu_login", "usu_password={$senha}&usu_login={$_POST['usu_login']}")->fetch(true);
-
-        if ($usuario !== null) {
-            $_SESSION['login'] = $usuario[0]->data()->usu_nome;
-            $_SESSION['usu_tipo'] = $usuario[0]->data()->usuario_tipo_id;
-            $_SESSION['usuario'] = $usuario[0]->data();
-
-            if ($usuario[0]->data()->usuario_tipo_id == 3) {
-                $psicologo = $psicologo->find("usuario_id = :usuario_id", "usuario_id={$usuario[0]->data()->usuario_id}")->fetch(true);
-                foreach ($psicologo[0]->data() as $key => $value) {
-                    $_SESSION['usuario']->$key = $value;
-                }
-            } else {
-                $paciente = $paciente->find("usuario_id = :usuario_id", "usuario_id={$usuario[0]->data()->usuario_id}")->fetch(true);
-                foreach ($paciente[0]->data() as $key => $value) {
-                    $_SESSION['usuario']->$key = $value;
-                }
-            }
-            echo "1";
-        } else {
-            echo "0";
-        }
-    }
-
-    public function logout($data): void
-    {
-        session_start();
-        unset($_SESSION['login']);
-        header("Location: " . url_pesquisa(""));
-    }
 
 }

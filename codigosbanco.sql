@@ -189,3 +189,6 @@ INSERT INTO questionario (que_nome,que_codigo) VALUES ('Monitoramento de humor',
 INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (3, 'Qual seu humor?', 'select', 'selectHumor', DEFAULT, true);
 INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (3, 'Qual seu sentimento?', 'select', 'selectSentimentos', DEFAULT, true);
 INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, placeholder, per_required) VALUES (3, 'Descreva o que estais sentindo ', 'text', 'txtOqueEstaSentindo', 'Comente sobre o que estais sentindo', true);
+
+
+ALTER TABLE `usuario` CHANGE `usu_ativo` `usu_ativo` TINYINT(1) NOT NULL DEFAULT '0';
