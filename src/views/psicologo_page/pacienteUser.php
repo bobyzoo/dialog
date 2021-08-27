@@ -2,7 +2,6 @@
     "title" => "Pacientes"
 ]);
 ?>
-
 <div class="container">
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
@@ -15,7 +14,7 @@
             </div>
             <div class="card-header">
                 <h5 class="mb-0">
-                    <div class="text-capitalize" "> <?= $paciente->usu_nome ?> </div>
+                    <div class="text-capitalize"> <?= $paciente->usu_nome ?> </div>
                 </h5>
             </div>
             <div class="card-body">

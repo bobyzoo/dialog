@@ -50,4 +50,11 @@ class PacienteDAO extends DataLayer
         }
         return $pacienteObj;
     }
+
+    public static function getPacienteByUsuarioId($usuario_id):Object
+    {
+        $pacienteDao = new PacienteDAO();
+        $pacienteDao = $pacienteDao->find("usuario_id = :usuario_id", "usuario_id={$usuario_id}")->fetch(true)[0];
+        return $pacienteDao;
+    }
 }

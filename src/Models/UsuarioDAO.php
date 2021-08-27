@@ -26,4 +26,24 @@ class UsuarioDAO extends DataLayer
     public function verificaUsuEmailExist($email){
         return self::find("usu_email = :usu_email", "usu_email={$email}")->fetch(true) != null;
     }
+    public function inativaUsuario($usuario_id){
+        $usuDAO = new UsuarioDAO();
+        $usuario = $usuDAO->findById($usuario_id);
+        $usuario->usu_ativo = 0;
+        $usuario->save();
+    }
+    public function ativaUsuario($usuario_id){
+        $usuDAO = new UsuarioDAO();
+        $usuario = $usuDAO->findById($usuario_id);
+        print_r($usuario);
+        $usuario->data()->usu_ativo = "1";
+        $usuario->save();
+    }
+    public function deletaUsuarioPaciente($usuario_id){
+        $usuDAO = new UsuarioDAO();
+        $pacienteDAO = PacienteDAO::getPacienteByUsuarioId($usuario_id);
+        $pacienteDAO->destroy();
+        $usuDAO = $usuDAO->findById($usuario_id);
+        $usuDAO->destroy();
+    }
 }

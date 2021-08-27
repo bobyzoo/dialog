@@ -15,18 +15,8 @@
                 </div>
             </div>
             <div class="card-body">
-                <div class="row text-center mb-5">
-                    <a class="col-4 rounded-0 btn btn-primary">Ativos</a>
-                    <a class="col-4 rounded-0 btn btn-info-blue">Todos</a>
-                    <a class="col-4 rounded-0 btn btn-primary">Inativos</a>
+                <div class="list-group col-12 " id="listPacientes">
                 </div>
-                <div class="">
-
-                    <div class="list-group col-12" id="listPacientes">
-
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
@@ -46,6 +36,48 @@
             success: function (data) {
                 $("#" + idTabela).html(data);
                 hideDiv("loadingTblPacientes");
+            },
+            error: function () {
+                alert('Error');
+            }
+        });
+    }
+    function inativaUsuario(id) {
+        showDiv("loadingTblPacientes");
+        $.ajax({
+            type: "GET",
+            url:"<?=url_pesquisa("psicologo/paciente/")?>"+id+"/inativa",
+            success: function (data) {
+                console.log(data)
+                getPaciente()
+            },
+            error: function () {
+                alert('Error');
+            }
+        });
+    }
+    function ativaUsuario(id) {
+        showDiv("loadingTblPacientes");
+        $.ajax({
+            type: "GET",
+            url:"<?=url_pesquisa("psicologo/paciente/")?>"+id+"/ativa",
+            success: function (data) {
+                console.log(data)
+                getPaciente()
+            },
+            error: function () {
+                alert('Error');
+            }
+        });
+    }
+    function deletaUsuario(id) {
+        showDiv("loadingTblPacientes");
+        $.ajax({
+            type: "GET",
+            url:"<?=url_pesquisa("psicologo/paciente/")?>"+id+"/deleta",
+            success: function (data) {
+                console.log(data)
+                getPaciente()
             },
             error: function () {
                 alert('Error');

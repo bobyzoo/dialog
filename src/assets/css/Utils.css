@@ -49,9 +49,22 @@ a.div-btn{
     font-size: 16px;
     font-weight: 500;
     background: white;
+}.div-btn-default{
+    background-color: rgba(0, 0, 0, 0);
 }
 .div-btn:hover{
     background: linear-gradient(46deg, #0fadd0, #03bea5);
+    color: white;
+}
+a.div-btn-default{
+    color: #c4c4c4;
+    font-size: 16px;
+    font-weight: 500;
+    background: white;
+}
+
+.div-btn-default:hover{
+    background: #606060;
     color: white;
 }
 

@@ -3,15 +3,6 @@
 ]);
 
 ?>
-    <style>
-        .div-btn{
-            max-width: 120px;
-        }
-        .div-btn:hover {
-            background-color: #606060 !important;
-            transition: 0.5s;
-        }
-    </style>
     <div class="row">
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">

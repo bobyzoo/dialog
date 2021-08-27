@@ -128,6 +128,20 @@ class Usuario
         }
     }
 
+    public function inativaUsuario($data){
+        $usuarioDAO = new UsuarioDAO();
+        $usuarioDAO->inativaUsuario($data['id_user']);
+    }
+    public function ativaUsuario($data){
+        $usuarioDAO = new UsuarioDAO();
+        $usuarioDAO->ativaUsuario($data['id_user']);
+    }
+    public function deletaUsuarioPaciente($data){
+        $usuarioDAO = new UsuarioDAO();
+        $usuarioDAO->deletaUsuarioPaciente($data['id_user']);
+    }
+
+
     function error($data)
     {
         echo "<h1>{$data['errcode']}</h1>";
