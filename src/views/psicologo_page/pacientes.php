@@ -62,7 +62,6 @@
             type: "GET",
             url:"<?=url_pesquisa("psicologo/paciente/")?>"+id+"/ativa",
             success: function (data) {
-                console.log(data)
                 getPaciente()
             },
             error: function () {
@@ -76,13 +75,23 @@
             type: "GET",
             url:"<?=url_pesquisa("psicologo/paciente/")?>"+id+"/deleta",
             success: function (data) {
-                console.log(data)
+                showSuccessToast("Apagado com sucesso.")
+                hideModal("confirmaModal")
                 getPaciente()
             },
             error: function () {
                 alert('Error');
             }
         });
+
+    }
+    function openModalAlert(id){
+        showModalAlert("ATENÇÃO!","Você tem certeza que gostaria de excluir permanentemente a conta do paciente?")
+        $('#confirmedModal').val(id)
+    }
+
+    function clickBtnConfirmedAlert(){
+        deletaUsuario($("#confirmedModal").val())
     }
     getPaciente()
 </script>

@@ -34,7 +34,7 @@ class Pacientes
 
 
             echo "<div class='row'><a class='py-3 border col-10 div-btn text-decoration-none' href='" . URL_BASE . "/psicologo/paciente/" . $paciente->paciente_id . "'><div class='row'><div class=' col-1 avatar-icon'><i class='fas fa-user mr-2 avatar avatar-32'></i></div>" . $badge . " <div class='col-5 text-capitalize'>" . $paciente->usu_nome . "</div></div></a>".$ativaInativa."
-<a class='py-3 border col-1 div-btn-default text-decoration-none' href='#' onclick='deletaUsuario(".$paciente->usuario_id.")'><div class='row'><div class=' col-1 avatar-icon'><i class='fas fa-trash mr-2 avatar avatar-32'></i></div></div></a>
+<a class='py-3 border col-1 div-btn-default text-decoration-none' href='#' data-toggle='modal' data-target='#confirmaModal' onclick='openModalAlert(".$paciente->usuario_id.")' ><div class='row'><div class=' col-1 avatar-icon'><i class='fas fa-trash mr-2 avatar avatar-32'></i></div></div></a>
 </div>";
         }
     }

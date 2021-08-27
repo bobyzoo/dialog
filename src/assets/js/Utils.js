@@ -85,3 +85,8 @@ function showModal(id) {
 function hideModal(id) {
     $('#' + id).modal('hide');
 }
+
+function showModalAlert(header="",body=""){
+    $('#confirmaModalLabel').html(header);
+    $('#confirmaModalBody').html(body);
+}

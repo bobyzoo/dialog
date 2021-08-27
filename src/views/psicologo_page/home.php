@@ -38,6 +38,7 @@
             </div>
         </div>
     </div>
+
 <?php $v->start("js") ?>
 
     <script src="<?= url("assets/js/Utils.js") ?>"></script>

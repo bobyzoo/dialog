@@ -64,6 +64,9 @@ if (empty($_SESSION["login"])) {
     <link rel="stylesheet" href="<?= url("assets/vendors/jquery-file-upload/uploadfile.css") ?>">
     <link rel="stylesheet" href="<?= url("assets/vendors/jquery-tags-input/jquery.tagsinput.min.css") ?>">
     <link rel="stylesheet" href="<?= url("assets/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css") ?>">
+
+
+    <link rel="stylesheet"href="<?= url("assets/vendors/jquery-toast-plugin/jquery.toast.min.css") ?>">
     <!--    <link rel="stylesheet" href="--><? //= url("assets/vendors/dropify/dropify.min.css") ?><!--"/>-->
     <!-- Plugin css for this page -->
     <!--    <link rel="stylesheet" href="--><? //= url("assets/vendors/jvectormap/jquery-jvectormap.css") ?><!--">-->
@@ -91,6 +94,27 @@ if (empty($_SESSION["login"])) {
     <div class="toast-body">
     </div>
 </div>
+
+<div class="modal fade" id="confirmaModal" tabindex="-1" role="dialog" aria-labelledby="confirmaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmaModalLabel">ATENÇÃO</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="confirmaModalBody">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">NÃO</button>
+                <button type="button" class="btn btn-danger" id="confirmedModal" value="" onclick="clickBtnConfirmedAlert()">SIM</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="container-scroller">
     <div class="container-fluid page-body-wrapper">
         <div class="main-panel">
@@ -164,7 +188,7 @@ if (empty($_SESSION["login"])) {
 <script src="<?= url("assets/js/demo_9/script.js") ?>"></script>
 <!-- End custom js for this page -->
 
-
+<script src="<?= url("assets/vendors/jquery-toast-plugin/jquery.toast.min.js") ?>"></script>
 <script src="<?= url("assets/js/shared/formpickers.js") ?>"></script>
 <script src="<?= url("assets/js/shared/form-addons.js") ?>"></script>
 <script src="<?= url("assets/js/shared/x-editable.js") ?>"></script>

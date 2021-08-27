@@ -35,7 +35,6 @@ class UsuarioDAO extends DataLayer
     public function ativaUsuario($usuario_id){
         $usuDAO = new UsuarioDAO();
         $usuario = $usuDAO->findById($usuario_id);
-        print_r($usuario);
         $usuario->data()->usu_ativo = "1";
         $usuario->save();
     }
@@ -45,5 +44,6 @@ class UsuarioDAO extends DataLayer
         $pacienteDAO->destroy();
         $usuDAO = $usuDAO->findById($usuario_id);
         $usuDAO->destroy();
+        echo "1;";
     }
 }
