@@ -26,7 +26,7 @@ class CreateFormController
          aria-labelledby="modalRemoteLabel" style="display: none;" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content" id="modal-content">
-                <div class="loader-demo-box position-absolute loading hide" id="loading' . $idForm . '">
+                <div class="loader-demo-box position-absolute loading hide" id="loading1">
                    <div class="dot-opacity-loader" style="top: 25%">
                         <span></span>
                         <span></span>

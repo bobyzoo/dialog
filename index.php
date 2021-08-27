@@ -12,7 +12,7 @@ $router->get("/", "Web:home", "web.home");
 $router->get("/login", "Web:login", "web.login");
 $router->get("/teste", "Web:teste", "web.teste");
 $router->post("/pagamento", "PaymentController:payment", "PaymentController.payment");
-$router->get("/log", "Web:log", "web.log");
+$router->post("/log", "Web:log", "web.log");
 $router->post("/paypalInvoice", "PayPalController:invoice", "PayPalController.invoice");
 $router->post("/paypalPayment", "PayPalController:payment", "PayPalController.payment");
 $router->get("/cadastrar/{codigo_ativacao}", "Web:cadastrar", "web.cadastrar");

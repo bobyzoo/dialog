@@ -198,7 +198,7 @@ if ($('canvas').length) {
       }
     }
 
-    appendBanner();
+    // appendBanner();
 
 
     //Change sidebar and content-wrapper height

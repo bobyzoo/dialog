@@ -22,7 +22,7 @@ session_start();
                         <li><i class="fas fa-users"></i> Até 5 pacientes</li>
                     </ul>
                     <div class="wrapper">
-                        <form action="https://sandbox.pagseguro.uol.com.br/pre-approvals/request.html" method="post">
+                        <form action="https://pagseguro.uol.com.br/pre-approvals/request.html" method="post">
                             <input type="hidden" name="code" value="B10F4E023B3BF758844C2FB53BB27497" />
                             <input type="hidden" name="iot" value="button" />
                             <button href="<?=url_pesquisa("pagseguro")?>" class="btn btn-outline-primary btn-block">Assinar</button>
