@@ -19,6 +19,9 @@ body{
     color: #FFF;
 }
 
+ .dataTables_filter {
+     display: none;
+ }
 .loading{
     z-index: 2;
     background-image: linear-gradient(

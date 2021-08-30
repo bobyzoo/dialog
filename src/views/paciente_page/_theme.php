@@ -97,21 +97,24 @@ if (empty($_SESSION["login"])) {
     <div class="container-fluid page-body-wrapper">
         <div class="main-panel">
             <div class="hero-banner">
-                <!-- partial:partials/_navbar.html -->
                 <?php require __DIR__ . "/partials/_navbar.phtml" ?>
-                <!-- partial -->
-                <!-- partial:partials/_settings-panel.html -->
-                <!--                --><?php //require __DIR__ . "/partials/_settings-panel.html"?>
-
-                <!-- partial -->
             </div>
             <div class="content-wrapper container-wrapper-width">
                 <!-- partial:partials/_sidebar.html -->
                 <?php require __DIR__ . "/partials/_sidebar.phtml" ?>
                 <!-- partial -->
                 <div class="content-area">
+                    <div class="page-header">
+                        <div class="info-section">
+                        </div>
+                        <div class="page-header-content">
+                        </div>
+                    </div>
                     <div class="content-area-inner">
-                        <?= $v->section("content"); ?>
+                        <div id="modal"></div>
+                        <div class="row">
+                            <?= $v->section("content"); ?>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -171,6 +174,11 @@ if (empty($_SESSION["login"])) {
 <script src="<?= url("assets/js/demo_9/script.js") ?>"></script>
 <!-- End custom js for this page -->
 
+<script src="<?= url("assets/vendors/jquery-bar-rating/jquery.barrating.min.js") ?>"></script>
+<script src="<?= url("assets/js/Utils.js") ?>"></script>
+<script src="<?= url("assets/vendors/datatables.net/jquery.dataTables.js") ?>"></script>
+<script src="<?= url("assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js") ?>"></script>
+<script src="<?= url("assets/js/ConfigDataTables.js") ?>"></script>
 <?= $v->section("js"); ?>
 </body>
 </html>

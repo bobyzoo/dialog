@@ -13,8 +13,7 @@
 <link rel="stylesheet"
       href="<?= url("assets/vendors/datatables.net-fixedcolumns-bs4/fixedColumns.bootstrap4.min.css") ?>"/>
 
-<div class="container">
-    <div class="col-lg-12 grid-margin stretch-card">
+<div class="col-md-12 grid-margin">
         <div class="card">
             <div class="loader-demo-box position-absolute hide loading" id="loadingTblPacientes">
                <div class="dot-opacity-loader" style="top: 25%">
@@ -35,9 +34,6 @@
             </div>
         </div>
     </div>
-</div>
-
-<div id="modal"></div>
 
 <?php $v->start("js") ?>
 <script src="<?= url("assets/vendors/jquery-bar-rating/jquery.barrating.min.js") ?>"></script>
@@ -65,18 +61,7 @@
             data: "",
             success: function (data) {
                 $("#table-pda").html(data);
-                $('#order-listing').DataTable({
-                    "iDisplayLength": 5,
-                    "bLengthChange": false,
-                    "language": {
-                        search: "Procurar :"
-                    }
-                });
-                $('#order-listing').each(function () {
-                    var datatable = $(this);
-                    // search_input.attr('placeholder', 'Digite aqui');
-                    var s = datatable.closest('.dataTables_wrapper').find(".dataTables_filter").append('');
-                });
+                configureDataTable('#order-listing',null)
             }
         });
     }

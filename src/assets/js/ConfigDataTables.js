@@ -24,7 +24,6 @@
     ||  @return => DataTable
     |+-----------------------------------------------------------------------*/
     function configureDataTable(elementSelector, additionalConfig = null) {
-    var clearSelector = elementSelector.replace(/[^A-z0-9\-_]+/g, "");
     let defaultConfig = {
     "ordering": true,
     "pageLength": 5,
@@ -48,8 +47,6 @@
     "t" +
     "<'dt-toolbar-footer'<'col-sm- col-xs-12 hidden-xs'i><'col-sm-12 col-xs-12'p>>",
 };
-
-
     if (additionalConfig != null) {
     //Adiciona as configurações ao default
     Object.getOwnPropertyNames(additionalConfig).forEach(function (val, idx, array) {
