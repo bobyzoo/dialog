@@ -11,11 +11,12 @@ class CreateTableController
 {
     public function createTable($idTable, $questionario_id, $colunas, $datas = [], $botoes = [])
     {
-        echo ' <div class="table-responsive"><table id="order-listing" class="table"><thead><tr>';
+        echo '<div class=" table-responsive"><table id="order-listing" class="table table-striped table-bordered nowrap"><thead><tr>';
+
         foreach ($colunas as $col) {
-            echo "<th class='text-center '>" . $col . "</th>";
+            echo "<th class='text-center'>" . $col . "</th>";
         }
-        echo '</tr></thead><tbody>';
+                echo '</tr></thead><tbody>';
         foreach ($datas as $data) {
             echo "<tr>";
             foreach ($data->data() as $key => $value) {
@@ -41,13 +42,12 @@ class CreateTableController
             echo "</td>";
             echo "</tr>";
         }
-        echo '</tbody></table></div>';
+        echo '</tbody></table>';
     }
 
     public function createTableMonitoramentoHumor($idTable, $questionario_id, $colunas, $datas = [], $botoes = [])
     {
-        echo ' <div class="table-responsive">
-    <table id="order-listing" class="table"><thead><tr>';
+        echo '<div class=" table-responsive"><table id="order-listing" class="table table-striped table-bordered nowrap"><thead><tr>';
         foreach ($colunas as $col) {
             echo "<th class='text-center '>" . $col . "</th>";
         }
@@ -77,7 +77,7 @@ class CreateTableController
                     <i class='far fa-edit mr-0'></i></a>";
                 }
                 if ($tipo == "excluir") {
-                    echo "<a class='btn btn-sm btn-danger mx-1 p-2 text-center  text-decoration-none text-white'  onclick='deleteItem(" . $data->data()->aplicacao_questionario_id . ")'
+                    echo "<a class='btn btn-sm btn-danger mx-1 p-2 text-center  text-decoration-none text-white'  href='#' onclick='deleteItem(" . $data->data()->aplicacao_questionario_id . ")'
                      id='" . $data->data()->aplicacao_questionario_id . "'><i class='far fa-trash-alt mr-0'></i></a>";
                 }
                 if ($tipo == "view") {
@@ -88,7 +88,7 @@ class CreateTableController
             echo "</td>";
             echo "</tr>";
         }
-        echo '</tbody></table></div>';
+        echo '</tbody></table></div></div>';
     }
 
     public function returnClassEmojiByLevel($level)

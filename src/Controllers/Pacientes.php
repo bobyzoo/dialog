@@ -25,16 +25,16 @@ class Pacientes
             $usuario = new UsuarioDAO();
             $usuario = $usuario->findById($paciente->usuario_id)->data();
             if ($usuario->usu_ativo == '1') {
-                $badge = "<div class='badge badge-success badge-pill pt-2'>Ativo</div>";
-                $ativaInativa = "<a class='py-3 border col-1 div-btn-default text-decoration-none' href='#' onclick='inativaUsuario(".$paciente->usuario_id.")'><div class='row'><div class=' col-1 avatar-icon'><i class='fas fa-user-alt-slash mr-2 avatar avatar-32'></i></div></div></a>";
+                $badge = "<div class='badge col-3 col-sm-2 col-md-1  badge-success badge-pill pt-2'>Ativo</div>";
+                $ativaInativa = "<a class='py-4 border col-2 col-md-1 div-btn-default text-decoration-none text-center' href='#' onclick='inativaUsuario(".$paciente->usuario_id.")'><i class='fas fa-user-alt-slash'></i></a>";
             } else {
-                $badge = "<div class='badge badge-warning badge-pill pt-2'>Inativo</div>";
-                $ativaInativa = "<a class='py-3 border col-1 div-btn-default text-decoration-none' href='#' onclick='ativaUsuario(".$paciente->usuario_id.")'><div class='row'><div class=' col-1 avatar-icon'><i class='fas fa-user-check mr-2 avatar avatar-32'></i><span></span></div></div></a>";
+                $badge = "<div class=' col-3 col-sm-2 col-md-1  badge badge-warning badge-pill pt-2'>Inativo</div>";
+                $ativaInativa = "<a class='py-4 border col-2 col-md-1 div-btn-default text-decoration-none text-center' href='#' onclick='ativaUsuario(".$paciente->usuario_id.")'><i class='fas fa-user-check'></i></a>";
             }
 
 
-            echo "<div class='row'><a class='py-3 border col-10 div-btn text-decoration-none' href='" . URL_BASE . "/psicologo/paciente/" . $paciente->paciente_id . "'><div class='row'><div class=' col-1 avatar-icon'><i class='fas fa-user mr-2 avatar avatar-32'></i></div>" . $badge . " <div class='col-5 text-capitalize'>" . $paciente->usu_nome . "</div></div></a>".$ativaInativa."
-<a class='py-3 border col-1 div-btn-default text-decoration-none' href='#' data-toggle='modal' data-target='#confirmaModal' onclick='openModalAlert(".$paciente->usuario_id.")' ><div class='row'><div class=' col-1 avatar-icon'><i class='fas fa-trash mr-2 avatar avatar-32'></i></div></div></a>
+            echo "<div class='row'><a class='py-4 border col-8 col-md-10 div-btn text-decoration-none' href='" . URL_BASE . "/psicologo/paciente/" . $paciente->paciente_id . "'><div class='row'><div class=' col-3 col-sm-2 col-md-1 '><i class='fas fa-user  mr-2 avatar avatar-32'></i></div>" . $badge . " <div class='col-6 col-sm-8 col-md-10 text-capitalize'>" . $paciente->usu_nome . "</div></div></a>".$ativaInativa."
+<a class='py-4 border col-2 col-md-1  div-btn-default text-decoration-none text-center' href='#' data-toggle='modal' data-target='#confirmaModal' onclick='openModalAlert(".$paciente->usuario_id.")' ><i class='fas fa-trash'></i></a>
 </div>";
         }
     }

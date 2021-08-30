@@ -135,7 +135,7 @@ echo $js['completo'];
                     </div>
                     <div class="mb-3 col-sm-6">
                         <label for="usu_data_nascimento" class="form-label">Data de nascimento *</label>
-                        <div id="datepicker-popup" class="input-group date datepicker">
+                        <div id="datepicker-psi-popup" class="input-group date datepicker">
                             <input type="text" class="form-control" id="usu_data_nascimento" name="usu_data_nascimento"
                                    required>
                             <span class="input-group-addon input-group-append border-left">
@@ -228,7 +228,7 @@ echo $js['completo'];
 
 
                     <div class="col-md-3">
-                        <label for="pagseguro_cartao_cvv" class="form-label">Código de segurança (CSC)</label>
+                        <label for="pagseguro_cartao_cvv" class="form-label">Código de segurança</label>
                         <input type="text" class="form-control" id="pagseguro_cartao_cvv" name="pagseguro_cartao_cvv" placeholder="999"
                                maxlength="4">
                     </div>
@@ -285,7 +285,7 @@ echo $js['completo'];
             <div class="mb-3">
                 <label for="usu_data_nascimento" class="form-label">Data de nascimento*</label>
                 <div id="datepicker-popup" class="input-group date datepicker">
-                    <input type="text" class="form-control" id="usu_data_nascimento" name="usu_data_nascimento"
+                    <input type="text" class="form-control" id="usu_data_nascimento" name="usu_data_nascimento" placeholder="(99) 99999-99999"
                            required>
                     <span class="input-group-addon input-group-append border-left">
                             <span class="mdi mdi-calendar input-group-text"></span>
@@ -339,13 +339,21 @@ echo $js['completo'];
     $('#cc_expiration').mask('99/99');
     $('#pagseguro_cartao_cvv').mask('9999');
     $('#pagseguro_cartao_numero_format').mask('9999 9999 9999 9999');
+
     if ($("#datepicker-popup").length) {
         $('#datepicker-popup').datepicker({
             enableOnReadonly: true,
             todayHighlight: true,
         });
     }
+    if ($("#datepicker-psi-popup").length) {
+        $('#datepicker-psi-popup').datepicker({
+            enableOnReadonly: true,
+            todayHighlight: true,
+        });
+    }
 
+    $('#usu_data_nascimento').mask('99/99/9999');
 </script>
 <script src="<?= url("assets/js/shared/off-canvas.js") ?>"></script>
 <script src="<?= url("assets/js/shared/hoverable-collapse.js") ?>"></script>

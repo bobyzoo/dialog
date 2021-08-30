@@ -18,8 +18,7 @@
         display: none;
     }
 </style>
-<div class="container">
-    <div class="col-lg-12 grid-margin stretch-card">
+<div class="col-md-12 grid-margin">
         <div class="card">
             <div class="loader-demo-box position-absolute hide loading" id="loadingTblPacientes">
                <div class="dot-opacity-loader" style="top: 25%">
@@ -30,26 +29,16 @@
             </div>
             <div class="card-header">
                 <h5 class="mb-0">
-                    <div class="text-capitalize"> Plano de Ação
-                    </div>
+                    <div class="text-capitalize"> Plano de Ação</div>
                 </h5>
             </div>
             <div class="card-body">
                 <div class="btn btn-lg btn-primary" onclick="getFormSetPlanoDeAcao()">Criar novo plano de ação</div>
-                <div id="table-pda"></div>
+                <div id="table-pda" style="100%"></div>
             </div>
         </div>
-    </div>
 </div>
-
-<div id="modal"></div>
-
 <?php $v->start("js") ?>
-<script src="<?= url("assets/vendors/jquery-bar-rating/jquery.barrating.min.js") ?>"></script>
-<script src="<?= url("assets/js/Utils.js") ?>"></script>
-<script src="<?= url("assets/vendors/datatables.net/jquery.dataTables.js") ?>"></script>
-<script src="<?= url("assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js") ?>"></script>
-
 <script>
     function getFormSetPlanoDeAcao() {
         $.ajax({
@@ -71,18 +60,7 @@
             data: {botoes : ["editar", "excluir"]},
             success: function (data) {
                 $("#table-pda").html(data);
-                $('#order-listing').DataTable({
-                    "iDisplayLength": 5,
-                    "bLengthChange": false,
-                    "language": {
-                        search: "Procurar :"
-                    }
-                });
-                $('#order-listing').each(function () {
-                    var datatable = $(this);
-                    // search_input.attr('placeholder', 'Digite aqui');
-                    var s = datatable.closest('.dataTables_wrapper').find(".dataTables_filter").append('');
-                });
+                configureDataTable('#order-listing',null)
             }
         });
     }

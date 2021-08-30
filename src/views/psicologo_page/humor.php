@@ -45,11 +45,6 @@
 <div id="modal"></div>
 
 <?php $v->start("js") ?>
-<script src="<?= url("assets/vendors/jquery-bar-rating/jquery.barrating.min.js") ?>"></script>
-<script src="<?= url("assets/js/Utils.js") ?>"></script>
-<script src="<?= url("assets/vendors/datatables.net/jquery.dataTables.js") ?>"></script>
-<script src="<?= url("assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js") ?>"></script>
-
 <script>
     function getTable() {
         $.ajax({
@@ -57,14 +52,7 @@
             type: "GET",
             success: function (data) {
                 $("#table-rpd").html(data);
-                $('#order-listing').DataTable({
-                    "iDisplayLength": 5,
-                    "bLengthChange": false,
-                });
-                $('#order-listing').each(function () {
-                    var datatable = $(this);
-                    var s = datatable.closest('.dataTables_wrapper').find(".dataTables_filter").append('');
-                });
+                configureDataTable('#order-listing',null)
             }
         });
     }

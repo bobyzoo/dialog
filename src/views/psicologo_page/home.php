@@ -3,7 +3,6 @@
 ]);
 
 ?>
-    <div class="row">
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
@@ -28,7 +27,6 @@
                                                 data-toggle="modal" data-target="#modalRemote">Adicionar
                                             paciente
                                         </button>
-                                        <div id="modal"></div>
                                     </div>
                                 </div>
                             </div>
@@ -37,7 +35,6 @@
                 </div>
             </div>
         </div>
-    </div>
 
 <?php $v->start("js") ?>
 

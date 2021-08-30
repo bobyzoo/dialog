@@ -7,13 +7,16 @@ if (empty($_SESSION["login"])) {
 }
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Star Admin Premium Bootstrap Admin Dashboard Template</title>
+    <title>Dialog - <?= $title; ?></title>
+
     <!-- plugins:css -->
     <link rel="stylesheet" href="<?= url("assets/vendors/mdi/css/materialdesignicons.min.css") ?>"/>
     <link rel="stylesheet" href="<?= url("assets/vendors/flag-icon-css/css/flag-icon.min.css") ?>"/>
@@ -21,16 +24,23 @@ if (empty($_SESSION["login"])) {
     <link rel="stylesheet" href="<?= url("assets/vendors/typicons/typicons.css") ?>"/>
     <link rel="stylesheet" href="<?= url("assets/vendors/css/vendor.bundle.base.css") ?>"/>
     <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="<?= url("assets/vendors/jvectormap/jquery-jvectormap.css") ?>"/>
 
     <!-- Plugin css for this page -->
     <link rel="stylesheet" href="<?= url("assets/vendors/flag-icon-css/css/flag-icon.min.css") ?>"/>
     <!-- End Plugin css for this page -->
-
+    <!-- inject:css -->
     <link rel="stylesheet" href="<?= url("assets/css/shared/style.css") ?>">
     <!-- endinject -->
     <link rel="stylesheet" href="<?= url("assets/css/demo_9/style.css") ?>">
+
+    <link rel="stylesheet" href="<?= url("assets/vendors/summernote/dist/summernote-bs4.css") ?>">
+    <link rel="stylesheet" href="<?= url("assets/vendors/quill/quill.snow.css") ?>">
+    <link rel="stylesheet" href="<?= url("assets/vendors/simplemde/simplemde.min.css") ?>">
+
+
+    <link rel="stylesheet" href="<?= url("assets/css/printthis/normalize.css") ?>">
+    <link rel="stylesheet" href="<?= url("assets/css/printthis/skeleton.css") ?>">
+
 
 
 
@@ -57,6 +67,12 @@ if (empty($_SESSION["login"])) {
 
 
     <link rel="stylesheet"href="<?= url("assets/vendors/jquery-toast-plugin/jquery.toast.min.css") ?>">
+    <!--    <link rel="stylesheet" href="--><? //= url("assets/vendors/dropify/dropify.min.css") ?><!--"/>-->
+    <!-- Plugin css for this page -->
+    <!--    <link rel="stylesheet" href="--><? //= url("assets/vendors/jvectormap/jquery-jvectormap.css") ?><!--">-->
+    <!-- End Plugin css for this page -->
+    <!-- Layout styles -->
+    <!-- End Layout styles -->
     <link rel="shortcut icon" href="<?= url("assets/images/favicon.png") ?>"/>
 
     <link rel="stylesheet" href="<?= url("assets/css/Utils.css") ?>">
@@ -69,39 +85,52 @@ if (empty($_SESSION["login"])) {
     <link rel="stylesheet" href="<?= url("assets/vendors/summernote/dist/summernote-bs4.css") ?>">
     <link rel="stylesheet" href="<?= url("assets/vendors/quill/quill.snow.css") ?>">
     <link rel="stylesheet" href="<?= url("assets/vendors/simplemde/simplemde.min.css") ?>">
-
-    <link rel="stylesheet" href="<?= url("assets/vendors/jquery-bar-rating/bars-square.css") ?>"/>
-    <link rel="stylesheet" href="<?= url("assets/vendors/jquery-bar-rating/bars-1to10.css") ?>"/>
-    <link rel="stylesheet" href="<?= url("assets/vendors/jquery-bar-rating/bars-horizontal.css") ?>"/>
-    <link rel="stylesheet" href="<?= url("assets/vendors/jquery-bar-rating/bars-movie.css") ?>"/>
-    <link rel="stylesheet" href="<?= url("assets/vendors/jquery-bar-rating/bars-pill.css") ?>"/>
-    <link rel="stylesheet" href="<?= url("assets/vendors/jquery-bar-rating/bars-reversed.css") ?>"/>
-    <link rel="stylesheet" href="<?= url("assets/vendors/jquery-bar-rating/bars-square.css") ?>"/>
-
-
 </head>
 <body>
+<div class="toast mt-3 hide position-absolute " style="z-index: 100000; right: 15px" data-autohide="false" role="alert"
+     aria-live="assertive" aria-atomic="true" >
+    <div class="toast-header" id="toats-header">
+    </div>
+    <div class="toast-body">
+    </div>
+</div>
+
+<div class="modal fade" id="confirmaModal" tabindex="-1" role="dialog" aria-labelledby="confirmaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmaModalLabel">ATENÇÃO</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="confirmaModalBody">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">NÃO</button>
+                <button type="button" class="btn btn-danger" id="confirmedModal" value="" onclick="clickBtnConfirmedAlert()">SIM</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="container-scroller">
     <div class="container-fluid page-body-wrapper">
         <div class="main-panel">
             <div class="hero-banner">
                 <?php require __DIR__ . "/partials/_navbar.phtml" ?>
+
             </div>
             <div class="content-wrapper container-wrapper-width">
                 <!-- partial:partials/_sidebar.html -->
                 <?php require __DIR__ . "/partials/_sidebar.phtml" ?>
                 <!-- partial -->
                 <div class="content-area">
-                    <div class="page-header">
-                        <div class="info-section">
-                        </div>
-                        <div class="page-header-content">
-                        </div>
-                    </div>
                     <div class="content-area-inner">
-                        <div id="modal"></div>
                         <div class="row">
-                                <?= $v->section("content"); ?>
+                            <?= $v->section("content"); ?>
+                            <div id="modal"></div>
                         </div>
                     </div>
                 </div>
@@ -114,30 +143,20 @@ if (empty($_SESSION["login"])) {
 </div>
 <!-- container-scroller -->
 <!-- plugins:js -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="<?=url("assets/vendors/js/vendor.bundle.base.js")?>"></script>
-<!-- endinject -->
-<!-- Plugin js for this page -->
-<script src="<?=url("assets/vendors/chart.js/Chart.min.js")?>"></script>
-<script src="<?=url("assets/vendors/jvectormap/jquery-jvectormap.min.js")?>"></script>
-<script src="<?=url("assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js")?>"></script>
-<!-- End plugin js for this page -->
-<!-- inject:js -->
-<script src="<?=url("assets/js/shared/off-canvas.js")?>"></script>
-<script src="<?=url("assets/js/shared/hoverable-collapse.js")?>"></script>
-<script src="<?=url("assets/js/shared/misc.js")?>"></script>
-<script src="<?=url("assets/js/shared/settings.js")?>"></script>
-<script src="<?=url("assets/js/shared/todolist.js")?>"></script>
-<!-- endinject -->
-<!-- Custom js for this page -->
-<script src="<?=url("assets/js/demo_9/dashboard.js")?>"></script>
-<script src="<?=url("assets/js/demo_9/script.js")?>"></script>
+<script src="<?= url("assets/vendors/js/vendor.bundle.base.js") ?>"></script>
 
+<!-- inject:js -->
+<script src="<?= url("assets/js/shared/off-canvas.js") ?>"></script>
+<script src="<?= url("assets/js/shared/hoverable-collapse.js") ?>"></script>
+<script src="<?= url("assets/js/shared/misc.js") ?>"></script>
+<script src="<?= url("assets/js/shared/settings.js") ?>"></script>
+<script src="<?= url("assets/js/shared/todolist.js") ?>"></script>
+<!-- endinject -->
 
 <script type="text/javascript" src="<?= url("assets/js/printthis/printThis.js") ?>"></script>
+
 <script src="<?= url("assets/vendors/jquery-bar-rating/jquery.barrating.min.js") ?>"></script>
 <script src="<?= url("assets/vendors/jquery-asColor/jquery-asColor.min.js") ?>"></script>
-
 <script src="<?= url("assets/vendors/jquery-asGradient/jquery-asGradient.min.js") ?>"></script>
 <script src="<?= url("assets/vendors/jquery-asColorPicker/jquery-asColorPicker.min.js") ?>"></script>
 <script src="<?= url("assets/vendors/x-editable/bootstrap-editable.min.js") ?>"></script>
@@ -151,6 +170,21 @@ if (empty($_SESSION["login"])) {
 <script src="<?= url("assets/vendors/jquery.repeater/jquery.repeater.min.js") ?>"></script>
 <script src="<?= url("assets/vendors/inputmask/jquery.inputmask.bundle.js") ?>"></script>
 
+<!-- endinject -->
+<!-- Plugin js for this page -->
+<!-- End plugin js for this page -->
+<!-- inject:js -->
+<script src="<?= url("assets/js/shared/off-canvas.js") ?>"></script>
+<script src="<?= url("assets/js/shared/hoverable-collapse.js") ?>"></script>
+<script src="<?= url("assets/js/shared/misc.js") ?>"></script>
+<script src="<?= url("assets/js/shared/settings.js") ?>"></script>
+<script src="<?= url("assets/js/shared/todolist.js") ?>"></script>
+<!-- endinject -->
+<!-- Custom js for this page -->
+<script src="<?= url("assets/js/demo_9/dashboard.js") ?>"></script>
+<script src="<?= url("assets/js/demo_9/script.js") ?>"></script>
+<!-- End custom js for this page -->
+
 <script src="<?= url("assets/vendors/jquery-toast-plugin/jquery.toast.min.js") ?>"></script>
 <script src="<?= url("assets/js/shared/formpickers.js") ?>"></script>
 <script src="<?= url("assets/js/shared/form-addons.js") ?>"></script>
@@ -160,13 +194,6 @@ if (empty($_SESSION["login"])) {
 <script src="<?= url("assets/js/shared/dropzone.js") ?>"></script>
 <script src="<?= url("assets/js/shared/jquery-file-upload.js") ?>"></script>
 <script src="<?= url("assets/js/shared/form-repeater.js") ?>"></script>
-
-
-<script src="<?= url("assets/vendors/jquery-bar-rating/jquery.barrating.min.js") ?>"></script>
-<script src="<?= url("assets/js/Utils.js") ?>"></script>
-<script src="<?= url("assets/vendors/datatables.net/jquery.dataTables.js") ?>"></script>
-<script src="<?= url("assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js") ?>"></script>
-<script src="<?= url("assets/js/ConfigDataTables.js") ?>"></script>
 <?= $v->section("js"); ?>
 </body>
 </html>
