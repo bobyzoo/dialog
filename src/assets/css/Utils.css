@@ -18,10 +18,37 @@ body{
 .color-white{
     color: #FFF;
 }
-
  .dataTables_filter {
      display: none;
  }
+
+.item-user{
+    margin: 10px;
+    width: 125px;
+    height: 125px;
+    background: linear-gradient( 46deg, #0fadd0, #03bea5);
+    -webkit-transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in-out;
+    border-radius: 8px;
+    box-shadow: 0 42px 60px 0 rgb(90 113 208 / 11%);
+}
+.item-user i{
+    font-size: 50px;
+    margin-bottom: 0 !important;
+}
+.item-user:hover{
+    background: linear-gradient( 46deg, #0c90ad, #02b39b);
+}
+.menus-funcoes{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
 .loading{
     z-index: 2;
     background-image: linear-gradient(

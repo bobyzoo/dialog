@@ -18,30 +18,21 @@
                 </h5>
             </div>
             <div class="card-body">
-                <div class="row text-center pb-4 px-2">
-                    <div class="sidebar-menu" style="width: auto !important; min-height: auto !important;">
-                        <nav class="nav">
-                            <div class="nav-item active">
-                                <a href="<?=url_pesquisa("psicologo/paciente/" . $paciente->paciente_id . "/rpd")?>" class="nav-link">
-                                    <i class="menu-icons mdi mdi-weather-lightning-rainy" style="font-size: 50px; margin-bottom: 0 !important;"></i><span class="menu-title text-center">RPD</span>
-                                </a>
-                            </div>
-                            <div class="nav-item active">
-                                <a href="<?=url_pesquisa("psicologo/paciente/" . $paciente->paciente_id . "/planoacao")?>" class="nav-link">
-                                    <i class="menu-icons mdi mdi-checkbox-multiple-marked" style="font-size: 50px; margin-bottom: 0 !important;"></i><span class="menu-title text-center">Planos de ações</span>
-                                </a>
-                            </div>
-                            <div class="nav-item active">
-                                <a href="<?=url_pesquisa("psicologo/paciente/" . $paciente->paciente_id . "/monitoramentohumor")?>" class="nav-link">
-                                    <i class="menu-icons mdi mdi-emoticon" style="font-size: 50px; margin-bottom: 0 !important;"></i><span class="menu-title text-center">Monitoramento de humor</span>
-                                </a>
-                            </div>
-                        </nav>
-                    </div>
-
+                <div class="row text-center pb-4 px-2 menus-funcoes" >
+                            <a class="text-decoration-none text-white item-user" href="<?=url_pesquisa("psicologo/paciente/" . $paciente->paciente_id . "/rpd")?>">
+                               <div> <i class="menu-icons mdi mdi-weather-lightning-rainy"></i></div>
+                                <div> <span class="menu-title text-center">RPD</span></div>
+                            </a>
+                    <a class="text-decoration-none text-white item-user" href="<?=url_pesquisa("psicologo/paciente/" . $paciente->paciente_id . "/rpd")?>">
+                        <div>  <i class="menu-icons mdi mdi-checkbox-multiple-marked" style="font-size: 50px; margin-bottom: 0 !important;"></i></div>
+                        <div> <span class="menu-title text-center">Planos de ações</span></div>
+                    </a>
+                    <a class="text-decoration-none text-white item-user" href="<?=url_pesquisa("psicologo/paciente/" . $paciente->paciente_id . "/rpd")?>">
+                        <div> <i class="menu-icons mdi mdi-emoticon" style="font-size: 50px; margin-bottom: 0 !important;"></i></div>
+                        <div> <span class="menu-title text-center">Monitoramento de humor</span></div>
+                    </a>
                 </div>
             </div>
-
         </div>
 
         <div id="modal"></div>
