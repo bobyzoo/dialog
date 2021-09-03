@@ -192,3 +192,6 @@ INSERT INTO pergunta (questionario_id, per_descricao, per_tipo, per_name_id, pla
 
 
 ALTER TABLE `usuario` CHANGE `usu_ativo` `usu_ativo` TINYINT(1) NOT NULL DEFAULT '0';
+
+
+ALTER TABLE `usuario` ADD `usu_cpf` VARCHAR(30) NULL AFTER `usuario_tipo_id`, ADD UNIQUE `usu_cpf` (`usu_cpf`);

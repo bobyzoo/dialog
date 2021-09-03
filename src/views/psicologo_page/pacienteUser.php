@@ -23,19 +23,17 @@
                                <div> <i class="menu-icons mdi mdi-weather-lightning-rainy"></i></div>
                                 <div> <span class="menu-title text-center">RPD</span></div>
                             </a>
-                    <a class="text-decoration-none text-white item-user" href="<?=url_pesquisa("psicologo/paciente/" . $paciente->paciente_id . "/rpd")?>">
+                    <a class="text-decoration-none text-white item-user" href="<?=url_pesquisa("psicologo/paciente/" . $paciente->paciente_id . "/planoacao")?>">
                         <div>  <i class="menu-icons mdi mdi-checkbox-multiple-marked" style="font-size: 50px; margin-bottom: 0 !important;"></i></div>
                         <div> <span class="menu-title text-center">Planos de ações</span></div>
                     </a>
-                    <a class="text-decoration-none text-white item-user" href="<?=url_pesquisa("psicologo/paciente/" . $paciente->paciente_id . "/rpd")?>">
+                    <a class="text-decoration-none text-white item-user" href="<?=url_pesquisa("psicologo/paciente/" . $paciente->paciente_id . "/monitoramentohumor")?>">
                         <div> <i class="menu-icons mdi mdi-emoticon" style="font-size: 50px; margin-bottom: 0 !important;"></i></div>
                         <div> <span class="menu-title text-center">Monitoramento de humor</span></div>
                     </a>
                 </div>
             </div>
         </div>
-
-        <div id="modal"></div>
 
         <?php $v->start("js") ?>
 

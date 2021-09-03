@@ -32,7 +32,7 @@ echo $js['completo'];
     <link rel="stylesheet" href="<?= url("assets/vendors/typicons/typicons.css") ?>">
     <link rel="stylesheet" href="<?= url("assets/vendors/css/vendor.bundle.base.css") ?>">
 
-    <link rel="stylesheet"href="<?= url("assets/vendors/jquery-toast-plugin/jquery.toast.min.css") ?>">
+    <link rel="stylesheet" href="<?= url("assets/vendors/jquery-toast-plugin/jquery.toast.min.css") ?>">
 
     <link rel="stylesheet" href="<?= url("assets/vendors/select2/select2.min.css") ?>">
     <link rel="stylesheet" href="<?= url("assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css") ?>">
@@ -201,54 +201,100 @@ echo $js['completo'];
 
                 <hr class="my-4">
                 <h4 class="mb-3">Pagamento</h4>
-                <div class="row gy-3">
-                    <div class="col-md-6">
-                        <label for="cc_name" class="form-label">Nome proprietario do cartão *</label>
-                        <input type="text" class="form-control" id="cc_name" name="cc_name">
-                    </div>
 
-                    <div class="col-md-6">
-                        <label for="pagseguro_cartao_numero_format" class="form-label">Número do cartão *</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="pagseguro_cartao_numero_format" name="pagseguro_cartao_numero_format"
-                                   placeholder="9999 9999 9999 9999" maxlength="16">
-                            <div class="input-group-prepend">
-                                    <span class="input-group-text bandeira-cartao creditCard">
-                                    </span>
+                <div class="col-12 col-md-6">
+                    <div class="form-group row">
+                        <label class="col-12 col-form-label">Selecione o modo de pagamento</label>
+                        <div class="col-sm-6">
+                            <div class="form-radio">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="inputModoPagamento"
+                                           onchange="changePaymentType()"
+                                           id="inputModoPagamento1" value="pagseguro" checked=""> Pagamento via
+                                    PagSeguro <i class="input-helper"></i></label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-radio">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="inputModoPagamento"
+                                           onchange="changePaymentType()"
+                                           id="inputModoPagamento2" value="transp"> Pagamento via Checkout transparente
+                                    <i class="input-helper"></i></label>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-md-3">
-                        <label for="cc_expiration" class="form-label">Vencimento *</label>
-                        <input type="text" class="form-control" id="cc_expiration" name="cc_expiration"
-                               placeholder="31/12"
-                               maxlength="4">
-                    </div>
-
-
-                    <div class="col-md-3">
-                        <label for="pagseguro_cartao_cvv" class="form-label">Código de segurança</label>
-                        <input type="text" class="form-control" id="pagseguro_cartao_cvv" name="pagseguro_cartao_cvv" placeholder="999"
-                               maxlength="4">
-                    </div>
-
-                    <div class="col-sm-6">
-                        <label for="usu_cpf" class="form-label">CPF *</label>
-                        <input type="text" class="form-control" id="usu_cpf" name="usu_cpf">
-                    </div>
-                    <input type="hidden" id="pagseguro_cliente_hash_form" name="pagseguro_cliente_hash_form" value="">
-                    <input type="hidden" id="pagseguro_cartao_token_form" name="pagseguro_cartao_token" value="">
-                    <input type="hidden" id="pagseguro_cartao_mes" name="pagseguro_cartao_mes" value="">
-                    <input type="hidden" id="pagseguro_cartao_ano" name="pagseguro_cartao_ano" value="">
-                    <input type="hidden" id="pagseguro_cartao_numero" name="pagseguro_cartao_numero" value="">
                 </div>
+
+                <div id="divChecoutTransparente" class="divChecoutTransparente hide">
+                    <div class="row gy-3">
+                        <div class="col-md-6">
+                            <label for="cc_name" class="form-label">Nome proprietario do cartão *</label>
+                            <input type="text" class="form-control" id="cc_name" name="cc_name">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="pagseguro_cartao_numero_format" class="form-label">Número do cartão *</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="pagseguro_cartao_numero_format"
+                                       name="pagseguro_cartao_numero_format"
+                                       placeholder="9999 9999 9999 9999" maxlength="16">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bandeira-cartao creditCard">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="cc_expiration" class="form-label">Vencimento *</label>
+                            <input type="text" class="form-control" id="cc_expiration" name="cc_expiration"
+                                   placeholder="31/12"
+                                   maxlength="4">
+                        </div>
+
+
+                        <div class="col-md-3">
+                            <label for="pagseguro_cartao_cvv" class="form-label">Código de segurança</label>
+                            <input type="text" class="form-control" id="pagseguro_cartao_cvv"
+                                   name="pagseguro_cartao_cvv"
+                                   placeholder="999"
+                                   maxlength="4">
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="usu_cpf" class="form-label">CPF *</label>
+                            <input type="text" class="form-control" id="usu_cpf" name="usu_cpf">
+                        </div>
+                        <input type="hidden" id="pagseguro_cliente_hash_form" name="pagseguro_cliente_hash_form"
+                               value="">
+                        <input type="hidden" id="pagseguro_cartao_token_form" name="pagseguro_cartao_token" value="">
+                        <input type="hidden" id="pagseguro_cartao_mes" name="pagseguro_cartao_mes" value="">
+                        <input type="hidden" id="pagseguro_cartao_ano" name="pagseguro_cartao_ano" value="">
+                        <input type="hidden" id="pagseguro_cartao_numero" name="pagseguro_cartao_numero" value="">
+                    </div>
+                </div>
+
                 <hr class="my-4">
-                <button class="w-100 btn btn-primary btn-lg" type="submit">Cadastrar</button>
+                <button class="w-100 btn btn-primary btn-lg" type="submit" id="btnCadastrar">
+                    <div class="dot-opacity-loader hide" style="top: 25%" id="btnLoading">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div id="divCadastrar">Cadastrar</div>
+                </button>
             </form>
+
+            <div id="divSendPagSeguro" class="divSendPagSeguro hide">
+                <form action="https://pagseguro.uol.com.br/pre-approvals/request.html" method="post" id="formPagseguro">
+                    <input type="hidden" name="code" value="<?=CODIGO_PACOTE_PASICO_ASSINATURA_PAGSEGURO?>"/>
+                    <input type="hidden" name="iot" value="button"/>
+                </form>
+            </div>
+
         </div>
     </div>
-
     <footer class="my-5 pt-5 text-muted text-center text-small">
         <p class="mb-1">© 2017–2021 Company Name</p>
         <ul class="list-inline">
@@ -285,7 +331,8 @@ echo $js['completo'];
             <div class="mb-3">
                 <label for="usu_data_nascimento" class="form-label">Data de nascimento*</label>
                 <div id="datepicker-popup" class="input-group date datepicker">
-                    <input type="text" class="form-control" id="usu_data_nascimento" name="usu_data_nascimento" placeholder="(99) 99999-99999"
+                    <input type="text" class="form-control" id="usu_data_nascimento" name="usu_data_nascimento"
+                           placeholder="(99) 99999-99999"
                            required>
                     <span class="input-group-addon input-group-append border-left">
                             <span class="mdi mdi-calendar input-group-text"></span>
@@ -317,12 +364,13 @@ echo $js['completo'];
                        id="psi_codigo_ativacao"
                        value="<?= $codigo_ativacao != "novo" ? $codigo_ativacao : "" ?>">
             </div>
+
             <div class="form-group">
                 <button class="btn btn-primary submit-btn btn-block">Cadastrar</button>
             </div>
             <div class="text-block text-center my-3">
                 <span class="text-small font-weight-semibold">Já tem uma conta ?</span>
-                <a href="<?=url_pesquisa("")?>" class="text-black text-small">Login</a>
+                <a href="<?= url_pesquisa("") ?>" class="text-black text-small">Login</a>
             </div>
         </form>
     </div>
@@ -407,6 +455,7 @@ echo $js['completo'];
             limpa_formulário_cep();
         }
     }
+
     function limpa_formulário_cep() {
         // Limpa valores do formulário de cep.
         document.getElementById('rua').value = ("");
@@ -414,6 +463,7 @@ echo $js['completo'];
         document.getElementById('cidade').value = ("");
         document.getElementById('estado').value = ("");
     }
+
     function meu_callback(conteudo) {
         if (!("erro" in conteudo)) {
             console.log(conteudo)
@@ -437,9 +487,9 @@ echo $js['completo'];
 
     $('#cc_expiration').keyup(function () {
         var qntNumero = $(this).val().length;
-        if (qntNumero == 5){
+        if (qntNumero == 5) {
             $('#pagseguro_cartao_mes').val($(this).val()[0] + $(this).val()[1])
-            $('#pagseguro_cartao_ano').val("20"+$(this).val()[3] + $(this).val()[4])
+            $('#pagseguro_cartao_ano').val("20" + $(this).val()[3] + $(this).val()[4])
         }
     })
     $('#pagseguro_cartao_numero_format').keyup(function () {
@@ -485,7 +535,6 @@ echo $js['completo'];
             pac_nome_contato_emergencia: "required",
             pac_telefone_contato_emergencia: "required",
             psi_codigo_ativacao: "required",
-            usu_cpf: "required",
             usu_password: {
                 required: true,
                 minlength: 5,
@@ -504,7 +553,6 @@ echo $js['completo'];
             usu_data_nascimento: "Insira sua data de nascimento",
             pac_nome_contato_emergencia: "Insira um nome para contato de emergencia",
             pac_telefone_contato_emergencia: "Insira o numero do contato de emergencia",
-            usu_cpf: "Insira o seu CPF",
             psi_codigo_ativacao: "Insira o codigo de ativação do psicólogo",
             usu_password: {
                 required: "Insira a senha",
@@ -531,7 +579,7 @@ echo $js['completo'];
                     if (data.split(';')[0] == "1") {
                         showSuccessToast(data.split(';')[1])
                         setTimeout(function () {
-                        window.location.href = "<?=url_pesquisa("")?>"
+                            window.location.href = "<?=url_pesquisa("")?>"
                         }, 3000);
                     } else {
                         showDangerToast(data.split(';')[1])
@@ -554,6 +602,7 @@ echo $js['completo'];
             rua: "required",
             bairro: "required",
             numero: "required",
+            usu_cpf: "required",
             complemento: "required",
             cc_name: "required",
             cc_expiration: "required",
@@ -581,6 +630,7 @@ echo $js['completo'];
             rua: "Insira o nome da sua rua",
             bairro: "Insira o nome de seu bairro",
             numero: "Insira o numero de sua residencia",
+            usu_cpf: "Insira o seu CPF",
             complemento: "Insira o complemento de seu endereço",
             cc_name: "Insira o nome escrito no cartão",
             pagseguro_cartao_numero_format: "Insira o número do cartão",
@@ -608,6 +658,10 @@ echo $js['completo'];
             PagSeguroBuscaHashCliente(); //Cria o Hash identificador do Cliente usado na transição
             PagSeguroBuscaBandeira();   //Através do pagseguro_cartao_numero do cartão busca a bandeira
             PagSeguroBuscaToken();      //Através dos 4 campos acima gera o Token do cartão
+            showWarningToast("Cadastrando dados no banco...")
+            hideDiv("divCadastrar")
+            showDiv("btnLoading")
+            disabledButton("btnCadastrar")
             setTimeout(function () {
                 $('#pagseguro_cliente_hash_form').val($('#pagseguro_cliente_hash').val())
                 $('#pagseguro_cartao_token_form').val($('#pagseguro_cartao_token').val())
@@ -615,27 +669,75 @@ echo $js['completo'];
                 $.ajax({
                     type: form.attr('method'),
                     data: form.serialize(),
-                    url: form.attr('action'),
+                    url: '<?=url_pesquisa('setCadastroPsicologo')?>',
                     success: function (data) {
-                        if (data == "1") {
-                            showSuccessToast(data.split(';')[1])
-                            //window.location.href = "<?//=url_pesquisa("")?>//"
+                        if (data.split(';')[0] == "1") {
+                            if (document.querySelector('input[name="inputModoPagamento"]:checked').value == "pagseguro") {
+                                showSuccessToast("Conta cadastrada, faça pagamento no pagseguro.")
+                                setPagSeguro();
+                            } else {
+                                showSuccessToast(data.split(';')[1])
+                                showWarningToast("Efetuando assinatura...")
+                                setCheckout(form);
+                            }
                         } else {
                             showDangerToast(data.split(';')[1])
+                            showDiv("divCadastrar")
+                            hideDiv("btnLoading")
+                            enableButton("btnCadastrar")
                         }
                     }
                 });
+
             }, 3000);
 
 
         }
     });
 
+    function setPagSeguro() {
+        setTimeout(function () {
+            $("#formPagseguro").submit();
+        }, 3000);
+    }
+
+    function setCheckout(form) {
+        $.ajax({
+            type: form.attr('method'),
+            data: form.serialize(),
+            url: form.attr('action'),
+            success: function (data) {
+                if (data.split(';')[0] === "1") {
+                    showSuccessToast(data.split(';')[1])
+                    showDiv("divCadastrar")
+                    hideDiv("btnLoading")
+                    disabledButton("btnCadastrar")
+                    setTimeout(function () {
+                        window.location.href = "<?=url_pesquisa("")?>"
+                    }, 3000);
+                } else {
+                    showDangerToast(data.split(';')[1])
+                }
+            }
+        });
+    }
+
 </script>
 <script src="<?= url("assets/vendors/select2/select2.min.js") ?>"></script>
 <script>
     if ($(".js-example-basic-single").length) {
         $(".js-example-basic-single").select2();
+    }
+
+
+    function changePaymentType() {
+        if (document.querySelector('input[name="inputModoPagamento"]:checked').value == "pagseguro") {
+            hideDiv("divChecoutTransparente")
+            showDiv("divSendPagSeguro")
+        } else {
+            hideDiv("divSendPagSeguro")
+            showDiv("divChecoutTransparente")
+        }
     }
 </script>
 </body>

@@ -26,6 +26,9 @@ class UsuarioDAO extends DataLayer
     public function verificaUsuEmailExist($email){
         return self::find("usu_email = :usu_email", "usu_email={$email}")->fetch(true) != null;
     }
+    public function verificaUsuCpfExist($cpf){
+        return self::find("usu_cpf = :usu_cpf", "usu_cpf={$cpf}")->fetch(true) != null;
+    }
     public function inativaUsuario($usuario_id){
         $usuDAO = new UsuarioDAO();
         $usuario = $usuDAO->findById($usuario_id);

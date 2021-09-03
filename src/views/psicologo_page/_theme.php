@@ -15,6 +15,8 @@ if (empty($_SESSION["login"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Star Admin Premium Bootstrap Admin Dashboard Template</title>
     <!-- plugins:css -->
+
+<!--    <link rel="stylesheet" href="--><?//= url("assets/lib/prism/prims.css") ?><!--"/>-->
     <link rel="stylesheet" href="<?= url("assets/vendors/mdi/css/materialdesignicons.min.css") ?>"/>
     <link rel="stylesheet" href="<?= url("assets/vendors/flag-icon-css/css/flag-icon.min.css") ?>"/>
     <link rel="stylesheet" href="<?= url("assets/vendors/ti-icons/css/themify-icons.css") ?>"/>
@@ -60,6 +62,7 @@ if (empty($_SESSION["login"])) {
     <link rel="shortcut icon" href="<?= url("assets/images/favicon.png") ?>"/>
 
     <link rel="stylesheet" href="<?= url("assets/css/Utils.css") ?>">
+    <link rel="stylesheet" href="<?= url("assets/css/glyphicons.css") ?>">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
           integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
@@ -77,7 +80,6 @@ if (empty($_SESSION["login"])) {
     <link rel="stylesheet" href="<?= url("assets/vendors/jquery-bar-rating/bars-pill.css") ?>"/>
     <link rel="stylesheet" href="<?= url("assets/vendors/jquery-bar-rating/bars-reversed.css") ?>"/>
     <link rel="stylesheet" href="<?= url("assets/vendors/jquery-bar-rating/bars-square.css") ?>"/>
-
 
 </head>
 <body>

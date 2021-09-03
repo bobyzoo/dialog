@@ -90,3 +90,10 @@ function showModalAlert(header="",body=""){
     $('#confirmaModalLabel').html(header);
     $('#confirmaModalBody').html(body);
 }
+
+function enableButton(id){
+    $( "#"+id ).prop( "disabled", false );
+}
+function disabledButton(id){
+    $( "#"+id ).prop( "disabled", true );
+}

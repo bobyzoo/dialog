@@ -48,7 +48,9 @@ class PaymentController
 
         try{
             $codigo = $pagseguro->assinaPlano();
-            echo '1;';
+            if ($codigo == 504 || $codigo == 200){
+                echo '1;Cobrança efetuada com sucesso!';
+            }
         } catch (Exception $e) {
             echo "0;".$e->getMessage();
         }

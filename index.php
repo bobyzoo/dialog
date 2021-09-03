@@ -18,6 +18,7 @@ $router->get("/cadastrar/{codigo_ativacao}", "Web:cadastrar", "web.cadastrar");
 $router->post("/getLogin", "LoginController:getLogin", "usuario.getLogin");
 $router->get("/logout", "LoginController:logout", "LoginController.logout");
 $router->post("/setCadastroPaciente", "Usuario:setCadastroPaciente", "usuario.setCadastroPaciente");
+$router->post("/setCadastroPsicologo", "Usuario:setCadastroPsicologo", "usuario.setCadastroPsicologo");
 
 
 $router->get("/planos", "Web:planos", "web.planos");
@@ -34,10 +35,10 @@ $router->get("/", "WebPsicologo:home", "webpsicologo.pacientes");
 $router->get("/pacientes", "WebPsicologo:pacientes", "webpsicologo.pacientes");
 $router->get("/pacientes/listPacientes", "Pacientes:listPaciente", "Pacientes.listPaciente");
 $router->get("/paciente/{id_user}", "WebPsicologo:pacienteUser", "webpsicologo.pacienteUser");
-$router->get("/paciente/{id_user}/rpd", "WebPsicologo:rpd", "webpsicologo.rpd");
 $router->get("/paciente/{id_user}/ativa", "Usuario:ativaUsuario", "Usuario.ativaUsuario");
 $router->get("/paciente/{id_user}/deleta", "Usuario:deletaUsuarioPaciente", "Usuario.deletaUsuarioPaciente");
 $router->get("/paciente/{id_user}/inativa", "Usuario:inativaUsuario", "Usuario.inativaUsuario");
+$router->get("/paciente/{id_user}/rpd", "WebPsicologo:rpd", "webpsicologo.rpd");
 $router->get("/paciente/{id_user}/planoacao", "WebPsicologo:planoAcao", "webpsicologo.planoAcao");
 $router->get("/paciente/{id_user}/monitoramentohumor", "WebPsicologo:Humor", "webpsicologo.humor");
 
