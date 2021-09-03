@@ -90,6 +90,16 @@ class Usuario
             echo "0;Email já cadastrado";
             die();
         }
+        $cpf = $_POST['usu_cpf'];
+        if (isset($_POST['usu_cpf']) and $_POST['usu_cpf'] !== ""){
+            if (!$usuario->veridicaCPF($_POST['usu_cpf'])) {
+                echo "0;CPF inválido";
+                die();
+            }
+        }else{
+
+        $cpf =null;
+        }
         if ($usuario->verificaUsuCpfExist($_POST['usu_cpf'])) {
             echo "0;CPF já cadastrado";
             die();
@@ -108,6 +118,8 @@ class Usuario
         }
 
         $usuario->usuario_tipo_id = 3;
+        $usuario->usu_cpf = $cpf;
+
         $usuario->usu_data_nascimento = $functions_utils->format_date_to_sql($usuario->usu_data_nascimento);
 
         $usuario->save();

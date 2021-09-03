@@ -2,23 +2,23 @@
 
 define("ROOT", getenv("ROOT"));
 define("URL_BASE", getenv("URL_BASE"));
-define("URL_NOTIFICACAO", "http://localhost/Site/dialog/log");
+const URL_NOTIFICACAO = "http://localhost/Site/dialog/log";
 
 const MODE = "sandbox";
 
-define('EMAIL_PAGSEGURO', 'gabrieldossantosvargas@gmail.com');
-define('TOKEN_PAGSEGURO', '9E1F2091C37B4C789CBBCF321C078B97');
-define('CODIGO_PACOTE_PASICO_ASSINATURA_PAGSEGURO', '2331A87E1E1E136884B11FA72A50BFB0');
-define('ENVIRONMENT_SANDBOX_PAGEGURO', true);
-define('URL_PAGSEGURO', 'https://sandbox.pagseguro.uol.com.br');
-define('URL_WS_PAGSEGURO', 'https://ws.sandbox.pagseguro.uol.com.br');
-define('URL_STC_PAGSEGURO', 'https://ws.sandbox.pagseguro.uol.com.br');
+define('EMAIL_PAGSEGURO', getenv("EMAIL_PAGSEGURO"));
+define('TOKEN_PAGSEGURO', getenv("TOKEN_PAGSEGURO"));
+define('CODIGO_PACOTE_PASICO_ASSINATURA_PAGSEGURO', getenv("CODIGO_PACOTE_PASICO_ASSINATURA_PAGSEGURO"));
+const ENVIRONMENT_SANDBOX_PAGEGURO = true;
+const URL_PAGSEGURO = 'https://sandbox.pagseguro.uol.com.br';
+const URL_WS_PAGSEGURO = 'https://ws.sandbox.pagseguro.uol.com.br';
+const URL_STC_PAGSEGURO = 'https://ws.sandbox.pagseguro.uol.com.br';
 
 const SITE = "Dialog";
 
 
 //Server settings
-define("MAIL", [
+const MAIL = [
     "host" => "smtp.hostinger.com.br",
     "port" => "587",
     "username" => "contato@gabrielawagner.com",
@@ -26,7 +26,7 @@ define("MAIL", [
     "from_name" => "Gabriela",
     "from_email" => "contato@gabrielawagner.com",
     "email_recebimento" => "gabrieldossantosvargas@gmail.com",
-]);
+];
 
 
 define("DATA_LAYER_CONFIG", [

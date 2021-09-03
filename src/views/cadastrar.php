@@ -219,7 +219,7 @@ echo $js['completo'];
                                 <label class="form-check-label">
                                     <input type="radio" class="form-check-input" name="inputModoPagamento"
                                            onchange="changePaymentType()"
-                                           id="inputModoPagamento2" value="transp"> Pagamento via Checkout transparente
+                                           id="inputModoPagamento2" value="transp"> Pagamento Cartão de crédito
                                     <i class="input-helper"></i></label>
                             </div>
                         </div>
