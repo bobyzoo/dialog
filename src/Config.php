@@ -66,3 +66,4 @@ function message(string $message, string $type): string
     return "<div class='message {$type}'>{$message}</div>";
 }
 
+define("URL_NOTIFICACAO", url_pesquisa("url"));

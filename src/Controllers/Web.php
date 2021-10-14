@@ -61,6 +61,7 @@ class Web
 
     public function log($data): void
     {
+
         header("access-control-allow-origin: https://pagseguro.uol.com.br");
         $email = EMAIL_PAGSEGURO;
         $token = TOKEN_PAGSEGURO;
@@ -72,7 +73,6 @@ class Web
         $logDAO = new LogDAO();
         $logDAO->log_content = json_encode($data);
         $logDAO->save();
-
         $codigo = $_POST['notificationCode'];
         if ($_POST['notificationType'] == 'preApproval') {
             $response = $pagseguro->consultarNotificacao($codigo);

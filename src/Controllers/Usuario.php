@@ -5,6 +5,7 @@ namespace Source\Controllers;
 
 
 use League\Plates\Engine;
+use Source\Models\AssinaturaDAO;
 use Source\Models\PacienteDAO;
 use Source\Models\PsicologoDAO;
 use Source\Models\UsuarioDAO;
@@ -25,28 +26,28 @@ class Usuario
         $usuario = new UsuarioDAO();
         $psicologo = new PsicologoDAO();
 
-        if ($usuario->verificaUsuLoginExist($_POST['usu_login'])) {
-            echo "0;Login já existe";
+    if ($usuario->verificaUsuLoginExist($_POST['usu_login'])) {
+        echo "0;Login já existe";
+        die();
+    }
+    if ($usuario->verificaUsuEmailExist($_POST['usu_email'])) {
+        echo "0;Email já cadastrado";
+        die();
+    }
+  $cpf = $_POST['usu_cpf'];
+    if (isset($_POST['usu_cpf']) and $_POST['usu_cpf'] !== "")
+    {
+        if (!$usuario->veridicaCPF($_POST['usu_cpf'])) {
+            echo "0;CPF inválido";
             die();
         }
-        if ($usuario->verificaUsuEmailExist($_POST['usu_email'])) {
-            echo "0;Email já cadastrado";
-            die();
-        }
-        $cpf = $_POST['usu_cpf'];
-        if (isset($_POST['usu_cpf']) and $_POST['usu_cpf'] !== "")
-        {
-            if (!$usuario->veridicaCPF($_POST['usu_cpf'])) {
-                echo "0;CPF inválido";
-                die();
-            }
-        } else {
-            $cpf = null;
-        }
-        if ($usuario->verificaUsuCpfExist($_POST['usu_cpf'])) {
-            echo "0;CPF já cadastrado";
-            die();
-        }
+    } else {
+        $cpf = null;
+    }
+    if ($usuario->verificaUsuCpfExist($_POST['usu_cpf'])) {
+        echo "0;CPF já cadastrado";
+        die();
+    }
 
         foreach ($_POST as $key => $value) {
             if (substr($key, 0, 4) == "usu_") {
@@ -68,7 +69,6 @@ class Usuario
         $usuario->save();
 
 
-
         if ($usuario->fail()) {
             echo "0;" . $usuario->fail()->getMessage();
             die();
@@ -85,12 +85,16 @@ class Usuario
                 echo "0;" . $psicologo->fail()->getMessage();
                 die();
             } else {
-                echo "1; Cadastrado com sucesso.";
+
+                if (AssinaturaController::createAssinatura($usuId)){
+                    echo "1; Cadastrado com sucesso.";
+                    die();
+                }
+                echo "1; Erro ao cadastrar assinatura.";
                 die();
             }
         }
     }
-
 
     public function setCadastroPaciente($data): void
     {
@@ -140,7 +144,7 @@ class Usuario
         if ($usuario->fail()) {
             echo "0;" . $usuario->fail()->getMessage();
         } else {
-            echo "1; Cadastrado com sucesso.";
+            echo "1; Cadastrado com sucesso!!!.";
         }
     }
 
