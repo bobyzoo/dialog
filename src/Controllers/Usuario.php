@@ -19,63 +19,6 @@ class Usuario
         $this->view->addData(["router" => $router]);
     }
 
-
-    public function setCadastro($data): void
-    {
-
-        $usuario = new UsuarioDAO();
-        foreach ($_POST as $key => $value) {
-            if (substr($key, 0, 4) == "usu_") {
-                $usuario->$key = $value;
-                if ($key == "usu_password") {
-                    $usuario->usu_password = hash("ripemd160", $value);
-                }
-                if ($key == "usuario_tipo") {
-                    $usuario->usu_password = hash("ripemd160", $value);
-                }
-                if ($value == "") {
-                    $usuario->$key = null;
-                }
-            }
-        }
-        if ($_POST['usuario_tipo'] == "psicologo") {
-            $usuario->usuario_tipo_id = 3;
-        } else {
-            $usuario->usuario_tipo_id = 2;
-        }
-
-        $usuario->save();
-
-        $usu = $usuario->find("usu_login = :login", "login={$usuario->usu_login}")->fetch(true);
-        $usuId = $usu[0]->data()->usuario_id;
-        if ($_POST['usuario_tipo'] == "psicologo") {
-            $psicologo = new PsicologoDAO();
-            $psicologo->usuario_id = $usuId;
-            $psicologo->psi_codigo_ativacao = $psicologo->geraCodigo();
-            $psicologo->psi_numero_crp = $_POST['psi_numero_crp'];
-
-            $psicologo->save();
-        } else {
-            $psicologo = new PsicologoDAO();
-            $psicologo = $psicologo->find("psi_codigo_ativacao = :psi_codigo_ativacao", "psi_codigo_ativacao={$_POST['psi_codigo_ativacao']}")->fetch(true);
-            if ($psicologo !== null) {
-                $paciente = new PacienteDAO();
-                $paciente->usuario_id = $usuId;
-                $paciente->psicologo_id = $psicologo[0]->data()->psicologo_id;
-                $paciente->pac_nome_contato_emergencia = $_POST['pac_nome_contato_emergencia'];
-                $paciente->pac_telefone_contato_emergencia = $_POST['pac_telefone_contato_emergencia'];
-                $paciente->save();
-            } else {
-                echo "0;codigo invalido";
-            }
-        }
-        if ($usuario->fail()) {
-            echo $usuario->fail()->getMessage();
-        } else {
-            echo "1";
-        }
-    }
-
     public function setCadastroPsicologo($data): void
     {
         $functions_utils = new Utils();
@@ -91,14 +34,14 @@ class Usuario
             die();
         }
         $cpf = $_POST['usu_cpf'];
-        if (isset($_POST['usu_cpf']) and $_POST['usu_cpf'] !== ""){
+        if (isset($_POST['usu_cpf']) and $_POST['usu_cpf'] !== "")
+        {
             if (!$usuario->veridicaCPF($_POST['usu_cpf'])) {
                 echo "0;CPF inválido";
                 die();
             }
-        }else{
-
-        $cpf =null;
+        } else {
+            $cpf = null;
         }
         if ($usuario->verificaUsuCpfExist($_POST['usu_cpf'])) {
             echo "0;CPF já cadastrado";
@@ -127,7 +70,8 @@ class Usuario
 
 
         if ($usuario->fail()) {
-            echo "0;" . $usuario->fail()->getMessage();die();
+            echo "0;" . $usuario->fail()->getMessage();
+            die();
         } else {
             $usu = $usuario->find("usu_login = :login", "login={$usuario->usu_login}")->fetch(true);
             $usuId = $usu[0]->data()->usuario_id;
@@ -138,9 +82,11 @@ class Usuario
 
             $psicologo->save();
             if ($psicologo->fail()) {
-                echo "0;" . $psicologo->fail()->getMessage(); die();
+                echo "0;" . $psicologo->fail()->getMessage();
+                die();
             } else {
-                echo "1; Cadastrado com sucesso.";die();
+                echo "1; Cadastrado com sucesso.";
+                die();
             }
         }
     }

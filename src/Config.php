@@ -2,7 +2,7 @@
 
 define("ROOT", getenv("ROOT"));
 define("URL_BASE", getenv("URL_BASE"));
-const URL_NOTIFICACAO = "http://localhost/Site/dialog/log";
+
 
 const MODE = "sandbox";
 

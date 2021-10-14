@@ -62,31 +62,43 @@ class Web
     public function log($data): void
     {
         header("access-control-allow-origin: https://pagseguro.uol.com.br");
-        $email = "gabrieldossantosvargas@gmail.com";
-        $token = "9E1F2091C37B4C789CBBCF321C078B97";
+        $email = EMAIL_PAGSEGURO;
+        $token = TOKEN_PAGSEGURO;
         $sandbox = true;
 
         $pagseguro = new PagSeguroAssinaturas($email, $token, $sandbox);
         $pagseguroCompra = new PagSeguroCompras($email, $token, $sandbox);
 
         $logDAO = new LogDAO();
-        $logDAO->log_content = json_encode($_POST);
+        $logDAO->log_content = json_encode($data);
         $logDAO->save();
 
         $codigo = $_POST['notificationCode'];
         if ($_POST['notificationType'] == 'preApproval') {
             $response = $pagseguro->consultarNotificacao($codigo);
+            $logDAO = new LogDAO();
+            $logDAO->log_content = json_encode($response);
+            $logDAO->save();
+            if ($logDAO->fail()) {
+                echo $logDAO->fail()->getMessage();
+            }
         }
         if ($_POST['notificationType'] == 'transaction') {
             $response = $pagseguroCompra->consultarNotificacao($codigo);
+
+            $logDAO = new LogDAO();
+            $logDAO->log_content = json_encode($response);
+            $logDAO->save();
+            if ($logDAO->fail()) {
+                echo $logDAO->fail()->getMessage();
+            }
+
+//            COLOCA COMO PAGA A ASSINATURA
         }
 
-        $logDAO = new LogDAO();
-        $logDAO->log_content = json_encode($response);
-        $logDAO->save();
-        if ($logDAO->fail()) {
-            echo $logDAO->fail()->getMessage();
-        }
+
+
+
     }
 
     public function error($data)

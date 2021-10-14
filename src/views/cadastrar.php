@@ -492,13 +492,14 @@ echo $js['completo'];
             $('#pagseguro_cartao_ano').val("20" + $(this).val()[3] + $(this).val()[4])
         }
     })
+
     $('#pagseguro_cartao_numero_format').keyup(function () {
         //Receber o número do cartão digitado pelo usuário
         var numCartao = $(this).val().trim();
         numCartao = numCartao.replace(/\s/g, '');
         var qntNumero = numCartao.length;
         //Validar o cartão quando o usuário digitar 6 digitos do cartão
-        if (qntNumero == 6) {
+        if (qntNumero === 6) {
             //Instanciar a API do PagSeguro para validar o cartão
             PagSeguroDirectPayment.getBrand({
                 cardBin: numCartao,
@@ -671,7 +672,7 @@ echo $js['completo'];
                     data: form.serialize(),
                     url: '<?=url_pesquisa('setCadastroPsicologo')?>',
                     success: function (data) {
-                        if (data.split(';')[0] == "1") {
+                        if (data.split(';')[0] === "1") {
                             if (document.querySelector('input[name="inputModoPagamento"]:checked').value == "pagseguro") {
                                 showSuccessToast("Conta cadastrada, faça pagamento no pagseguro.")
                                 setPagSeguro();
@@ -680,7 +681,8 @@ echo $js['completo'];
                                 showWarningToast("Efetuando assinatura...")
                                 setCheckout(form);
                             }
-                        } else {
+                        }
+                        else {
                             showDangerToast(data.split(';')[1])
                             showDiv("divCadastrar")
                             hideDiv("btnLoading")
