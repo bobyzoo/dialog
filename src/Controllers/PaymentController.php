@@ -17,6 +17,7 @@ class PaymentController
 
     public function checkout($data)
     {
+
         $pagseguro = new PagSeguroAssinaturas(EMAIL_PAGSEGURO, TOKEN_PAGSEGURO, ENVIRONMENT_SANDBOX_PAGEGURO);
 
         //Nome do comprador igual a como esta no CARTÂO
@@ -49,6 +50,7 @@ class PaymentController
         try{
             $codigo = $pagseguro->assinaPlano();
             if ($codigo == 504 || $codigo == 200){
+//                salva assinatura
                 echo '1;Cobrança efetuada com sucesso!';
             }
         } catch (Exception $e) {
